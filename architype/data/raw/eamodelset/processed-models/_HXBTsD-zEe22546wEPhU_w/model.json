@@ -1,0 +1,302 @@
+{
+    "identifier": "https://me.big.tuwien.ac.at/EAModelSet/_HXBTsD-zEe22546wEPhU_w",
+    "archimateId": "_HXBTsD-zEe22546wEPhU_w",
+    "name": "Organigrama",
+    "description": "",
+    "formats": [
+        "XML",
+        "CSV",
+        "JSON",
+        "ARCHIMATE"
+    ],
+    "source": "GenMyModel",
+    "repository": "",
+    "license": "",
+    "sourceFile": "raw-data/genmymodel/_hxbtsd-zee22546wephu_w.xml",
+    "sourceFormat": "XML",
+    "timestamp": "2023-07-06T10:01:18",
+    "tags": [],
+    "duplicates": [],
+    "language": "es",
+    "elements": [
+        {
+            "id": "_gvEDQCHhEDuIqLEU4pqhEg",
+            "name": "Javier Mart\u00ednez Garza",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_hDO8cCHhEDuIqLEU4pqhEg",
+            "name": "Miguel Bola\u00f1os Hern\u00e1ndez",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_m0ABMCHhEDuIqLEU4pqhEg",
+            "name": "Service",
+            "type": "BusinessService",
+            "layer": "business"
+        },
+        {
+            "id": "_nqCRUCHhEDuIqLEU4pqhEg",
+            "name": "Gabriel Dur\u00e1n S\u00e1nchez",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_p8HosCHhEDuIqLEU4pqhEg",
+            "name": "Silvana Bola\u00f1os Hern\u00e1ndez",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_roMwACHhEDuIqLEU4pqhEg",
+            "name": "Fernanda Mart\u00ednez Far\u00edas",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_y9GhACHhEDuIqLEU4pqhEg",
+            "name": "V\u00edctor Mart\u00ednez Garza",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_7rLEYCHhEDuIqLEU4pqhEg",
+            "name": "Mar\u00eda de los \u00c1ngeles Arredondo",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_BWMtgCHiEDuIqLEU4pqhEg",
+            "name": "Ricardo Rold\u00e1n Rivera",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_NrOwgCHiEDuIqLEU4pqhEg",
+            "name": "Jes\u00fas Gustavo D\u00edaz Arcos",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_UVC9ICHiEDuIqLEU4pqhEg",
+            "name": "Mar\u00eda Arredondo",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_ZbM-oCHiEDuIqLEU4pqhEg",
+            "name": "Lenin Daniel Z\u00fa\u00f1iga Rosales",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_be-NMCHiEDuIqLEU4pqhEg",
+            "name": "Lester V\u00e1squez Galv\u00e1n",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_968SICHiEDuIqLEU4pqhEg",
+            "name": "Rams\u00e9s Castro Molano",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_EgUqsCHjEDuIqLEU4pqhEg",
+            "name": "Mario Alberto Rosendo Mart\u00ednez",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_NDbUMCHjEDuIqLEU4pqhEg",
+            "name": "Jessica Naranjo Garc\u00eda",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_NpFmACHjEDuIqLEU4pqhEg",
+            "name": "Jacobo Mart\u00ednez P\u00e9rez",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_YO2DwCHjEDuIqLEU4pqhEg",
+            "name": "Carlos No\u00e9 Salgado",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_CJGfMCHkEDuIqLEU4pqhEg",
+            "name": "Pedro Alejandro Aguilar Pe\u00f1a",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        },
+        {
+            "id": "_C5kS0CHkEDuIqLEU4pqhEg",
+            "name": "Brandon Celso Roa Patl\u00e1n",
+            "type": "WorkPackage",
+            "layer": "implementation_migration"
+        }
+    ],
+    "relationships": [
+        {
+            "id": "_ukF5YCHhEDuIqLEU4pqhEg",
+            "sourceId": "_gvEDQCHhEDuIqLEU4pqhEg",
+            "targetId": "_hDO8cCHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_vJtu8CHhEDuIqLEU4pqhEg",
+            "sourceId": "_hDO8cCHhEDuIqLEU4pqhEg",
+            "targetId": "_nqCRUCHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_vk7EQCHhEDuIqLEU4pqhEg",
+            "sourceId": "_roMwACHhEDuIqLEU4pqhEg",
+            "targetId": "_gvEDQCHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_v_JiICHhEDuIqLEU4pqhEg",
+            "sourceId": "_p8HosCHhEDuIqLEU4pqhEg",
+            "targetId": "_gvEDQCHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_1FAosCHhEDuIqLEU4pqhEg",
+            "sourceId": "_y9GhACHhEDuIqLEU4pqhEg",
+            "targetId": "_hDO8cCHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_1dzjMCHhEDuIqLEU4pqhEg",
+            "sourceId": "_y9GhACHhEDuIqLEU4pqhEg",
+            "targetId": "_gvEDQCHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_-jZ1wCHhEDuIqLEU4pqhEg",
+            "sourceId": "_7rLEYCHhEDuIqLEU4pqhEg",
+            "targetId": "_nqCRUCHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_DGHL8CHiEDuIqLEU4pqhEg",
+            "sourceId": "_BWMtgCHiEDuIqLEU4pqhEg",
+            "targetId": "_y9GhACHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_FcWDgCHiEDuIqLEU4pqhEg",
+            "sourceId": "_BWMtgCHiEDuIqLEU4pqhEg",
+            "targetId": "_hDO8cCHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_lWK70CHiEDuIqLEU4pqhEg",
+            "sourceId": "_y9GhACHhEDuIqLEU4pqhEg",
+            "targetId": "_hDO8cCHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_l1n38CHiEDuIqLEU4pqhEg",
+            "sourceId": "_y9GhACHhEDuIqLEU4pqhEg",
+            "targetId": "_gvEDQCHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_s6zK4CHiEDuIqLEU4pqhEg",
+            "sourceId": "_y9GhACHhEDuIqLEU4pqhEg",
+            "targetId": "_hDO8cCHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_tSUTACHiEDuIqLEU4pqhEg",
+            "sourceId": "_y9GhACHhEDuIqLEU4pqhEg",
+            "targetId": "_gvEDQCHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_vkE6QCHiEDuIqLEU4pqhEg",
+            "sourceId": "_BWMtgCHiEDuIqLEU4pqhEg",
+            "targetId": "_NrOwgCHiEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_v29aACHiEDuIqLEU4pqhEg",
+            "sourceId": "_BWMtgCHiEDuIqLEU4pqhEg",
+            "targetId": "_UVC9ICHiEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_wLnbYCHiEDuIqLEU4pqhEg",
+            "sourceId": "_BWMtgCHiEDuIqLEU4pqhEg",
+            "targetId": "_ZbM-oCHiEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_wfrm4CHiEDuIqLEU4pqhEg",
+            "sourceId": "_BWMtgCHiEDuIqLEU4pqhEg",
+            "targetId": "_be-NMCHiEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_AcnksCHjEDuIqLEU4pqhEg",
+            "sourceId": "_968SICHiEDuIqLEU4pqhEg",
+            "targetId": "_hDO8cCHhEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_GWlowCHjEDuIqLEU4pqhEg",
+            "sourceId": "_EgUqsCHjEDuIqLEU4pqhEg",
+            "targetId": "_968SICHiEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_Ri-osCHjEDuIqLEU4pqhEg",
+            "sourceId": "_NDbUMCHjEDuIqLEU4pqhEg",
+            "targetId": "_EgUqsCHjEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_R38MECHjEDuIqLEU4pqhEg",
+            "sourceId": "_NpFmACHjEDuIqLEU4pqhEg",
+            "targetId": "_EgUqsCHjEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_buy8cCHjEDuIqLEU4pqhEg",
+            "sourceId": "_YO2DwCHjEDuIqLEU4pqhEg",
+            "targetId": "_BWMtgCHiEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_KwBRsCHkEDuIqLEU4pqhEg",
+            "sourceId": "_CJGfMCHkEDuIqLEU4pqhEg",
+            "targetId": "_EgUqsCHjEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_MJLdACHkEDuIqLEU4pqhEg",
+            "sourceId": "_C5kS0CHkEDuIqLEU4pqhEg",
+            "targetId": "_EgUqsCHjEDuIqLEU4pqhEg",
+            "type": "Association"
+        },
+        {
+            "id": "_bJMP8CVPEDur99-yalkkSQ",
+            "sourceId": "_y9GhACHhEDuIqLEU4pqhEg",
+            "targetId": "_968SICHiEDuIqLEU4pqhEg",
+            "type": "Association"
+        }
+    ],
+    "views": [
+        {
+            "id": "_HXB6wT-zEe22546wEPhU_w",
+            "name": "Organigrama",
+            "viewpoint": ""
+        }
+    ]
+}

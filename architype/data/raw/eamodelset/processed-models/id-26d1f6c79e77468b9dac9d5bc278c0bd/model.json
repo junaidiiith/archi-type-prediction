@@ -1,0 +1,422 @@
+{
+    "identifier": "https://me.big.tuwien.ac.at/EAModelSet/id-26d1f6c79e77468b9dac9d5bc278c0bd",
+    "archimateId": "id-26d1f6c79e77468b9dac9d5bc278c0bd",
+    "name": "(new model)",
+    "description": "",
+    "formats": [
+        "ARCHIMATE",
+        "XML",
+        "CSV",
+        "JSON"
+    ],
+    "source": "GitHub",
+    "repository": "GeorgiyDemo/FA",
+    "license": "WTFPL",
+    "sourceFile": "raw-data/github/archimate/\u0414\u0435\u043c\u0435\u043d\u0447\u0443\u043a_\u0413\u0435\u043e\u0440\u0433\u0438\u0439_09_12_\u0437\u0430\u0434\u0430\u043d\u0438\u04351.archimate",
+    "sourceFormat": "ARCHIMATE",
+    "timestamp": "2024-02-21T06:30:54",
+    "tags": [],
+    "duplicates": [],
+    "language": "ru",
+    "elements": [
+        {
+            "id": "id-def78a5e2adb43a7af15c69f58a78306",
+            "name": "\u042e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u043e\u0442\u0434\u0435\u043b",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "id-56b659ab50c3478ab6eb225fc93926fd",
+            "name": "\u041f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0439 \u043e\u0442\u0434\u0435\u043b",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "id-7369d0da3e1b4a649520faa6b6a19d4c",
+            "name": "\u041e\u0444\u0438\u0441 \u043f\u0440\u043e\u0434\u0430\u0436",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "id-fc5ffc9f7c9e430e8012de963c5b865b",
+            "name": "\u041a\u043e\u043c\u043c\u0435\u0440\u0447\u0435\u0441\u043a\u0438\u0439 \u043e\u0442\u0434\u0435\u043b",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "id-5d4342895c3d4f00930ad21a485cc2dd",
+            "name": "\u041e\u0442\u0434\u0435\u043b \u043a\u0430\u0434\u0440\u043e\u0432",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "id-638c36f2706a4f91b9377efc855c4616",
+            "name": "\u0418\u0422-\u0421\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "id-89cece64d20847c9a628f972e83ada5e",
+            "name": "\u041c\u0430\u0440\u043a\u0435\u0442\u043e\u043b\u043e\u0433",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "id-a96a8eac36c64cc3ab9e6a3c2e321b29",
+            "name": "\u0421\u0435\u043a\u0440\u0435\u0442\u0430\u0440\u044c",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "id-870923149a0e4aecbdd7e756c2f5df6a",
+            "name": "\u0421\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e \u0436\u0438\u043b\u044b\u0445 \u043c\u043d\u043e\u0433\u043e\u044d\u0442\u0430\u0436\u043d\u044b\u0445 \u0434\u043e\u043c\u043e\u0432, \u0442\u043e\u0440\u0433\u043e\u0432\u044b\u0445 \u0438 \u0431\u0438\u0437\u043d\u0435\u0441-\u0446\u0435\u043d\u0442\u0440\u043e\u0432",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-17ac7f910826413baee3fdb18009dc9a",
+            "name": "\u041f\u0440\u043e\u0434\u0430\u0436\u0430 \u043a\u0432\u0430\u0440\u0442\u0438\u0440 \u0438 \u043d\u0435\u0436\u0438\u043b\u044b\u0445 \u043f\u043e\u043c\u0435\u0449\u0435\u043d\u0438\u0439 ",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-534458644989476f8cd440e90aa92441",
+            "name": "\u0410\u0440\u0435\u043d\u0434\u0430 \u043d\u0435\u0436\u0438\u043b\u044b\u0445 \u043f\u043e\u043c\u0435\u0449\u0435\u043d\u0438\u0439 \u0432 \u0441\u0442\u0440\u043e\u044f\u0449\u0438\u0445\u0441\u044f \u0438 \u043f\u043e\u0441\u0442\u0440\u043e\u0435\u043d\u043d\u044b\u0445 \u043e\u0431\u044a\u0435\u043a\u0442\u0430\u0445",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-3b308413ed30484f9894525bbcd49efc",
+            "name": "\u0412\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 \u0444\u0443\u043d\u043a\u0446\u0438\u0439 \u0443\u043f\u0440\u0430\u0432\u043b\u044f\u044e\u0449\u0435\u0439 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0438 \u0436\u0438\u043b\u044b\u0445 \u0434\u043e\u043c\u043e\u0432",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-5053c40255a7492e9834dc7e91d5d5fb",
+            "name": "\u041f\u0440\u0438\u0435\u043c \u043d\u0430 \u0440\u0430\u0431\u043e\u0442\u0443, \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u043a\u0430\u0434\u0440\u043e\u0432\u044b\u043c\u0438 \u043f\u0435\u0440\u0435\u043c\u0435\u0449\u0435\u043d\u0438\u044f\u043c\u0438, \u0432\u0435\u0434\u0435\u043d\u0438\u0435 \u043a\u0430\u0434\u0440\u043e\u0432",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-a2c77ec0d9aa40cd9494b4345fcd2552",
+            "name": "\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u043d\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435\u043c \u0441\u0430\u0439\u0442\u0430",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-98e5d130132a46f78192160ef1b96edd",
+            "name": "\u0420\u0435\u043a\u043b\u0430\u043c\u0430 \u0438 \u043f\u0440\u043e\u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435 \u0435\u0435",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-8b619469f24143b3aca4d2a87d1f0ab4",
+            "name": "\u041f\u0440\u0438\u0435\u043c \u0437\u0432\u043e\u043d\u043a\u043e\u0432,\u043a\u043e\u0440\u0435\u0441\u043f\u043e\u0434\u0435\u043d\u0446\u0438\u0438 \u0438 \u043f\u043e\u0441\u0435\u0442\u0438\u0442\u0435\u043b\u0435\u0439",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-a24e81ae030e4c0ca91a30dc34107604",
+            "name": "\u041e\u043a\u0430\u0437\u0430\u043d\u0438\u0435 \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u0443\u0441\u043b\u0443\u0433",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-7774d34220344df8947549d9af7ae209",
+            "name": "\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0441\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e\u043c \u0436\u0438\u043b\u044b\u0445 \u0438 \u043d\u0435\u0436\u0438\u043b\u044b\u0445 \u043f\u043e\u043c\u0435\u0449\u0435\u043d\u0438\u0439",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-ece0405dfec142a09f2c7fae20ab7540",
+            "name": "\u041f\u0440\u0438\u0435\u043c \u043f\u043b\u0430\u0442\u0435\u0436\u0435\u0439 \u0437\u0430 \u043e\u043a\u0430\u0437\u0430\u043d\u043d\u044b\u0435 \u0443\u0441\u043b\u0443\u0433\u0438 \u0438 \u043f\u0440\u043e\u0434\u0430\u043d\u043d\u044b\u0435 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u044b",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-4028193cc1e542e98a5bc0bb1392faea",
+            "name": "\u041e\u0431\u0435\u0441\u043f\u0435\u0447\u0435\u043d\u0438\u0435 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438 \u043e\u0431\u044a\u0435\u043a\u0442\u043e\u0432 \u043d\u0435\u0434\u0432\u0438\u0436\u0438\u043c\u043e\u0441\u0442\u0438",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-a49635c8a7e942948f3c529169f01b45",
+            "name": "\u041f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430 \u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u0418\u0422 \u0438\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u044b",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-0f03c820ea8b4e9c9fd14ab4d4c6de7d",
+            "name": "\u041e\u043a\u0430\u0437\u0430\u043d\u0438\u0435 \u044e\u0440\u0438\u0434\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u0443\u0441\u043b\u0443\u0433 (copy)",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-2cf336116c364488bcc003cb8e4cdb7d",
+            "name": "\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0441\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u043e\u043c \u044d\u0438\u043b\u044b\u044a \u0438 \u043d\u0435\u0436\u0438\u043b\u044b\u0445 \u043f\u043e\u043c\u0435\u0449\u0435\u043d\u0438\u0439 (copy)",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-170af22b781349cd8e8ed6343b172d85",
+            "name": "\u041f\u0440\u0438\u0435\u043c \u043f\u043b\u0430\u0442\u0435\u0436\u0435\u0439 \u0437\u0430 \u043e\u043a\u0430\u0437\u0430\u043d\u043d\u044b\u0435 \u0443\u0441\u043b\u0443\u0433\u0438 \u0438 \u043f\u0440\u043e\u0434\u0430\u043d\u043d\u044b\u0435 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u044b (copy)",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-282ac6af9be240c99be2f4c7e5684e87",
+            "name": "\u041e\u0431\u0435\u0441\u043f\u0435\u0447\u0435\u043d\u0438\u0435 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438 \u043e\u0431\u044a\u0435\u043a\u0442\u043e\u0432 \u043d\u0435\u0434\u0432\u0438\u0436\u0438\u043c\u043e\u0441\u0442\u0438 (copy)",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-c086b254fcae484ba78e62a9bcfcb22e",
+            "name": "\u041f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430 \u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u0418\u0422 \u0438\u043d\u0444\u0440\u0430\u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u044b (copy)",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-e2f97d143b254619b7f9b8ac3bd0a167",
+            "name": "\u0421\u0438\u0441\u0442\u0435\u043c\u0430 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0432\u0437\u0430\u0438\u043c\u043e\u043e\u0442\u043d\u043e\u0448\u0435\u043d\u0438\u044f\u043c\u0438 \u0441 \u043a\u043b\u0438\u0435\u043d\u0442\u0430\u043c\u0438",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "id-d0fc09e218104a3b87eb34fc4fe70750",
+            "name": "\u0421\u0438\u0441\u0442\u0435\u043c\u0430 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u043a\u0430\u0434\u0440\u0430\u043c\u0438",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "id-5c965fc0aef943ea94c39631793b101d",
+            "name": "\u0421\u0430\u0439\u0442 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0438",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "id-f97558186d9b42d09ffcbf675cd92d96",
+            "name": "\u041b\u0438\u0447\u043d\u044b\u0439 \u0440\u0435\u043a\u043b\u0430\u043c\u043d\u044b\u0439 \u043a\u0430\u0431\u0438\u043d\u0435\u0442",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "id-182b3d2637734888aef5d57561308c0a",
+            "name": "\u0421\u0438\u0441\u0442\u0435\u043c\u0430 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0444\u0438\u043d\u0430\u043d\u0441\u0430\u043c\u0438 (copy)",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "id-c44374e05c814e198f070b4edb2c3cd4",
+            "name": "\u0421\u0438\u0441\u0442\u0435\u043c\u0430 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0444\u0438\u043d\u0430\u043d\u0441\u0430\u043c\u0438 (copy)",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "id-41d2c64a6cd64dd4bd29f9170a83d834",
+            "name": "\u0421\u0438\u0441\u0442\u0435\u043c\u0430 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u043e\u043c",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        }
+    ],
+    "relationships": [
+        {
+            "id": "id-d7290284a0dd422598ed16b23bb97112",
+            "sourceId": "id-fc5ffc9f7c9e430e8012de963c5b865b",
+            "targetId": "id-534458644989476f8cd440e90aa92441",
+            "type": "Association"
+        },
+        {
+            "id": "id-69bfddc4fc284325b846177888a72ac0",
+            "sourceId": "id-7369d0da3e1b4a649520faa6b6a19d4c",
+            "targetId": "id-17ac7f910826413baee3fdb18009dc9a",
+            "type": "Association"
+        },
+        {
+            "id": "id-340334b0bf05483aa1247debd481b07c",
+            "sourceId": "id-def78a5e2adb43a7af15c69f58a78306",
+            "targetId": "id-17ac7f910826413baee3fdb18009dc9a",
+            "type": "Association"
+        },
+        {
+            "id": "id-06aee5dcabfb458297fea444a7d90004",
+            "sourceId": "id-a49635c8a7e942948f3c529169f01b45",
+            "targetId": "id-a2c77ec0d9aa40cd9494b4345fcd2552",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-9f852ae2202743bfa42dc83c370fd7ae",
+            "sourceId": "id-7369d0da3e1b4a649520faa6b6a19d4c",
+            "targetId": "id-534458644989476f8cd440e90aa92441",
+            "type": "Association"
+        },
+        {
+            "id": "id-26c93c21b40142a0870aa420eca3cde5",
+            "sourceId": "id-56b659ab50c3478ab6eb225fc93926fd",
+            "targetId": "id-870923149a0e4aecbdd7e756c2f5df6a",
+            "type": "Association"
+        },
+        {
+            "id": "id-c4c1dfae05274c50bae301c246438636",
+            "sourceId": "id-fc5ffc9f7c9e430e8012de963c5b865b",
+            "targetId": "id-870923149a0e4aecbdd7e756c2f5df6a",
+            "type": "Association"
+        },
+        {
+            "id": "id-49aacf69a97f40169eb3b4eeedd5768e",
+            "sourceId": "id-def78a5e2adb43a7af15c69f58a78306",
+            "targetId": "id-534458644989476f8cd440e90aa92441",
+            "type": "Association"
+        },
+        {
+            "id": "id-cbb1c5c9b8944da8bafafd1cd1d13486",
+            "sourceId": "id-5d4342895c3d4f00930ad21a485cc2dd",
+            "targetId": "id-5053c40255a7492e9834dc7e91d5d5fb",
+            "type": "Association"
+        },
+        {
+            "id": "id-7a1ff97eac1540f587ee1a9d45546413",
+            "sourceId": "id-89cece64d20847c9a628f972e83ada5e",
+            "targetId": "id-98e5d130132a46f78192160ef1b96edd",
+            "type": "Association"
+        },
+        {
+            "id": "id-65b582906d2240d0845f0c9cd52e9a74",
+            "sourceId": "id-4028193cc1e542e98a5bc0bb1392faea",
+            "targetId": "id-3b308413ed30484f9894525bbcd49efc",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-2e4079e0b6cc4bb4a3b8e99d56fa5b7f",
+            "sourceId": "id-a49635c8a7e942948f3c529169f01b45",
+            "targetId": "id-8b619469f24143b3aca4d2a87d1f0ab4",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-011ddfdb815e4d5d8c1995f605e11b4a",
+            "sourceId": "id-fc5ffc9f7c9e430e8012de963c5b865b",
+            "targetId": "id-17ac7f910826413baee3fdb18009dc9a",
+            "type": "Association"
+        },
+        {
+            "id": "id-0a82558602a64650a3541a8c22eb7064",
+            "sourceId": "id-7774d34220344df8947549d9af7ae209",
+            "targetId": "id-870923149a0e4aecbdd7e756c2f5df6a",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-28c26067e88e4c6a87375767f276d02f",
+            "sourceId": "id-a24e81ae030e4c0ca91a30dc34107604",
+            "targetId": "id-534458644989476f8cd440e90aa92441",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-c09720d5f7fc47bcb699138111facef6",
+            "sourceId": "id-a49635c8a7e942948f3c529169f01b45",
+            "targetId": "id-98e5d130132a46f78192160ef1b96edd",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-9c2810b1432d4a778ab96d9745905e72",
+            "sourceId": "id-ece0405dfec142a09f2c7fae20ab7540",
+            "targetId": "id-17ac7f910826413baee3fdb18009dc9a",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-b85694decaa842edb995ce40449a982f",
+            "sourceId": "id-fc5ffc9f7c9e430e8012de963c5b865b",
+            "targetId": "id-3b308413ed30484f9894525bbcd49efc",
+            "type": "Association"
+        },
+        {
+            "id": "id-00008bc0b24a4d57a626acf60d1a5934",
+            "sourceId": "id-a24e81ae030e4c0ca91a30dc34107604",
+            "targetId": "id-17ac7f910826413baee3fdb18009dc9a",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-09862a5128b141908f9ee9fa3077dec2",
+            "sourceId": "id-638c36f2706a4f91b9377efc855c4616",
+            "targetId": "id-a2c77ec0d9aa40cd9494b4345fcd2552",
+            "type": "Association"
+        },
+        {
+            "id": "id-3ed0b943d3c34d9ba53231ffb536e5b1",
+            "sourceId": "id-ece0405dfec142a09f2c7fae20ab7540",
+            "targetId": "id-534458644989476f8cd440e90aa92441",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-e8d93afca15d474f9454e5127f89c814",
+            "sourceId": "id-a96a8eac36c64cc3ab9e6a3c2e321b29",
+            "targetId": "id-8b619469f24143b3aca4d2a87d1f0ab4",
+            "type": "Association"
+        },
+        {
+            "id": "id-0f3e887b1618493a98396f0278943873",
+            "sourceId": "id-e2f97d143b254619b7f9b8ac3bd0a167",
+            "targetId": "id-17ac7f910826413baee3fdb18009dc9a",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-8837c593c6c4415ea2c5455ce5ecd51e",
+            "sourceId": "id-e2f97d143b254619b7f9b8ac3bd0a167",
+            "targetId": "id-534458644989476f8cd440e90aa92441",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-08972f31a0e64c1fb75f331fdf039cde",
+            "sourceId": "id-d0fc09e218104a3b87eb34fc4fe70750",
+            "targetId": "id-5053c40255a7492e9834dc7e91d5d5fb",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-9f0b50ca66044c07a02ab6e57a2dcb94",
+            "sourceId": "id-5c965fc0aef943ea94c39631793b101d",
+            "targetId": "id-a2c77ec0d9aa40cd9494b4345fcd2552",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-99c1512420c1414db2b5066bf1913708",
+            "sourceId": "id-5c965fc0aef943ea94c39631793b101d",
+            "targetId": "id-98e5d130132a46f78192160ef1b96edd",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-9c877df0b3a04b1795d8d5a28511dfad",
+            "sourceId": "id-e2f97d143b254619b7f9b8ac3bd0a167",
+            "targetId": "id-8b619469f24143b3aca4d2a87d1f0ab4",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-a9d86618939642ffb0035fe7d7439dab",
+            "sourceId": "id-41d2c64a6cd64dd4bd29f9170a83d834",
+            "targetId": "id-5053c40255a7492e9834dc7e91d5d5fb",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-60c29fdb8bbd4a989acf2231f1026e57",
+            "sourceId": "id-c44374e05c814e198f070b4edb2c3cd4",
+            "targetId": "id-ece0405dfec142a09f2c7fae20ab7540",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-9ce015485bd7481e95bd652ac5aab5e8",
+            "sourceId": "id-c44374e05c814e198f070b4edb2c3cd4",
+            "targetId": "id-a24e81ae030e4c0ca91a30dc34107604",
+            "type": "Triggering"
+        },
+        {
+            "id": "id-4effa84ce1f9437b8f354179ea16adba",
+            "sourceId": "id-e2f97d143b254619b7f9b8ac3bd0a167",
+            "targetId": "id-98e5d130132a46f78192160ef1b96edd",
+            "type": "Triggering"
+        }
+    ],
+    "views": [
+        {
+            "id": "id-71d789c7a2114636a689f329d1ca15b9",
+            "name": "Default View",
+            "viewpoint": ""
+        }
+    ]
+}

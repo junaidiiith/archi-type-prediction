@@ -1,0 +1,176 @@
+{
+    "identifier": "https://me.big.tuwien.ac.at/EAModelSet/_hTOYIJKIEeqcytSjwrQ0Dg",
+    "archimateId": "_hTOYIJKIEeqcytSjwrQ0Dg",
+    "name": "CMArch",
+    "description": "",
+    "formats": [
+        "XML",
+        "CSV",
+        "JSON",
+        "ARCHIMATE"
+    ],
+    "source": "GenMyModel",
+    "repository": "",
+    "license": "",
+    "sourceFile": "raw-data/genmymodel/_htoyijkieeqcytsjwrq0dg.xml",
+    "sourceFormat": "XML",
+    "timestamp": "2023-07-06T10:01:18",
+    "tags": [],
+    "duplicates": [],
+    "language": "ru",
+    "elements": [
+        {
+            "id": "_fwbR4HS2EDixaOI3wik-xA",
+            "name": "\u0417\u0430\u043c\u0435\u0441\u0442\u0438\u0442\u0435\u043b\u044c \u0413\u043b\u0430\u0432\u043d\u043e\u0433\u043e \u0438\u043d\u0436\u0435\u043d\u0435\u0440\u0430 \u041f\u0440\u043e\u0435\u043a\u0442\u0430",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_4wD_QXS2EDixaOI3wik-xA",
+            "name": "\u0413\u0440\u0443\u043f\u043f\u0430 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u043f\u0440\u043e\u0435\u043a\u0442\u043e\u043c",
+            "type": "Grouping",
+            "layer": "other"
+        },
+        {
+            "id": "_DPJ0UXS3EDixaOI3wik-xA",
+            "name": "\u0413\u0440\u0443\u043f\u043f\u0430 \u0441\u0438\u0441\u0442\u0435\u043c\u043d\u043e\u0439 \u0438 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043d\u043e\u0439 \u0438\u043d\u0436\u0435\u043d\u0435\u0440\u0438\u0438",
+            "type": "Grouping",
+            "layer": "other"
+        },
+        {
+            "id": "_EpTeIXS3EDixaOI3wik-xA",
+            "name": "\u0413\u0440\u0443\u043f\u043f\u0430 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0438 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f",
+            "type": "Grouping",
+            "layer": "other"
+        },
+        {
+            "id": "_pu4D8XT2EDixaOI3wik-xA",
+            "name": "\u0418\u043d\u0436\u0435\u043d\u0435\u0440 \u043f\u043e \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044e \u0441\u0438\u0441\u0442\u0435\u043c\u043d\u043e\u0439 \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u0435\u0439",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_tZp5gIZCEDiHd-tZ_hynBA",
+            "name": "\u0413\u043b\u0430\u0432\u043d\u044b\u0439 \u0438\u043d\u0436\u0435\u043d\u0435\u0440 \u041f\u0440\u043e\u0435\u043a\u0442\u0430",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_6nxgoIZCEDiHd-tZ_hynBA",
+            "name": "\u0420\u0443\u043a\u043e\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c \u0433\u0440\u0443\u043f\u043f\u044b \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0438 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_8cyhgIZCEDiHd-tZ_hynBA",
+            "name": "\u0420\u0443\u043a\u043e\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c \u0413\u0440\u0443\u043f\u043f\u044b \u0441\u0438\u0441\u0442\u0435\u043c\u043d\u043e\u0439 \u0438 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043d\u043e\u0439 \u0438\u043d\u0436\u0435\u043d\u0435\u0440\u0438\u0438",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_UunGoYZDEDiHd-tZ_hynBA",
+            "name": "\u0418\u043d\u0436\u0435\u043d\u0435\u0440 \u043f\u043e \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044e \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u0435\u0439 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043d\u043e\u0433\u043e \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0435\u043d\u0438\u044f",
+            "type": "BusinessCollaboration",
+            "layer": "business"
+        },
+        {
+            "id": "_caBTIIZDEDiHd-tZ_hynBA",
+            "name": "\u0418\u043d\u0436\u0435\u043d\u0435\u0440 \u043f\u043e \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044e \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u0435\u0439 \u0441\u0438\u0441\u0442\u0435\u043c\u044b",
+            "type": "BusinessCollaboration",
+            "layer": "business"
+        },
+        {
+            "id": "_fWcoAIZDEDiHd-tZ_hynBA",
+            "name": "\u0418\u043d\u0436\u0435\u043d\u0435\u0440 \u043f\u043e \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044e \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u0435\u0439 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f",
+            "type": "BusinessCollaboration",
+            "layer": "business"
+        }
+    ],
+    "relationships": [
+        {
+            "id": "_5pkaIHS2EDixaOI3wik-xA",
+            "sourceId": "_4wD_QXS2EDixaOI3wik-xA",
+            "targetId": "_fwbR4HS2EDixaOI3wik-xA",
+            "type": "Composition"
+        },
+        {
+            "id": "_uaiHs4ZCEDiHd-tZ_hynBA",
+            "sourceId": "_4wD_QXS2EDixaOI3wik-xA",
+            "targetId": "_tZp5gIZCEDiHd-tZ_hynBA",
+            "type": "Composition"
+        },
+        {
+            "id": "_z4T_AIZCEDiHd-tZ_hynBA",
+            "sourceId": "_tZp5gIZCEDiHd-tZ_hynBA",
+            "targetId": "_fwbR4HS2EDixaOI3wik-xA",
+            "type": "Association"
+        },
+        {
+            "id": "_85RCI4ZCEDiHd-tZ_hynBA",
+            "sourceId": "_DPJ0UXS3EDixaOI3wik-xA",
+            "targetId": "_8cyhgIZCEDiHd-tZ_hynBA",
+            "type": "Composition"
+        },
+        {
+            "id": "_Caxi4YZDEDiHd-tZ_hynBA",
+            "sourceId": "_EpTeIXS3EDixaOI3wik-xA",
+            "targetId": "_6nxgoIZCEDiHd-tZ_hynBA",
+            "type": "Composition"
+        },
+        {
+            "id": "_DL76EoZDEDiHd-tZ_hynBA",
+            "sourceId": "_fwbR4HS2EDixaOI3wik-xA",
+            "targetId": "_8cyhgIZCEDiHd-tZ_hynBA",
+            "type": "Association"
+        },
+        {
+            "id": "_Dmxb8oZDEDiHd-tZ_hynBA",
+            "sourceId": "_fwbR4HS2EDixaOI3wik-xA",
+            "targetId": "_6nxgoIZCEDiHd-tZ_hynBA",
+            "type": "Association"
+        },
+        {
+            "id": "_SiLrUIZDEDiHd-tZ_hynBA",
+            "sourceId": "_8cyhgIZCEDiHd-tZ_hynBA",
+            "targetId": "_6nxgoIZCEDiHd-tZ_hynBA",
+            "type": "Association"
+        },
+        {
+            "id": "_bFOqc4ZDEDiHd-tZ_hynBA",
+            "sourceId": "_DPJ0UXS3EDixaOI3wik-xA",
+            "targetId": "_UunGoYZDEDiHd-tZ_hynBA",
+            "type": "Composition"
+        },
+        {
+            "id": "_cy7iYoZDEDiHd-tZ_hynBA",
+            "sourceId": "_DPJ0UXS3EDixaOI3wik-xA",
+            "targetId": "_caBTIIZDEDiHd-tZ_hynBA",
+            "type": "Composition"
+        },
+        {
+            "id": "_ecHGs4ZDEDiHd-tZ_hynBA",
+            "sourceId": "_8cyhgIZCEDiHd-tZ_hynBA",
+            "targetId": "_caBTIIZDEDiHd-tZ_hynBA",
+            "type": "Association"
+        },
+        {
+            "id": "_e3e0EoZDEDiHd-tZ_hynBA",
+            "sourceId": "_caBTIIZDEDiHd-tZ_hynBA",
+            "targetId": "_UunGoYZDEDiHd-tZ_hynBA",
+            "type": "Association"
+        },
+        {
+            "id": "_fvR-w4ZDEDiHd-tZ_hynBA",
+            "sourceId": "_EpTeIXS3EDixaOI3wik-xA",
+            "targetId": "_fWcoAIZDEDiHd-tZ_hynBA",
+            "type": "Composition"
+        }
+    ],
+    "views": [
+        {
+            "id": "_hTOYI5KIEeqcytSjwrQ0Dg",
+            "name": "archimate-diagram",
+            "viewpoint": ""
+        }
+    ]
+}
