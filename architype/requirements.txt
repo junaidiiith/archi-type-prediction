@@ -1,0 +1,24 @@
+anthropic
+datasets
+google-genai
+google-generativeai
+ipykernel
+ipython
+ipywidgets
+networkx
+numpy
+openai
+pandas
+scikit-learn
+tensorboardX==2.6.4
+torch
+torch-geometric
+transformers
+trl
+unsloth @ git+https://github.com/unslothai/unsloth.git@1c0ad844f170f67c7cdf6f7a9465bafb0f9627df
+unsloth_zoo @ git+https://github.com/unslothai/unsloth_zoo.git@59dc65ef3f1a94e4e806aedef8b6aaeee4d79bf5
+xformer
+xmltodict
+bitsandbytes
+datasets
+torchvision
