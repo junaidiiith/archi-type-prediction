@@ -99,7 +99,7 @@ class ModelDataset:
 
     def get_node_texts(
         self,
-        node_cls_attribute: str,
+        node_cls_label: str,
         *,
         test_size: float = 0.2,
         distance: int = 0,
@@ -163,7 +163,7 @@ class ModelDataset:
             )
 
             for node in nodes:
-                label = nx_graph.nodes[node].get(node_cls_attribute)
+                label = nx_graph.nodes[node].get(node_cls_label)
                 if label is None:
                     continue
                 sample = {
@@ -188,7 +188,7 @@ class ModelDataset:
 
     def get_edge_texts(
         self,
-        edge_cls_attribute,
+        edge_cls_label,
         *,
         test_size: float = 0.2,
         distance: int = 0,
@@ -235,7 +235,7 @@ class ModelDataset:
                 nx_graph.edges[edge]["masked"] = edge in test_edges
 
             for edge in edges:
-                label = nx_graph.edges[edge].get(edge_cls_attribute)
+                label = nx_graph.edges[edge].get(edge_cls_label)
                 if label is None:
                     continue
                 edge_text_kwargs: Dict[str, Any] = dict(
