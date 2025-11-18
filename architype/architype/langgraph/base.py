@@ -6,6 +6,7 @@ is implemented.
 
 from __future__ import annotations
 
+import copy
 from abc import abstractmethod
 from typing import Any, Dict, Iterable, Tuple
 from uuid import uuid4
@@ -34,11 +35,15 @@ class LangGraph(nx.DiGraph):
 
     def set_numbered_labels(self) -> None:
         """Assign integer ids to nodes/edges for efficient tensor access."""
-        self.node_label_to_id = {label: i for i, label in enumerate(self.nodes())}
-        self.id_to_node_label = {i: label for i, label in enumerate(self.nodes())}
+        self.node_label_to_id = {label: i for i,
+                                 label in enumerate(self.nodes())}
+        self.id_to_node_label = {i: label for i,
+                                 label in enumerate(self.nodes())}
 
-        self.edge_label_to_id = {label: i for i, label in enumerate(self.edges())}
-        self.id_to_edge_label = {i: label for i, label in enumerate(self.edges())}
+        self.edge_label_to_id = {label: i for i,
+                                 label in enumerate(self.edges())}
+        self.id_to_edge_label = {i: label for i,
+                                 label in enumerate(self.edges())}
 
         self.numbered_graph = self.get_numbered_graph()
         self.edge_to_idx = {
@@ -74,7 +79,8 @@ class LangGraph(nx.DiGraph):
     @property
     def edge_index(self) -> np.ndarray:
         edge_index = (
-            torch.tensor(list(self.numbered_graph.edges)).t().contiguous().numpy()
+            torch.tensor(list(self.numbered_graph.edges)
+                         ).t().contiguous().numpy()
         )
         return edge_index
 
@@ -93,7 +99,13 @@ class LangGraph(nx.DiGraph):
 
     def get_node_label(self, node_id: int) -> Any:
         return self.node_label_to_id[node_id]
-    
+
+    def copy(self) -> LangGraph:
+        """
+        Create a deep copy of the current graph instance, preserving
+        all node/edge attributes and derived mappings.
+        """
+        return copy.deepcopy(self)
 
 
 def create_graph_from_edge_index(

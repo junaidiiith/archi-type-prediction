@@ -7,6 +7,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import List, Sequence, Set, Tuple
 
+from ..langgraph.base import LangGraph
 import networkx as nx
 
 
@@ -56,6 +57,27 @@ class DuplicateRecord:
     duplicate_index: int
     overlap_ratio: float
     shared_edges: Set[EdgeSignature]
+
+
+def filter_by_edges(
+    graphs: Sequence[LangGraph],
+    *,
+    min_edges: int = -1,
+    min_enr: float = -1,
+) -> List[LangGraph]:
+    """
+    Filter graphs by number of edges and edge density.
+    """
+    filtered_graphs: List[LangGraph] = []
+    for graph in graphs:
+        addable = True
+        if min_edges > 0 and graph.number_of_edges() < min_edges:
+            addable = False
+        if min_enr > 0 and graph.enr < min_enr:
+            addable = False
+        if addable:
+            filtered_graphs.append(graph)
+    return filtered_graphs
 
 
 def deduplicate_graphs(

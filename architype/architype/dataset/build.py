@@ -17,16 +17,20 @@ from tqdm.auto import tqdm
 import numpy as np
 import pandas as pd
 
-from ..cleanse.dedup import deduplicate_graphs
+from architype.configs.config import RunConfig
+
+
+from ..cleanse.dedup import deduplicate_graphs, filter_by_edges
 from ..cleanse.filters import (
     filter_dummy_named_graphs,
     llm_filter_graphs as llm_filter_graphs_fn,
 )
 from ..extract import get_edge_texts, get_node_texts
 from ..langgraph.archimate import ArchiMateNxG
+from ..langgraph.ontouml import OntoUMLNxG
 from ..langgraph.base import LangGraph
 from ..utils.config import EDGE_CLS_TASK
-from .metadata import GraphMetadata, ArchimateMetaData
+from .metadata import GraphMetadata, ArchimateMetaData, OntoUMLMetaData
 
 
 def _to_dataset(samples: List[Dict[str, Any]]) -> Dataset:
@@ -46,13 +50,8 @@ class ModelDataset:
         metadata: GraphMetadata,
         dataset_dir: str = ".tmp/datasets",
         save_dir: str = ".tmp/pickles",
-        *,
-        min_edges: int = -1,
-        min_enr: float = -1,
-        dummy_ratio_threshold: float = -1.0,
-        duplicate_overlap_threshold: float = -1.0,
+        config: Optional[RunConfig] = None,
         timeout: int = -1,
-        preprocess_graph_text: Optional[Callable[[str], str]] = None,
     ) -> None:
         self.name = dataset_name
         self.metadata = metadata
@@ -60,14 +59,10 @@ class ModelDataset:
         self.save_dir = save_dir
         os.makedirs(save_dir, exist_ok=True)
 
-        self.min_edges = max(1, min_edges if min_edges > 0 else 1)
-        self.min_enr = max(0.0, min_enr if min_enr > 0 else 0.0)
-        self.dummy_ratio_threshold = dummy_ratio_threshold
-        self.duplicate_overlap_threshold = duplicate_overlap_threshold
         self.timeout = timeout
-        self.preprocess_graph_text = preprocess_graph_text
-
         self.graphs: List[LangGraph] = []
+        
+        self.config = config
 
     def get_train_test_split(
         self, train_size: float = 0.8
@@ -86,27 +81,26 @@ class ModelDataset:
         for train_idx, test_idx in kfold.split(np.zeros(n), np.zeros(n)):
             yield train_idx, test_idx
 
-    @property
-    def data(self):
-        X, y = [], []
+    def get_data(self, preprocessor: Optional[Callable[[str], str]] = None):
+        data = []
         for graph in self.graphs:
-            X.append(graph.text)
-            y.append(graph.label)
+            data.append(graph.text)
 
-        if self.preprocess_graph_text:
-            X = [self.preprocess_graph_text(x) for x in X]
-        return X, y
+        if preprocessor is not None:
+            data = [preprocessor(x) for x in data]
+
+        return Dataset.from_list(data)
 
     def get_node_texts(
         self,
-        node_cls_label: str,
         *,
+        node_cls_label: str = "type",
         test_size: float = 0.2,
         distance: int = 0,
-        use_node_attributes: bool = False,
-        use_node_types: bool = False,
-        use_edge_types: bool = False,
-        use_edge_label: bool = False,
+        use_node_attributes: bool = True,
+        use_node_types: bool = True,
+        use_edge_types: bool = True,
+        use_edge_label: bool = True,
         use_node_label: bool = True,
         use_special_tokens: bool = False,
         random_state: Optional[int] = 42,
@@ -116,6 +110,7 @@ class ModelDataset:
         Build a masked node classification dataset as Hugging Face DatasetDict.
         """
 
+        node_cls_label = self.config.node_cls_label if self.config else node_cls_label
         rng = np.random.default_rng(random_state)
         train_samples: List[Dict[str, Any]] = []
         test_samples: List[Dict[str, Any]] = []
@@ -145,20 +140,20 @@ class ModelDataset:
                 nx_graph.nodes[node]["masked"] = node in test_nodes
 
             node_text_kwargs: Dict[str, Any] = dict(
-                use_node_attributes=use_node_attributes,
-                use_node_types=use_node_types,
-                use_edge_types=use_edge_types,
-                use_edge_label=use_edge_label,
-                use_special_tokens=use_special_tokens,
-                no_labels=not use_node_label,
+                use_node_attributes=self.config.extraction_config.use_node_attributes if self.config else use_node_attributes,
+                use_node_types=self.config.extraction_config.use_node_types if self.config else use_node_types,
+                use_edge_types=self.config.extraction_config.use_edge_types if self.config else use_edge_types,
+                use_edge_label=self.config.extraction_config.use_edge_label if self.config else use_edge_label,
+                use_special_tokens=self.config.extraction_config.use_special_tokens if self.config else use_special_tokens,
+                no_labels=not self.config.extraction_config.use_node_label if self.config else not use_node_label,
             )
             if preprocessor is not None:
                 node_text_kwargs["preprocessor"] = preprocessor
 
             node_texts = get_node_texts(
                 nx_graph,
-                distance,
-                self.metadata,
+                d=self.config.distance if self.config else distance,
+                metadata=self.metadata,
                 **node_text_kwargs,
             )
 
@@ -188,8 +183,8 @@ class ModelDataset:
 
     def get_edge_texts(
         self,
-        edge_cls_label,
         *,
+        edge_cls_label: str = "type",
         test_size: float = 0.2,
         distance: int = 0,
         use_node_attributes: bool = False,
@@ -206,7 +201,8 @@ class ModelDataset:
         Build a masked edge classification dataset as Hugging Face DatasetDict.
         """
 
-        rng = np.random.default_rng(random_state)
+        edge_cls_label = self.config.edge_cls_label if self.config else edge_cls_label
+        rng = np.random.default_rng(self.config.seed if self.config else random_state)
         train_samples: List[Dict[str, Any]] = []
         test_samples: List[Dict[str, Any]] = []
 
@@ -239,12 +235,12 @@ class ModelDataset:
                 if label is None:
                     continue
                 edge_text_kwargs: Dict[str, Any] = dict(
-                    use_node_attributes=use_node_attributes,
-                    use_node_types=use_node_types,
-                    use_edge_types=use_edge_types,
-                    use_edge_label=use_edge_label,
-                    use_special_tokens=use_special_tokens,
-                    no_labels=not use_node_label,
+                    use_node_attributes=self.config.extraction_config.use_node_attributes if self.config else use_node_attributes,
+                    use_node_types=self.config.extraction_config.use_node_types if self.config else use_node_types,
+                    use_edge_types=self.config.extraction_config.use_edge_types if self.config else use_edge_types,
+                    use_edge_label=self.config.extraction_config.use_edge_label if self.config else use_edge_label,
+                    use_special_tokens=self.config.extraction_config.use_special_tokens if self.config else use_special_tokens,
+                    no_labels=not self.config.extraction_config.use_node_label if self.config else not use_node_label,
                 )
                 if preprocessor is not None:
                     edge_text_kwargs["preprocessor"] = preprocessor
@@ -252,8 +248,8 @@ class ModelDataset:
                 text = get_edge_texts(
                     nx_graph,
                     edge,
-                    distance,
-                    task_type=task_type,
+                    d=self.config.distance if self.config else distance,
+                    task_type=self.config.task_type if self.config else task_type,
                     metadata=self.metadata,
                     **edge_text_kwargs,
                 )
@@ -278,6 +274,74 @@ class ModelDataset:
             }
         )
 
+    def randomize_node_labels(
+        self, *, random_state: Optional[int] = None
+    ) -> List[LangGraph]:
+        """
+        Create deep copies of the dataset graphs and shuffle the metadata-defined
+        node label attribute across nodes within each graph.
+        """
+        node_label_attr = getattr(self.metadata, "node_label", None)
+        if not node_label_attr:
+            raise ValueError(
+                "Metadata does not define a node label attribute.")
+
+        rng = np.random.default_rng(random_state)
+        randomized_graphs: List[LangGraph] = []
+
+        for graph in self.graphs:
+            cloned_graph = graph.copy()
+            labeled_nodes = [
+                node for node in cloned_graph.nodes
+                if node_label_attr in cloned_graph.nodes[node]
+            ]
+            labels = [cloned_graph.nodes[node][node_label_attr]
+                      for node in labeled_nodes]
+            if not labels:
+                randomized_graphs.append(cloned_graph)
+                continue
+
+            rng.shuffle(labels)
+            for node, label in zip(labeled_nodes, labels):
+                cloned_graph.nodes[node][node_label_attr] = label
+            randomized_graphs.append(cloned_graph)
+
+        return randomized_graphs
+
+    def randomize_edge_labels(
+        self, *, random_state: Optional[int] = None
+    ) -> List[LangGraph]:
+        """
+        Create deep copies of the dataset graphs and shuffle the metadata-defined
+        edge label attribute across edges within each graph.
+        """
+        edge_label_attr = getattr(self.metadata, "edge_label", None)
+        if not edge_label_attr:
+            raise ValueError(
+                "Metadata does not define an edge label attribute.")
+
+        rng = np.random.default_rng(random_state)
+        randomized_graphs: List[LangGraph] = []
+
+        for graph in self.graphs:
+            cloned_graph = graph.copy()
+            labeled_edges = [
+                edge for edge in cloned_graph.edges
+                if edge_label_attr in cloned_graph.edges[edge]
+            ]
+            labels = [cloned_graph.edges[edge][edge_label_attr]
+                      for edge in labeled_edges]
+            if not labels:
+                randomized_graphs.append(cloned_graph)
+                continue
+
+            rng.shuffle(labels)
+            for edge, label in zip(labeled_edges, labels):
+                cloned_graph.edges[edge][edge_label_attr] = label
+            randomized_graphs.append(cloned_graph)
+
+        return randomized_graphs
+
     def __repr__(self) -> str:
         return f"Dataset({self.name}, graphs={len(self.graphs)})"
 
@@ -292,31 +356,70 @@ class ModelDataset:
 
     def save(self) -> None:
         print(f"Saving {self.name} to pickle")
-        pkl_file = f"{self.name}{'_with_dummies' if self.dummy_ratio_threshold > 0 else ''}.pkl"
+        pkl_file = f"{self.name}.pkl"
         with open(os.path.join(self.save_dir, pkl_file), "wb") as handle:
             pickle.dump(self.graphs, handle)
         print(f"Saved {self.name} to pickle")
 
-    def filter_graphs(self) -> None:
-        graphs: List[LangGraph] = []
-        for graph in self.graphs:
-            addable = True
-            if self.min_edges > 0 and graph.number_of_edges() < self.min_edges:
-                addable = False
-            if self.min_enr > 0 and graph.enr < self.min_enr:
-                addable = False
-            if addable:
-                graphs.append(graph)
-        self.graphs = graphs
-
     def load(self) -> None:
         print(f"Loading {self.name} from pickle")
-        pkl_file = f"{self.name}{'_with_dummies' if self.dummy_ratio_threshold > 0 else ''}.pkl"
+        pkl_file = f"{self.name}.pkl"
         with open(os.path.join(self.save_dir, pkl_file), "rb") as handle:
             self.graphs = pickle.load(handle)
 
-        self.filter_graphs()
         print(f"Loaded {self.name} with {len(self.graphs)} graphs")
+
+    def cleanse(
+        self,
+        *,
+        duplicate_overlap_threshold: float = -1,
+        dummy_ratio_threshold: float = -1,
+        min_edges: int = -1,
+        min_enr: float = -1,
+        llm_filter_threshold: float = -1,
+    ) -> None:
+        min_edges = self.config.cleansing_config.min_edges if self.config else min_edges
+        min_enr = self.config.cleansing_config.min_enr if self.config else min_enr
+        duplicate_overlap_threshold = self.config.cleansing_config.duplicate_overlap_threshold if self.config else duplicate_overlap_threshold
+        dummy_ratio_threshold = self.config.cleansing_config.dummy_ratio_threshold if self.config else dummy_ratio_threshold
+        llm_filter_threshold = self.config.cleansing_config.llm_filter_threshold if self.config else llm_filter_threshold
+        
+        self.graphs = filter_by_edges(
+            self.graphs,
+            min_edges=min_edges,
+            min_enr=min_enr,
+        )
+        if duplicate_overlap_threshold > 0:
+            self.graphs, _ = deduplicate_graphs(
+                self.graphs,
+                edge_overlap_threshold=duplicate_overlap_threshold,
+            )
+
+        if dummy_ratio_threshold > 0:
+            self.graphs, _ = filter_dummy_named_graphs(
+                self.graphs,
+                min_edges=min_edges,
+                min_enr=min_enr,
+                dummy_ratio_threshold=dummy_ratio_threshold,
+            )
+
+        assert all(graph.number_of_edges() >= min_edges for graph in self.graphs), (
+            f"Filtered out graphs with less than {min_edges} edges"
+        )
+        if llm_filter_threshold > 0:
+            self.graphs, _ = llm_filter_graphs_fn(
+                self.graphs,
+                threshold=llm_filter_threshold,
+            )
+        print(f"Cleansed {self.name} with {len(self.graphs)} graphs")
+        print(self.summary)
+
+    def llm_filter_graphs(
+        self, threshold: float = 0.5
+    ) -> Tuple[List[LangGraph], List[Tuple[LangGraph, str]]]:
+        self.graphs, flagged = llm_filter_graphs_fn(
+            self.graphs, threshold=threshold)
+        return flagged
 
     @property
     def summary(self) -> dict:
@@ -326,7 +429,8 @@ class ModelDataset:
         average_nodes = num_nodes / num_graphs
         average_edges = num_edges / num_graphs
         average_n2e_ratio = np.mean(
-            [graph.number_of_nodes() / graph.number_of_edges() for graph in self.graphs]
+            [graph.number_of_nodes() / graph.number_of_edges()
+             for graph in self.graphs]
         )
         return {
             "num_graphs": num_graphs,
@@ -343,14 +447,10 @@ class ArchiMateDataset(ModelDataset):
         self,
         dataset_dir: str,
         *,
+        config: Optional[RunConfig] = None,
         dataset_name: str = "archimate",
         save_dir: str = ".tmp/pickles",
         reload: bool = False,
-        min_edges: int = -1,
-        min_enr: float = -1,
-        duplicate_overlap_threshold: float = -1.0,
-        dummy_ratio_threshold: float = -1.0,
-        preprocess_graph_text: Optional[Callable[[str], str]] = None,
         timeout: int = -1,
         language: Optional[str] = None,
     ):
@@ -359,24 +459,19 @@ class ArchiMateDataset(ModelDataset):
             metadata=ArchimateMetaData(),
             dataset_dir=dataset_dir,
             save_dir=save_dir,
-            min_edges=min_edges,
-            min_enr=min_enr,
-            duplicate_overlap_threshold=duplicate_overlap_threshold,
-            dummy_ratio_threshold=dummy_ratio_threshold,
             timeout=timeout,
-            preprocess_graph_text=preprocess_graph_text,
+            config=config,
         )
         os.makedirs(save_dir, exist_ok=True)
-        self.duplicate_records = []
-        self.flagged_dummy_graphs: List[ArchiMateNxG] = []
-        self.flagged_llm_graphs: List[Tuple[ArchiMateNxG, str]] = []
 
-        dataset_exists = os.path.exists(os.path.join(save_dir, f"{dataset_name}.pkl"))
+        dataset_exists = os.path.exists(
+            os.path.join(save_dir, f"{dataset_name}.pkl"))
         if reload or not dataset_exists:
             self.graphs = []
             data_path = os.path.join(dataset_dir, "processed-models")
             if language:
-                df = pd.read_csv(os.path.join(dataset_dir, f"{language}-metadata.csv"))
+                df = pd.read_csv(os.path.join(
+                    dataset_dir, f"{language}-metadata.csv"))
                 model_dirs = df["ID"].to_list()
             else:
                 model_dirs = os.listdir(data_path)
@@ -399,40 +494,73 @@ class ArchiMateDataset(ModelDataset):
                 self.graphs.append(nxg)
 
             print("Total graphs:", len(self.graphs))
-            self.filter_graphs()
             self.save()
         else:
             self.load()
-
-        if duplicate_overlap_threshold > 0:
-            self.graphs, self.duplicate_records = deduplicate_graphs(
-                self.graphs,
-                edge_overlap_threshold=self.duplicate_overlap_threshold,
-            )
-
-        if dummy_ratio_threshold > 0:
-            self.graphs, self.flagged_dummy_graphs = filter_dummy_named_graphs(
-                self.graphs,
-                min_edges=self.min_edges,
-                min_enr=self.min_enr,
-                dummy_ratio_threshold=self.dummy_ratio_threshold,
-            )
-
-        assert all(graph.number_of_edges() >= min_edges for graph in self.graphs), (
-            f"Filtered out graphs with less than {min_edges} edges"
-        )
-        print(f"Loaded {self.name} with {len(self.graphs)} graphs")
-        print(f"Graphs: {len(self.graphs)}")
-
-    def llm_filter_graphs(
-        self, threshold: float = 0.5
-    ) -> Tuple[List[ArchiMateNxG], List[Tuple[ArchiMateNxG, str]]]:
-        graphs, flagged = llm_filter_graphs_fn(self.graphs, threshold=threshold)
-        self.flagged_llm_graphs = flagged
-        return graphs, flagged
 
     def __repr__(self) -> str:
         return f"ArchiMateDataset({self.name}, graphs={len(self.graphs)})"
 
 
-__all__ = ["ModelDataset", "ArchiMateDataset"]
+class OntoUMLDataset(ModelDataset):
+    def __init__(
+        self,
+        dataset_dir: str,
+        *,
+        config: Optional[RunConfig] = None,
+        dataset_name: str = "ontouml",
+        save_dir: str = ".tmp/pickles",
+        reload: bool = False,
+        timeout: int = -1,
+    ):
+        super().__init__(
+            dataset_name,
+            metadata=OntoUMLMetaData(),
+            dataset_dir=dataset_dir,
+            save_dir=save_dir,
+            timeout=timeout,
+            config=config,
+        )
+        os.makedirs(save_dir, exist_ok=True)
+
+        dataset_exists = os.path.exists(
+            os.path.join(save_dir, f"{dataset_name}.pkl")
+        )
+        if reload or not dataset_exists:
+            self.graphs = []
+            data_path = os.path.join(dataset_dir, "models")
+            if not os.path.isdir(data_path):
+                raise FileNotFoundError(
+                    f"OntoUML data directory not found: {data_path}"
+                )
+            model_dirs = os.listdir(data_path)
+
+            for model_dir in tqdm(model_dirs, desc=f"Loading {dataset_name.title()}"):
+                model_dir = os.path.join(data_path, model_dir)
+                if not os.path.isdir(model_dir):
+                    continue
+                model_file = os.path.join(model_dir, "ontology.json")
+                if not os.path.exists(model_file):
+                    continue
+                with open(model_file, encoding="iso-8859-1") as f:
+                    model = json.load(f)
+                try:
+                    nxg = OntoUMLNxG(model)
+                    if nxg.number_of_edges() < 1:
+                        continue
+                    self.graphs.append(nxg)
+                except Exception as exc:
+                    print(f"Error in {model_file} {exc}")
+
+            self.save()
+        else:
+            self.load()
+
+        print(f"Loaded {self.name} with {len(self.graphs)} graphs")
+        print(f"Graphs: {len(self.graphs)}")
+
+    def __repr__(self) -> str:
+        return f"OntoUMLDataset({self.name}, graphs={len(self.graphs)})"
+
+
+__all__ = ["ModelDataset", "ArchiMateDataset", "OntoUMLDataset"]

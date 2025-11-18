@@ -11,6 +11,8 @@ import networkx as nx
 from pydantic import ValidationError
 from tqdm.auto import tqdm
 
+from ..langgraph.base import LangGraph
+
 from ..llm.base import LLMService
 from ..llm.prompts.cleansing import (
     ModelMeaningfulnessPrompt, 
@@ -194,7 +196,7 @@ def llm_filter_graphs(
     prompt: ModelMeaningfulnessPrompt = ModelMeaningfulnessPrompt(),
     batch_size: int = 100,
     threshold: float = 0.5,
-) -> Tuple[List[nx.DiGraph], List[Tuple[nx.DiGraph, str]]]:
+) -> Tuple[List[LangGraph], List[Tuple[LangGraph, str]]]:
     """
     Split graphs into meaningful vs flagged using the LLM prompt.
     """

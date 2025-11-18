@@ -24,6 +24,9 @@ class ArchiMateNxG(LangGraph):
         for edge in self.json_obj["relationships"]:
             self.add_edge(edge["sourceId"], edge["targetId"], **edge)
 
+    def copy(self) -> ArchiMateNxG:
+        """Return a deep copy of the ArchiMate graph."""
+        return super().copy()
+
 
 __all__ = ["ArchiMateNxG"]
-

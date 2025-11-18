@@ -52,8 +52,12 @@ W2V_CONFIG = dict(
 # =============================================================================
 
 # Device configuration for PyTorch
-device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-torch.set_float32_matmul_precision("high")  # Optimize matrix multiplication precision
+device = torch.device(
+    "cuda") if torch.cuda.is_available() else torch.device("cpu")
+# Optimize matrix multiplication precision using new TF32 API
+if torch.cuda.is_available():
+    torch.backends.cuda.matmul.fp32_precision = "tf32"
+    torch.backends.cudnn.conv.fp32_precision = "tf32"
 
 # Random seed for reproducibility
 seed = 42
@@ -68,7 +72,8 @@ results_dir = "results"
 
 # Specific dataset file paths
 ecore_json_path = os.path.join(datasets_dir, "ecore_555/ecore_555.jsonl")
-mar_json_path = os.path.join(datasets_dir, "mar-ecore-github/ecore-github.jsonl")
+mar_json_path = os.path.join(
+    datasets_dir, "mar-ecore-github/ecore-github.jsonl")
 modelsets_uml_json_path = os.path.join(datasets_dir, "modelset/uml.jsonl")
 modelsets_ecore_json_path = os.path.join(datasets_dir, "modelset/ecore.jsonl")
 
