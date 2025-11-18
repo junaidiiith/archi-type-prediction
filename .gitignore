@@ -211,3 +211,5 @@ __marimo__/
 architype/data*
 
 archi_*_texts
+
+results/*
