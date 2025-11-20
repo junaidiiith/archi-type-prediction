@@ -32,7 +32,7 @@ class EncodingDataset(Dataset):
         max_length = get_max_length(tokenizer) if max_length is None else max_length
 
         if remove_duplicates:
-            print(f"Dataset with {len(texts)} samples before removing duplicates")
+            # print(f"Dataset with {len(texts)} samples before removing duplicates")
             texts_to_id = {text: i for i, text in enumerate(texts)}
             texts = list(texts_to_id.keys())
             labels = [labels[i] for i in texts_to_id.values()] if labels else None

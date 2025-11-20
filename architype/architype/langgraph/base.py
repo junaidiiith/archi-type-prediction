@@ -10,7 +10,7 @@ import copy
 from abc import abstractmethod
 from typing import Any, Dict, Iterable, Tuple
 from uuid import uuid4
-
+import random
 import networkx as nx
 import numpy as np
 import torch
@@ -70,6 +70,20 @@ class LangGraph(nx.DiGraph):
         graph.add_edges_from(edges)
         return graph
 
+    def remove_edges(self, *, edge_removal: float = 0.5) -> None:
+        """
+        Remove edges from the graph.
+        """
+        if edge_removal <= 0:
+            return
+        if edge_removal >= 1:
+            return
+        # print(f"Removing {int(edge_removal * self.number_of_edges())} edges from {self.number_of_edges()} edges")
+        # print("Before removal: ", self.edges())
+        self.remove_edges_from(random.sample(list(self.edges()), int(edge_removal * self.number_of_edges())))
+        # print("After removal: ", self.edges())
+        
+        
     @property
     def enr(self) -> float:
         if self.number_of_nodes() == 0:

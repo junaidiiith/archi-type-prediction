@@ -15,7 +15,7 @@ class CleansingConfig(BaseModel):
     min_enr: float = Field(default=1.2)
     duplicate_overlap_threshold: float = Field(default=0.9)
     dummy_ratio_threshold: float = Field(default=0.5)
-    llm_filter_threshold: float = Field(default=0.5)
+    llm_filter_threshold: float = Field(default=-1)
 
 
 class ExtractionConfig(BaseModel):

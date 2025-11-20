@@ -30,19 +30,19 @@ from ..base import TextClassificationModel
 
 @dataclass
 class BertTrainingConfig:
-    num_train_epochs: float = 3.0
-    per_device_train_batch_size: int = 64
+    num_train_epochs: float = 3
+    per_device_train_batch_size: int = 32
     per_device_eval_batch_size: int = 128
     learning_rate: float = 2e-5
     weight_decay: float = 0.01
     warmup_ratio: float = 0.0
     max_length: Optional[int] = None
-    evaluation_strategy: str = "epoch"
-    save_strategy: str = "epoch"
-    logging_steps: int = 50
-    eval_steps: int = 50
+    eval_strategy: str = "steps"
+    save_strategy: str = "steps"
+    logging_steps: int = 100
+    eval_steps: int = 100
     gradient_accumulation_steps: int = 1
-    early_stopping_patience: Optional[int] = 20
+    early_stopping_patience: Optional[int] = 50
 
 
 def _prepare_label_encoding(
@@ -122,7 +122,7 @@ def _make_compute_metrics(id2label: Optional[Dict[int, Any]] = None):
         metrics["macro_precision"] = precision
         metrics["macro_recall"] = recall
 
-        # Per-class metrics
+        # Per-class metrics - flattened for TensorBoard compatibility
         if id2label is not None:
             per_class_precision, per_class_recall, per_class_f1, per_class_support = (
                 precision_recall_fscore_support(
@@ -133,20 +133,24 @@ def _make_compute_metrics(id2label: Optional[Dict[int, Any]] = None):
                 )
             )
 
-            per_class_metrics: Dict[str, Dict[str, float]] = {}
             unique_labels = sorted(set(labels) | set(preds))
 
-            # Map sorted unique labels to their array indices
+            # Flatten per-class metrics into scalar values for TensorBoard
+            # Format: per_class/{label_name}/{metric_name}
             for idx, class_id in enumerate(unique_labels):
                 label_name = id2label.get(class_id, f"class_{class_id}")
-                per_class_metrics[label_name] = {
-                    "precision": float(per_class_precision[idx]),
-                    "recall": float(per_class_recall[idx]),
-                    "f1": float(per_class_f1[idx]),
-                    "support": int(per_class_support[idx]),
-                }
+                # Sanitize label name for TensorBoard (replace spaces/special chars with underscores)
+                safe_label_name = str(label_name).replace(
+                    " ", "_").replace("/", "_")
 
-            metrics["per_class"] = per_class_metrics
+                metrics[f"per_class/{safe_label_name}/precision"] = float(
+                    per_class_precision[idx])
+                metrics[f"per_class/{safe_label_name}/recall"] = float(
+                    per_class_recall[idx])
+                metrics[f"per_class/{safe_label_name}/f1"] = float(
+                    per_class_f1[idx])
+                metrics[f"per_class/{safe_label_name}/support"] = int(
+                    per_class_support[idx])
 
         return metrics
 
@@ -224,6 +228,14 @@ class BertTextClassifier(TextClassificationModel):
         # Otherwise, use macro_f1 for best model selection
         metric_for_best = "eval_loss" if config.early_stopping_patience is not None else "macro_f1"
 
+        # Determine evaluation strategy
+        # If eval_steps is set, use "steps" strategy; otherwise use the configured strategy
+        eval_strategy = config.eval_strategy
+        eval_steps_value = None
+        if hasattr(config, "eval_steps") and config.eval_steps is not None:
+            eval_strategy = "steps"
+            eval_steps_value = config.eval_steps
+
         training_args = TrainingArguments(
             output_dir=str(self.output_dir),
             num_train_epochs=config.num_train_epochs,
@@ -232,14 +244,18 @@ class BertTextClassifier(TextClassificationModel):
             learning_rate=config.learning_rate,
             weight_decay=config.weight_decay,
             warmup_ratio=config.warmup_ratio,
-            eval_strategy=config.evaluation_strategy,
+            eval_strategy=eval_strategy,
+            eval_steps=eval_steps_value,
             save_strategy=config.save_strategy,
             logging_steps=config.logging_steps,
             gradient_accumulation_steps=config.gradient_accumulation_steps,
             seed=self.seed,
             load_best_model_at_end=True,
+            save_total_limit=1,
             metric_for_best_model=metric_for_best,
             greater_is_better=(metric_for_best == "macro_f1"),
+            logging_dir=str(self.output_dir / "logs"),
+            remove_unused_columns=True,
         )
 
         callbacks = []

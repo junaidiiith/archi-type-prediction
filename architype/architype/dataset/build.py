@@ -61,7 +61,7 @@ class ModelDataset:
 
         self.timeout = timeout
         self.graphs: List[LangGraph] = []
-        
+
         self.config = config
 
     def get_train_test_split(
@@ -111,6 +111,7 @@ class ModelDataset:
         """
 
         node_cls_label = self.config.node_cls_label if self.config else node_cls_label
+        test_size = self.config.type_semantic_removal if self.config else test_size
         rng = np.random.default_rng(random_state)
         train_samples: List[Dict[str, Any]] = []
         test_samples: List[Dict[str, Any]] = []
@@ -202,7 +203,9 @@ class ModelDataset:
         """
 
         edge_cls_label = self.config.edge_cls_label if self.config else edge_cls_label
-        rng = np.random.default_rng(self.config.seed if self.config else random_state)
+        test_size = self.config.type_semantic_removal if self.config else test_size
+        rng = np.random.default_rng(
+            self.config.seed if self.config else random_state)
         train_samples: List[Dict[str, Any]] = []
         test_samples: List[Dict[str, Any]] = []
 
@@ -342,6 +345,15 @@ class ModelDataset:
 
         return randomized_graphs
 
+    def remove_edges(self, *, edge_removal: float = 0.5) -> List[LangGraph]:
+        """
+        Remove edges from the dataset graphs.
+        """
+        if edge_removal <= 0 or edge_removal >= 1:
+            raise ValueError(f"Edge removal must be between 0 and 1, got {edge_removal}")
+        for graph in self.graphs:
+            graph.remove_edges(edge_removal=edge_removal)
+
     def __repr__(self) -> str:
         return f"Dataset({self.name}, graphs={len(self.graphs)})"
 
@@ -383,7 +395,7 @@ class ModelDataset:
         duplicate_overlap_threshold = self.config.cleansing_config.duplicate_overlap_threshold if self.config else duplicate_overlap_threshold
         dummy_ratio_threshold = self.config.cleansing_config.dummy_ratio_threshold if self.config else dummy_ratio_threshold
         llm_filter_threshold = self.config.cleansing_config.llm_filter_threshold if self.config else llm_filter_threshold
-        
+
         self.graphs = filter_by_edges(
             self.graphs,
             min_edges=min_edges,
