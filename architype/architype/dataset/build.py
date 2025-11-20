@@ -480,15 +480,9 @@ class ArchiMateDataset(ModelDataset):
             os.path.join(save_dir, f"{dataset_name}.pkl"))
         if reload or not dataset_exists:
             self.graphs = []
-            data_path = os.path.join(dataset_dir, "processed-models")
-            if language:
-                df = pd.read_csv(os.path.join(
-                    dataset_dir, f"{language}-metadata.csv"))
-                model_dirs = df["ID"].to_list()
-            else:
-                model_dirs = os.listdir(data_path)
+            data_path = os.path.join(dataset_dir, "raw-models")
 
-            for model_dir in tqdm(model_dirs, desc=f"Loading {dataset_name.title()}"):
+            for model_dir in tqdm(os.listdir(data_path), desc=f"Loading {dataset_name.title()}"):
                 model_dir = os.path.join(data_path, model_dir)
                 if not os.path.isdir(model_dir):
                     continue
@@ -496,6 +490,8 @@ class ArchiMateDataset(ModelDataset):
                 if not os.path.exists(model_file):
                     continue
                 model = json.load(open(model_file))
+                if language and model["language"] != language:
+                    continue
                 nxg = ArchiMateNxG(
                     model,
                     path=model_file,
@@ -540,7 +536,7 @@ class OntoUMLDataset(ModelDataset):
         )
         if reload or not dataset_exists:
             self.graphs = []
-            data_path = os.path.join(dataset_dir, "models")
+            data_path = os.path.join(dataset_dir, "raw-models")
             if not os.path.isdir(data_path):
                 raise FileNotFoundError(
                     f"OntoUML data directory not found: {data_path}"
