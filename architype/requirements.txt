@@ -22,3 +22,4 @@ xmltodict
 bitsandbytes
 datasets
 torchvision
+together

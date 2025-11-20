@@ -92,42 +92,46 @@ def deduplicate_graphs(
     edges is greater than or equal to ``edge_overlap_threshold`` relative to the
     smaller graph.
     """
+    
+    return list({"$".join(_serialize_edge(graph, edge) for edge in graph.edges): graph for graph in graphs}.values())
 
-    unique_graphs: List[nx.DiGraph] = []
-    signature_cache: List[Set[EdgeSignature]] = []
-    duplicates: List[DuplicateRecord] = []
+    # unique_graphs: List[nx.DiGraph] = []
+    # signature_cache: List[Set[EdgeSignature]] = []
+    # duplicates: List[DuplicateRecord] = []
 
-    for idx, graph in enumerate(graphs):
-        signature = build_edge_signature(graph)
-        if not signature:
-            unique_graphs.append(graph)
-            signature_cache.append(signature)
-            continue
+    
+    # return list(graph_objs.values())
+    # for idx, graph in enumerate(graphs):
+    #     signature = build_edge_signature(graph)
+    #     if not signature:
+    #         unique_graphs.append(graph)
+    #         signature_cache.append(signature)
+    #         continue
 
-        found_duplicate = False
-        for unique_idx, unique_signature in enumerate(signature_cache):
-            if not unique_signature:
-                continue
-            shared_edges = signature & unique_signature
-            baseline = min(len(signature), len(unique_signature))
-            overlap_ratio = len(shared_edges) / baseline if baseline else 0.0
-            if overlap_ratio >= edge_overlap_threshold:
-                duplicates.append(
-                    DuplicateRecord(
-                        source_index=unique_idx,
-                        duplicate_index=idx,
-                        overlap_ratio=overlap_ratio,
-                        shared_edges=shared_edges,
-                    )
-                )
-                found_duplicate = True
-                break
+    #     found_duplicate = False
+    #     for unique_idx, unique_signature in enumerate(signature_cache):
+    #         if not unique_signature:
+    #             continue
+    #         shared_edges = signature & unique_signature
+    #         baseline = min(len(signature), len(unique_signature))
+    #         overlap_ratio = len(shared_edges) / baseline if baseline else 0.0
+    #         if overlap_ratio >= edge_overlap_threshold:
+    #             duplicates.append(
+    #                 DuplicateRecord(
+    #                     source_index=unique_idx,
+    #                     duplicate_index=idx,
+    #                     overlap_ratio=overlap_ratio,
+    #                     shared_edges=shared_edges,
+    #                 )
+    #             )
+    #             found_duplicate = True
+    #             break
 
-        if not found_duplicate:
-            unique_graphs.append(graph)
-            signature_cache.append(signature)
+    #     if not found_duplicate:
+    #         unique_graphs.append(graph)
+    #         signature_cache.append(signature)
 
-    return unique_graphs, duplicates
+    # return unique_graphs, duplicates
 
 
 __all__ = ["deduplicate_graphs", "build_edge_signature", "DuplicateRecord"]

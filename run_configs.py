@@ -7,16 +7,17 @@ import os
 import json
 import itertools
 import hashlib
-import argparse
+# import argparse
 
-def parse_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--ml", type=str, default="archi", choices=["archi", "ontouml"])
-    return parser.parse_args()
+# def parse_args():
+#     parser = argparse.ArgumentParser()
+#     parser.add_argument("--ml", type=str, default="archi", choices=["archi", "ontouml"])
+#     return parser.parse_args()
 
-args = parse_args()
-modeling_language = args.ml
+# args = parse_args()
+# modeling_language = args.ml
 
+modeling_language = 'ontouml'
 dataset_name = 'eamodelset' if modeling_language == 'archi' else 'ontouml'
 
 dataset_dir = os.path.join("architype", "data", "raw", dataset_name)

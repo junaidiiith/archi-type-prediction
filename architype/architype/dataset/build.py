@@ -402,7 +402,7 @@ class ModelDataset:
             min_enr=min_enr,
         )
         if duplicate_overlap_threshold > 0:
-            self.graphs, _ = deduplicate_graphs(
+            self.graphs = deduplicate_graphs(
                 self.graphs,
                 edge_overlap_threshold=duplicate_overlap_threshold,
             )
