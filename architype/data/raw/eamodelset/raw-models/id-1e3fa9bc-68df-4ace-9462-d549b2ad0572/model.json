@@ -1,0 +1,458 @@
+{
+    "identifier": "https://me.big.tuwien.ac.at/EAModelSet/id-1e3fa9bc-68df-4ace-9462-d549b2ad0572",
+    "archimateId": "id-1e3fa9bc-68df-4ace-9462-d549b2ad0572",
+    "name": "Vzorov\u00fd metamodel EG v0.7",
+    "description": "Vzorov\u00fd referen\u010dn\u00ed metamodel pro tvorbu architektury EG speci\u00e1ln\u011b pro OVM a jejich vyu\u017eit\u00ed",
+    "formats": [
+        "XML",
+        "CSV",
+        "JSON",
+        "ARCHIMATE"
+    ],
+    "source": "GitHub",
+    "repository": "OPENCZEG/metamodel-eg",
+    "license": "Not found",
+    "sourceFile": "raw-data/github/xml/vzorov\u00fd_metamodel_eg_v0.7.xml",
+    "sourceFormat": "XML",
+    "timestamp": "2023-07-06T09:29:17",
+    "tags": [],
+    "duplicates": [],
+    "language": "cs",
+    "elements": [
+        {
+            "id": "id-metamodel-schopnost",
+            "name": "Schopnost",
+            "type": "Capability",
+            "layer": "strategy"
+        },
+        {
+            "id": "id-metamodel-organizacni-jednotka",
+            "name": "\u00datvar \u010di organiza\u010dn\u00ed jednotka",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-ovm",
+            "name": "Org\u00e1n ve\u0159ejn\u00e9 moci",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-subjekt",
+            "name": "Subjekt",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-agenda",
+            "name": "Agenda",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-ukon",
+            "name": "\u00dakon",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-evidence-byznysove",
+            "name": "Evidence",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-povinnost",
+            "name": "Povinnost",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-pravo",
+            "name": "Pr\u00e1vo",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-acinnost",
+            "name": "Agendov\u00e1 \u010dinnost",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-proces",
+            "name": "Proces",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-gestor",
+            "name": "Gestor",
+            "type": "BusinessRole",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-ohlasovatel",
+            "name": "Ohla\u0161ovatel",
+            "type": "BusinessRole",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-role",
+            "name": "Role",
+            "type": "BusinessRole",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-sluzba-agendy",
+            "name": "Slu\u017eba ve\u0159ejn\u00e9 spr\u00e1vy",
+            "type": "BusinessService",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-sluzba",
+            "name": "Slu\u017eba",
+            "type": "BusinessService",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-pravni-predpis",
+            "name": "Pr\u00e1vn\u00ed p\u0159edpis",
+            "type": "Contract",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-ustanoveni",
+            "name": "Ustanoven\u00ed pr\u00e1vn\u00edho p\u0159edpisu",
+            "type": "Contract",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-vnitrni-predpis",
+            "name": "Vnit\u0159n\u00ed p\u0159edpis",
+            "type": "Contract",
+            "layer": "business"
+        },
+        {
+            "id": "id-metamodel-isprovozni",
+            "name": "Informa\u010dn\u00ed syst\u00e9m",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-isvs",
+            "name": "Informa\u010dn\u00ed syst\u00e9m ve\u0159ejn\u00e9 spr\u00e1vy",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-komponentais",
+            "name": "Komponenta syst\u00e9mu",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-modulis",
+            "name": "Modul informa\u010dn\u00edho syst\u00e9mu",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-provozni-aplikace",
+            "name": "Provozn\u00ed aplikace",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-aplikacni-rozhrani",
+            "name": "Rozhran\u00ed mezi aplikacemi",
+            "type": "ApplicationInterface",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-aplikacni-sluzba",
+            "name": "Aplika\u010dn\u00ed slu\u017eba",
+            "type": "ApplicationService",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-evidence-udaju",
+            "name": "Evidence \u00fadaj\u016f",
+            "type": "DataObject",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-evidence",
+            "name": "Evidence",
+            "type": "DataObject",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-identifikator-objektu",
+            "name": "Identifik\u00e1tor objektu",
+            "type": "DataObject",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-identifikator-subjektu",
+            "name": "Identifik\u00e1tor subjektu",
+            "type": "DataObject",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-identifikator",
+            "name": "Identifik\u00e1tor",
+            "type": "DataObject",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-kontext",
+            "name": "Kontext",
+            "type": "DataObject",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-skupina-udaju",
+            "name": "Skupina \u00fadaj\u016f",
+            "type": "DataObject",
+            "layer": "application"
+        },
+        {
+            "id": "id-metamodel-meaning-aplikacni-vrstva",
+            "name": "Aplika\u010dn\u00ed vrstva",
+            "type": "Meaning",
+            "layer": "motivation"
+        },
+        {
+            "id": "id-Metamodel-meaning-byznysova-vrstva",
+            "name": "Byznysov\u00e1 vrstva",
+            "type": "Meaning",
+            "layer": "motivation"
+        },
+        {
+            "id": "id-metamodel-meaning-identifikator-objektu",
+            "name": "Identifik\u00e1tor objektu",
+            "type": "Meaning",
+            "layer": "motivation"
+        },
+        {
+            "id": "id-metamodel-meaning-identifikator-subjektu",
+            "name": "Identifik\u00e1tor subjektu",
+            "type": "Meaning",
+            "layer": "motivation"
+        },
+        {
+            "id": "id-metamodel-meaning-identifikator",
+            "name": "Identifik\u00e1tor",
+            "type": "Meaning",
+            "layer": "motivation"
+        },
+        {
+            "id": "id-metamodel-meaning-implementacni-vrstva",
+            "name": "Implementa\u010dn\u00ed vrstva",
+            "type": "Meaning",
+            "layer": "motivation"
+        },
+        {
+            "id": "id-metamodel-meaning-motivacni-vrstva",
+            "name": "Motiva\u010dn\u00ed vrstva",
+            "type": "Meaning",
+            "layer": "motivation"
+        },
+        {
+            "id": "id-Metamodel-meaning-strategicka-vrstva",
+            "name": "Strategick\u00e1 vrstva",
+            "type": "Meaning",
+            "layer": "motivation"
+        },
+        {
+            "id": "id-metamodel-meaning-technologicka-vrstva",
+            "name": "Technologick\u00e1 vrstva",
+            "type": "Meaning",
+            "layer": "motivation"
+        },
+        {
+            "id": "id-metamodel-vice-ovm",
+            "name": "Skupina org\u00e1n\u016f ve\u0159ejn\u00e9 moci",
+            "type": "Grouping",
+            "layer": "other"
+        }
+    ],
+    "relationships": [
+        {
+            "id": "id-metamodel-isvs-evidence",
+            "sourceId": "id-metamodel-isvs",
+            "targetId": "id-metamodel-evidence-udaju",
+            "type": "Access"
+        },
+        {
+            "id": "id-metamodel-isvs-sprava-udaju",
+            "sourceId": "id-metamodel-isvs",
+            "targetId": "id-metamodel-skupina-udaju",
+            "type": "Access"
+        },
+        {
+            "id": "id-metamodel-cinnostni-role",
+            "sourceId": "id-metamodel-ovm",
+            "targetId": "id-metamodel-acinnost",
+            "type": "Assignment"
+        },
+        {
+            "id": "id-metamodel-subjekt-do-role",
+            "sourceId": "id-metamodel-subjekt",
+            "targetId": "id-metamodel-role",
+            "type": "Assignment"
+        },
+        {
+            "id": "id-metamodel-vykon-pusobnosti",
+            "sourceId": "id-metamodel-ovm",
+            "targetId": "id-metamodel-agenda",
+            "type": "Assignment"
+        },
+        {
+            "id": "id-metamodel-agenda-cinnost",
+            "sourceId": "id-metamodel-agenda",
+            "targetId": "id-metamodel-acinnost",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-gesce-za-predpis",
+            "sourceId": "id-metamodel-ovm",
+            "targetId": "id-metamodel-pravni-predpis",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-ohlasovatelagendy",
+            "sourceId": "id-metamodel-ovm",
+            "targetId": "id-metamodel-agenda",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-ohlasovatelagendy1",
+            "sourceId": "id-metamodel-ohlasovatel",
+            "targetId": "id-metamodel-agenda",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-role-ma-povinnost",
+            "sourceId": "id-metamodel-role",
+            "targetId": "id-metamodel-povinnost",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-role-ma-pravo",
+            "sourceId": "id-metamodel-role",
+            "targetId": "id-metamodel-pravo",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-sluzba-zagendy",
+            "sourceId": "id-metamodel-agenda",
+            "targetId": "id-metamodel-sluzba-agendy",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-subjekt-ma-povinnost",
+            "sourceId": "id-metamodel-subjekt",
+            "targetId": "id-metamodel-povinnost",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-subjekt-ma-pravo",
+            "sourceId": "id-metamodel-subjekt",
+            "targetId": "id-metamodel-pravo",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-ukon-agendy",
+            "sourceId": "id-metamodel-agenda",
+            "targetId": "id-metamodel-ukon",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-urceni-povinnosti",
+            "sourceId": "id-metamodel-pravni-predpis",
+            "targetId": "id-metamodel-povinnost",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-urceni-prava",
+            "sourceId": "id-metamodel-pravni-predpis",
+            "targetId": "id-metamodel-pravo",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-ustanoveni-acinnost",
+            "sourceId": "id-metamodel-ustanoveni",
+            "targetId": "id-metamodel-acinnost",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-vydava-pravni-predpis",
+            "sourceId": "id-metamodel-ovm",
+            "targetId": "id-metamodel-pravni-predpis",
+            "type": "Association"
+        },
+        {
+            "id": "id-METAMODEL-VYDAVA-VNITRNI-PREDPIS",
+            "sourceId": "id-metamodel-ovm",
+            "targetId": "id-metamodel-vnitrni-predpis",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-zakon-agenda",
+            "sourceId": "id-metamodel-pravni-predpis",
+            "targetId": "id-metamodel-agenda",
+            "type": "Association"
+        },
+        {
+            "id": "id-metamodel-appdekompozice-komponenta",
+            "sourceId": "id-metamodel-isvs",
+            "targetId": "id-metamodel-modulis",
+            "type": "Composition"
+        },
+        {
+            "id": "id-metamodel-appdekompozice-modul",
+            "sourceId": "id-metamodel-isvs",
+            "targetId": "id-metamodel-modulis",
+            "type": "Composition"
+        },
+        {
+            "id": "id-metamodel-zakon-ustanoveni",
+            "sourceId": "id-metamodel-pravni-predpis",
+            "targetId": "id-metamodel-ustanoveni",
+            "type": "Composition"
+        },
+        {
+            "id": "id-metamodel-evidence-a-udaje",
+            "sourceId": "id-metamodel-evidence-udaju",
+            "targetId": "id-metamodel-evidence-byznysove",
+            "type": "Realization"
+        },
+        {
+            "id": "id-metamodel-provozuje-provozniis",
+            "sourceId": "id-metamodel-ovm",
+            "targetId": "id-metamodel-isprovozni",
+            "type": "Serving"
+        },
+        {
+            "id": "id-metamodel-spravuje-isvs",
+            "sourceId": "id-metamodel-ovm",
+            "targetId": "id-metamodel-isvs",
+            "type": "Serving"
+        },
+        {
+            "id": "id-metamodel-uziva-isvs",
+            "sourceId": "id-metamodel-isvs",
+            "targetId": "id-metamodel-ovm",
+            "type": "Serving"
+        }
+    ],
+    "views": [
+        {
+            "id": "id-fa6874e1-8d3d-46f1-a331-678265aa0d34",
+            "name": "All Items",
+            "viewpoint": ""
+        }
+    ]
+}

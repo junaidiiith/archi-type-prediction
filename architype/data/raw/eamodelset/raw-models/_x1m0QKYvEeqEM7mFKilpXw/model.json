@@ -1,0 +1,266 @@
+{
+    "identifier": "https://me.big.tuwien.ac.at/EAModelSet/_x1m0QKYvEeqEM7mFKilpXw",
+    "archimateId": "_x1m0QKYvEeqEM7mFKilpXw",
+    "name": "\u0421\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u0433\u0440\u0443\u043f\u043f\u044b \u0441\u0438\u0441\u0442\u0435\u043c\u043d\u043e\u0439 \u0438 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043d\u043e\u0439 \u0438\u043d\u0436\u0435\u043d\u0435\u0440\u0438\u0438",
+    "description": "",
+    "formats": [
+        "XML",
+        "CSV",
+        "JSON",
+        "ARCHIMATE"
+    ],
+    "source": "GenMyModel",
+    "repository": "",
+    "license": "",
+    "sourceFile": "raw-data/genmymodel/_x1m0qkyveeqem7mfkilpxw.xml",
+    "sourceFormat": "XML",
+    "timestamp": "2023-07-06T10:01:17",
+    "tags": [],
+    "duplicates": [],
+    "language": "ru",
+    "elements": [
+        {
+            "id": "_UFThAIheEDiUD4NhimZWOw",
+            "name": "\u0420\u0443\u043a\u043e\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c \u0433\u0440\u0443\u043f\u043f\u044b \u0441\u0438\u0441\u0442\u0435\u043c\u043d\u043e\u0439 \u0438 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043d\u043e\u0439 \u0438\u043d\u0436\u0435\u043d\u0435\u0440\u0438\u0438 - \u0413\u043b\u0435\u043d\u044c \u0414.\u0410.",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_s_R10IhfEDiUD4NhimZWOw",
+            "name": "Team Leader - \u041a\u0440\u044f\u0447\u043a\u043e \u041c.\u0412.",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_0hr3UIhfEDiUD4NhimZWOw",
+            "name": "Team Leader - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_PJVEUIhgEDiUD4NhimZWOw",
+            "name": "QA-\u0438\u043d\u0436\u0435\u043d\u0435\u0440 - \u0412\u0435\u0440\u0433\u0435\u043b\u044c \u0410.\u041d.",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_1Nh0MIhgEDiUD4NhimZWOw",
+            "name": "\u0422\u0435\u0441\u0442\u0438\u0440\u043e\u0432\u0449\u0438\u043a 1 - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f ",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_g8RFAIhhEDiUD4NhimZWOw",
+            "name": "\u0422\u0435\u0441\u0442\u0438\u0440\u043e\u0432\u0449\u0438\u043a 2 - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_k1DUcIhhEDiUD4NhimZWOw",
+            "name": "\u0422\u0435\u0441\u0442\u0438\u0440\u043e\u0432\u0449\u0438\u043a 3 - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_yTq1sIhhEDiUD4NhimZWOw",
+            "name": "\u0421\u0438\u0441\u0442\u0435\u043c\u043d\u044b\u0439 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u043e\u0440 - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_96dSoIhhEDiUD4NhimZWOw",
+            "name": "Team Leader  - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_EPmPwIhiEDiUD4NhimZWOw",
+            "name": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442 SGGM-102 \u0438 SGLM-102 - \u041a\u043e\u0440\u043d\u0435\u0439\u0447\u0435\u0432 \u041f.\u041d.",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_gr0_0IhiEDiUD4NhimZWOw",
+            "name": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442 \u0411\u0414 - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_j_zSAIhiEDiUD4NhimZWOw",
+            "name": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442 -  \u0421\u0435\u0434\u044b\u0445 \u0410.\u0410.",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_rrfyYIhiEDiUD4NhimZWOw",
+            "name": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442 - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_ubjfMIhiEDiUD4NhimZWOw",
+            "name": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442 - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_2jcMUIhiEDiUD4NhimZWOw",
+            "name": "\u0410\u043d\u0430\u043b\u0438\u0442\u0438\u043a - \u0421\u0430\u0443\u043b\u044f\u043a \u0410.\u0418.",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_FJIqYIhjEDiUD4NhimZWOw",
+            "name": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442 -  \u0428\u043f\u0438\u043b\u0435\u0432 \u0412.\u0413.",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_I8bV0IhjEDiUD4NhimZWOw",
+            "name": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442 - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_LjuIMIhjEDiUD4NhimZWOw",
+            "name": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442 GUI - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_XxXJwIhjEDiUD4NhimZWOw",
+            "name": "\u0422\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u043f\u0438\u0441\u0430\u0442\u0435\u043b\u044c - \u041a\u0430\u0441\u0430\u0442\u043e\u0432\u0430 \u0410.\u0412.",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "__9eBUIhjEDiUD4NhimZWOw",
+            "name": "\u0421\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442 \u043f\u043e \u043a\u0438\u0431\u0435\u0440\u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438 - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_pEzyEIhkEDiUD4NhimZWOw",
+            "name": "\u041f\u0440\u043e\u0435\u043a\u0442\u0438\u0440\u043e\u0432\u0449\u0438\u043a \u0410\u0421\u0420\u041a (RMS) - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_r0RB8IhkEDiUD4NhimZWOw",
+            "name": "\u041f\u0440\u043e\u0435\u043a\u0442\u0438\u0440\u043e\u0432\u0449\u0438\u043a \u0410\u0421\u0418\u0414\u041a (PRMS) - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_1KYcwIhkEDiUD4NhimZWOw",
+            "name": "\u0422\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u043f\u0438\u0441\u0430\u0442\u0435\u043b\u044c - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "__PDmsIhkEDiUD4NhimZWOw",
+            "name": "\u0418\u043d\u0436\u0435\u043d\u0435\u0440 \u043f\u043e \u043d\u0430\u0434\u0435\u0436\u043d\u043e\u0441\u0442\u0438 - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_1xu7MIhlEDiUD4NhimZWOw",
+            "name": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442 SGGM-102 \u0438 SGLM-102 - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_ABnPkIhmEDiUD4NhimZWOw",
+            "name": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442 MV-22 - \u0410\u0431\u0430\u043a\u0443\u043c\u043e\u0432 \u0412.\u0413.",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_FI880IhmEDiUD4NhimZWOw",
+            "name": "\u0418\u043d\u0436\u0435\u043d\u0435\u0440 \u043f\u043e \u0437\u0430\u043a\u0443\u043f\u043e\u0447\u043d\u044b\u043c \u043f\u043e\u0437\u0438\u0446\u0438\u044f\u043c (\u043a\u0430\u0441\u0441\u0435\u0442\u043d\u0438\u0446\u044b, \u0432\u043e\u0437\u0434\u0443\u0445\u043e\u0434\u0443\u0432\u043a\u0438 \u0438 \u0442.\u0434.)",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_PLjYQIhoEDiUD4NhimZWOw",
+            "name": "\u0414\u0438\u0437\u0430\u0439\u043d\u0435\u0440 - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_Ix2KkIhwEDiUD4NhimZWOw",
+            "name": "\u0410\u043d\u0430\u043b\u0438\u0442\u0438\u043a RMS- \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_VjnM4IhwEDiUD4NhimZWOw",
+            "name": "\u0410\u043d\u0430\u043b\u0438\u0442\u0438\u043a RMS - \u0412\u0430\u043a\u0430\u043d\u0441\u0438\u044f",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_7XmooIiTEDiUD4NhimZWOw",
+            "name": "\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442 \u0441\u0438\u0441\u0442\u0435\u043c\u044b \u043e\u0442\u0447\u0435\u0442\u043e\u0432 - \u041a\u0440\u0443\u0433\u0430\u043b\u044c \u0412.\u0421.",
+            "type": "BusinessActor",
+            "layer": "business"
+        }
+    ],
+    "relationships": [
+        {
+            "id": "_rsgUcYhhEDiUD4NhimZWOw",
+            "sourceId": "_PJVEUIhgEDiUD4NhimZWOw",
+            "targetId": "_1Nh0MIhgEDiUD4NhimZWOw",
+            "type": "Association"
+        },
+        {
+            "id": "_suxpw4hhEDiUD4NhimZWOw",
+            "sourceId": "_PJVEUIhgEDiUD4NhimZWOw",
+            "targetId": "_g8RFAIhhEDiUD4NhimZWOw",
+            "type": "Association"
+        },
+        {
+            "id": "_tam1A4hhEDiUD4NhimZWOw",
+            "sourceId": "_PJVEUIhgEDiUD4NhimZWOw",
+            "targetId": "_k1DUcIhhEDiUD4NhimZWOw",
+            "type": "Association"
+        },
+        {
+            "id": "_vhea4IhhEDiUD4NhimZWOw",
+            "sourceId": "_UFThAIheEDiUD4NhimZWOw",
+            "targetId": "_PJVEUIhgEDiUD4NhimZWOw",
+            "type": "Association"
+        },
+        {
+            "id": "_Yt08kohkEDiUD4NhimZWOw",
+            "sourceId": "_UFThAIheEDiUD4NhimZWOw",
+            "targetId": "_s_R10IhfEDiUD4NhimZWOw",
+            "type": "Composition"
+        },
+        {
+            "id": "_ZeZd44hkEDiUD4NhimZWOw",
+            "sourceId": "_UFThAIheEDiUD4NhimZWOw",
+            "targetId": "_0hr3UIhfEDiUD4NhimZWOw",
+            "type": "Composition"
+        },
+        {
+            "id": "_bF6OQIhkEDiUD4NhimZWOw",
+            "sourceId": "_UFThAIheEDiUD4NhimZWOw",
+            "targetId": "_yTq1sIhhEDiUD4NhimZWOw",
+            "type": "Composition"
+        },
+        {
+            "id": "_kt9toIhkEDiUD4NhimZWOw",
+            "sourceId": "_UFThAIheEDiUD4NhimZWOw",
+            "targetId": "_96dSoIhhEDiUD4NhimZWOw",
+            "type": "Composition"
+        }
+    ],
+    "views": [
+        {
+            "id": "_x1m0Q6YvEeqEM7mFKilpXw",
+            "name": "archimate-diagram",
+            "viewpoint": ""
+        }
+    ]
+}

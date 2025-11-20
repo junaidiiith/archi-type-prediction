@@ -1,0 +1,1159 @@
+{
+    "identifier": "https://me.big.tuwien.ac.at/EAModelSet/_ImXeMP4zEeq_35Z1GKTxtw",
+    "archimateId": "_ImXeMP4zEeq_35Z1GKTxtw",
+    "name": "\u0413\u041e\u0421\u0421\u041d\u0410\u0411 \u0410\u0420\u0425\u0418",
+    "description": "",
+    "formats": [
+        "XML",
+        "CSV",
+        "JSON",
+        "ARCHIMATE"
+    ],
+    "source": "GenMyModel",
+    "repository": "",
+    "license": "",
+    "sourceFile": "raw-data/genmymodel/_imxemp4zeeq_35z1gktxtw.xml",
+    "sourceFormat": "XML",
+    "timestamp": "2023-07-06T10:01:18",
+    "tags": [],
+    "duplicates": [],
+    "language": "ru",
+    "elements": [
+        {
+            "id": "_Imezl_4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0443\u0447\u0430\u0441\u0442\u0438\u0435\u043c \u0432 \u0442\u0435\u043d\u0434\u0435\u0440\u0430\u0445 (\u0441\u0435\u0440\u0432\u0438\u0441)",
+            "type": "BusinessService",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezmf4zEeq_35Z1GKTxtw",
+            "name": "TSSI Admin",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezm_4zEeq_35Z1GKTxtw",
+            "name": "\u0418\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u044e\u0442 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0437\u0430\u0446\u0438\u0438(\u0444\u0443\u043d\u043a\u0446\u0438\u044f)",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Imeznf4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u0435\u0434\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044e \u043e \u0440\u0430\u0431\u043e\u0442\u0435 \u0431\u0438\u0437\u043d\u0435\u0441\u0430 (\u0444\u0443\u043d\u043a\u0446\u0438\u044f)",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezn_4zEeq_35Z1GKTxtw",
+            "name": "\u0410\u043d\u0430\u043b\u0438\u0442\u0438\u043aBpium",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezo_4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0438",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezpf4zEeq_35Z1GKTxtw",
+            "name": "\u041e\u043f\u0438\u0441\u044b\u0432\u0430\u0435\u0442 \u0431\u0438\u0437\u043d\u0435\u0441-\u043c\u043e\u0434\u0435\u043b\u044c(\u0444\u0443\u043d\u043a\u0446\u0438\u044f)",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezp_4zEeq_35Z1GKTxtw",
+            "name": "\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 Bpium",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezqf4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u043e\u0435\u043a\u0442\u0438\u0440\u043e\u0432\u0449\u0438\u043a \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f Bpium",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezq_4zEeq_35Z1GKTxtw",
+            "name": "\u041e\u043f\u0438\u0441\u044b\u0432\u0430\u0435\u0442 \u043c\u043e\u0434\u0435\u043b\u044c \u0434\u0430\u043d\u043d\u044b\u0445(\u0444\u0443\u043d\u043a\u0446\u0438\u044f)",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezrf4zEeq_35Z1GKTxtw",
+            "name": "\u041e\u043f\u0438\u0441\u044b\u0432\u0430\u0435\u0442 \u043c\u043e\u0434\u0435\u043b\u044c \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0439(\u0444\u0443\u043d\u043a\u0446\u0438\u044f)",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezr_4zEeq_35Z1GKTxtw",
+            "name": "\u041e\u043f\u0438\u0441\u044b\u0432\u0430\u0435\u0442 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u0443\u0440\u0443 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f(\u0444\u0443\u043d\u043a\u0446\u0438\u044f)",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezsf4zEeq_35Z1GKTxtw",
+            "name": "\u0418\u043d\u0436\u0435\u043d\u0435\u0440 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f Bpium",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezs_4zEeq_35Z1GKTxtw",
+            "name": "\u0420\u0435\u0430\u043b\u0438\u0437\u0443\u0435\u0442 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435(\u0444\u0443\u043d\u043a\u0446\u0438\u044f)",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Imeztf4zEeq_35Z1GKTxtw",
+            "name": "2500 \u0440\u0443\u0431/\u0447\u0430\u0441",
+            "type": "Principle",
+            "layer": "motivation"
+        },
+        {
+            "id": "_Imezt_4zEeq_35Z1GKTxtw",
+            "name": "1100 \u0440\u0443\u0431 \u0437\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u0432 \u043c\u0435\u0441\u044f\u0446",
+            "type": "Principle",
+            "layer": "motivation"
+        },
+        {
+            "id": "_Imezuf4zEeq_35Z1GKTxtw",
+            "name": "\u0412\u0435\u0440\u0445\u043d\u0435\u0443\u0440\u043e\u0432\u043d\u0435\u0432\u0430\u044f \u0431\u0438\u0437\u043d\u0435\u0441-\u043c\u043e\u0434\u0435\u043b\u044c",
+            "type": "Grouping",
+            "layer": "other"
+        },
+        {
+            "id": "_Imezu_4zEeq_35Z1GKTxtw",
+            "name": "\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u044e\u0442 \u0442\u0435\u043d\u0434\u0435\u0440\u0430\u043c\u0438",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezvf4zEeq_35Z1GKTxtw",
+            "name": "\u0423\u043f\u0440\u0430\u0432\u043b\u044f\u0435\u0442 \u0441\u0434\u0435\u043b\u043a\u0430\u043c\u0438",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezv_4zEeq_35Z1GKTxtw",
+            "name": "\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+            "type": "BusinessRole",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezwf4zEeq_35Z1GKTxtw",
+            "name": "e-mail",
+            "type": "BusinessInterface",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezw_4zEeq_35Z1GKTxtw",
+            "name": "\u0423\u043f\u0440\u0430\u0432\u043b\u044f\u044e\u0449\u0438\u0439",
+            "type": "BusinessRole",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezxf4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u0441\u0432\u043e\u0434\u043d\u044b\u0435 \u043e\u0442\u0447\u0435\u0442\u044b",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezx_4zEeq_35Z1GKTxtw",
+            "name": "\u0423\u043f\u0440\u0430\u0432\u043b\u044f\u0435\u0442 \u0441\u043e\u0441\u0442\u0430\u0432\u043e\u043c  \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u043e\u0432",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezyf4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u0437\u0430\u0434\u0430\u0447\u0438",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezy_4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u043e\u0446\u0435\u0441\u0441 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0442\u0435\u043d\u0434\u0435\u0440\u043e\u043c",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezzf4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u043e\u0446\u0435\u0441\u0441 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0441\u0434\u0435\u043b\u043a\u043e\u0439",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "_Imezz_4zEeq_35Z1GKTxtw",
+            "name": "\u0445\u0445 - \u0445\u0445 \u0447\u0430\u0441\u043e\u0432",
+            "type": "Meaning",
+            "layer": "motivation"
+        },
+        {
+            "id": "_Imez0f4zEeq_35Z1GKTxtw",
+            "name": "\u041e\u0431\u044a\u0435\u043a\u0442\u044b \u043c\u043e\u0434\u0435\u043b\u0438 (\u0434\u0430\u043d\u043d\u044b\u0435)",
+            "type": "Grouping",
+            "layer": "other"
+        },
+        {
+            "id": "_Imez0_4zEeq_35Z1GKTxtw",
+            "name": "\u0422\u0435\u043d\u0434\u0435\u0440",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "_Imez1f4zEeq_35Z1GKTxtw",
+            "name": "\u0421\u0434\u0435\u043b\u043a\u0430",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "_Imez1_4zEeq_35Z1GKTxtw",
+            "name": "\u041a\u043e\u043c\u043f\u0430\u043d\u0438\u044f",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "_Imez2f4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u043b\u043e\u0449\u0430\u0434\u043a\u0430",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "_Imez2_4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u043e\u0441\u0442\u0430\u0432\u0449\u0438\u043a",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "_Imez3f4zEeq_35Z1GKTxtw",
+            "name": "\u0422\u043e\u0432\u0430\u0440",
+            "type": "Product",
+            "layer": "business"
+        },
+        {
+            "id": "_Imez3_4zEeq_35Z1GKTxtw",
+            "name": "\u0417\u0430\u0434\u0430\u0447\u0430",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "_Imez4f4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f \u043c\u043e\u0434\u0435\u043b\u0438 (\u0438\u043d\u0442\u0435\u0433\u0440\u0430\u0446\u0438\u0438)",
+            "type": "Grouping",
+            "layer": "other"
+        },
+        {
+            "id": "_Imez4_4zEeq_35Z1GKTxtw",
+            "name": "gossnab.bpium.ru",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "_Imez5f4zEeq_35Z1GKTxtw",
+            "name": "1C",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "_Imez5_4zEeq_35Z1GKTxtw",
+            "name": "RTC \u0442\u0435\u043d\u0434\u0435\u0440",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "_Imez6f4zEeq_35Z1GKTxtw",
+            "name": "\u0421\u0435\u0440\u0432\u0435\u0440 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u043e\u0439 \u043f\u043e\u0447\u0442\u044b",
+            "type": "ApplicationComponent",
+            "layer": "application"
+        },
+        {
+            "id": "_Imez6_4zEeq_35Z1GKTxtw",
+            "name": "Meaning",
+            "type": "Meaning",
+            "layer": "motivation"
+        },
+        {
+            "id": "_Ime0Bf4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u043e\u0446\u0435\u0441\u0441 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u044f \u0442\u0435\u043d\u0434\u0435\u0440\u043e\u0432",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0B_4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0442\u0435\u043d\u0434\u0435\u0440\u0430 \u0441 \u043f\u043b\u043e\u0449\u0430\u0434\u043a\u0438",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Cf4zEeq_35Z1GKTxtw",
+            "name": "\u0420\u0430\u0441\u043f\u0440\u0435\u0434\u0435\u043b\u0435\u043d\u0438\u0435 \u0442\u0435\u043d\u0434\u0435\u0440\u0430 \u043d\u0430 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u0430",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0C_4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u043e\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 \u0437\u0430\u0434\u0430\u0447\u0438 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u0443 \u043e \u043d\u043e\u0432\u043e\u043c \u0442\u0435\u043d\u0434\u0435\u0440\u0435",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Df4zEeq_35Z1GKTxtw",
+            "name": "\u0423\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u0435 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u0430 \u043f\u043e \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u043e\u0439 \u043f\u043e\u0447\u0442\u0435",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0D_4zEeq_35Z1GKTxtw",
+            "name": "\u041e\u0431\u0435\u0441\u043f\u0435\u0447\u0438\u0442\u044c \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c \u043d\u0430\u0438\u0431\u043e\u043b\u0435\u0435 \u0431\u044b\u0441\u0442\u0440\u043e\u0433\u043e \u043d\u0430\u0447\u0430\u043b\u0430 \u0440\u0430\u0431\u043e\u0442\u044b \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u0430 \u0441 \u0442\u0435\u043d\u0434\u0435\u0440\u043e\u043c",
+            "type": "Goal",
+            "layer": "motivation"
+        },
+        {
+            "id": "_Ime0Ef4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u043e\u0446\u0435\u0441\u0441 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0442\u0435\u043d\u0434\u0435\u0440\u043e\u043c",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0E_4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u043e\u0432 \u0442\u0435\u043d\u0434\u0435\u0440\u0430",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Ff4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0441\u0432\u044f\u0437\u0435\u0439 \u0442\u0435\u043d\u0434\u0435\u0440\u0430",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0F_4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u0442\u0435\u043d\u0434\u0435\u0440\u0430",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Gf4zEeq_35Z1GKTxtw",
+            "name": "\u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u043e\u0432 \u0442\u0435\u043d\u0434\u0435\u0440\u0430",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0G_4zEeq_35Z1GKTxtw",
+            "name": "\u0422\u0435\u043d\u0434\u0435\u0440",
+            "type": "DataObject",
+            "layer": "application"
+        },
+        {
+            "id": "_Ime0Hf4zEeq_35Z1GKTxtw",
+            "name": "\u0417\u0430\u0434\u0430\u0447\u0430",
+            "type": "DataObject",
+            "layer": "application"
+        },
+        {
+            "id": "_Ime0H_4zEeq_35Z1GKTxtw",
+            "name": "\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+            "type": "DataObject",
+            "layer": "application"
+        },
+        {
+            "id": "_Ime0If4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u043b\u043e\u0449\u0430\u0434\u043a\u0430",
+            "type": "DataObject",
+            "layer": "application"
+        },
+        {
+            "id": "_Ime0I_4zEeq_35Z1GKTxtw",
+            "name": "Goal",
+            "type": "Goal",
+            "layer": "motivation"
+        },
+        {
+            "id": "_Ime0Jf4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u0435 \u043e \u0442\u043e\u043c \u0447\u0442\u043e \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440 \u043d\u0435 \u043f\u0440\u0438\u0441\u0442\u0443\u043f\u0438\u043b \u043a \u0440\u0430\u0431\u043e\u0442\u0435 \u043d\u0430\u0434 \u0442\u0435\u043d\u0434\u0435\u0440\u043e\u043c",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0J_4zEeq_35Z1GKTxtw",
+            "name": "\u0418\u0437\u043c\u0435\u043d\u044f\u0435\u0442 \u043d\u0430\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u044f \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u043e\u0432 \u043d\u0430 \u0442\u0435\u043d\u0434\u0435\u0440\u044b",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Kf4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u043e\u0446\u0435\u0441\u0441 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u043e\u043c",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0K_4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u0438\u043a\u0440\u0435\u043f\u043b\u0435\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Lf4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u043e\u0432 \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u0430",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0L_4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0441\u0432\u044f\u0437\u0435\u0439 \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u0430",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Mf4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0441\u0432\u044f\u0437\u0435\u0439 \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u0430",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0M_4zEeq_35Z1GKTxtw",
+            "name": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u043e\u0432 \u0432\u0440\u0443\u0447\u043d\u0443\u044e",
+            "type": "Requirement",
+            "layer": "motivation"
+        },
+        {
+            "id": "_Ime0Nf4zEeq_35Z1GKTxtw",
+            "name": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u043e\u0432 \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438",
+            "type": "Requirement",
+            "layer": "motivation"
+        },
+        {
+            "id": "_Ime0N_4zEeq_35Z1GKTxtw",
+            "name": "Requirement",
+            "type": "Requirement",
+            "layer": "motivation"
+        },
+        {
+            "id": "_Ime0Of4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u043e\u0432\u044b\u0441\u0438\u0442\u044c \u044d\u0444\u0444\u0435\u043a\u0442\u0438\u0432\u043d\u043e\u0441\u0442\u044c \u0440\u0430\u0431\u043e\u0442\u044b",
+            "type": "Goal",
+            "layer": "motivation"
+        },
+        {
+            "id": "_Ime0O_4zEeq_35Z1GKTxtw",
+            "name": "\u0421\u043e\u043a\u0440\u0430\u0442\u0438\u0442\u044c \u0432\u0440\u0435\u043c\u044f \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0439",
+            "type": "Assessment",
+            "layer": "motivation"
+        },
+        {
+            "id": "_Ime0Pf4zEeq_35Z1GKTxtw",
+            "name": "\u0421\u043e\u043a\u0440\u0430\u0442\u0438\u0442\u044c \u043a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u043e\u0442\u043a\u043b\u043e\u043d\u0435\u043d\u0438\u0439 \u043e\u0442 \u043f\u0440\u043e\u0446\u0435\u0430\u0430\u0441",
+            "type": "Assessment",
+            "layer": "motivation"
+        },
+        {
+            "id": "_Ime0P_4zEeq_35Z1GKTxtw",
+            "name": "\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Qf4zEeq_35Z1GKTxtw",
+            "name": "Process \u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0442\u0435\u043d\u0434\u0435\u0440\u043e\u043c",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Q_4zEeq_35Z1GKTxtw",
+            "name": "Process\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0441\u0434\u0435\u043b\u043a\u043e\u0439",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Rf4zEeq_35Z1GKTxtw",
+            "name": "\u0423\u043f\u0440\u0430\u0432\u043b\u044f\u044e\u0449\u0438\u0439",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0R_4zEeq_35Z1GKTxtw",
+            "name": "Object \u0417\u0430\u043a\u0430\u0437\u0447\u0438\u043a",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Sf4zEeq_35Z1GKTxtw",
+            "name": "Object\u0421\u0434\u0435\u043b\u043a\u0430",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0S_4zEeq_35Z1GKTxtw",
+            "name": "Object\u041e\u0431\u044a\u0435\u043a\u0442 \u0437\u0430\u043a\u0443\u043f\u043a\u0438",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Tf4zEeq_35Z1GKTxtw",
+            "name": "Object\u0422\u0435\u043d\u0434\u0435\u0440",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0T_4zEeq_35Z1GKTxtw",
+            "name": "Function\u0414\u043e\u0431\u0430\u0432\u043b\u044f\u0435\u0442  \u0442\u0435\u043d\u0434\u0435\u0440",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Uf4zEeq_35Z1GKTxtw",
+            "name": "Function\u0412\u0435\u0434\u0435\u0442 \u0441\u0434\u0435\u043b\u043a\u0443",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0U_4zEeq_35Z1GKTxtw",
+            "name": "Function \u041d\u0430\u0437\u043d\u0430\u0447\u0430\u0435\u0442 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u0430 \u043d\u0430 \u0442\u0435\u043d\u0434\u0435\u0440",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Vf4zEeq_35Z1GKTxtw",
+            "name": "Function\u041f\u0440\u0438\u043a\u0440\u0435\u043f\u043b\u044f\u0435\u0442 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0V_4zEeq_35Z1GKTxtw",
+            "name": "Function\u041d\u0430\u0437\u043d\u0430\u0447\u0430\u0435\u0442 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u0430 \u043d\u0430 \u0437\u0430\u043a\u0430\u0437\u0447\u0438\u043a\u0430",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Wf4zEeq_35Z1GKTxtw",
+            "name": "Function\u041f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u043e\u0442\u0447\u0435\u0442 \u043e \u043f\u0440\u0438\u0431\u044b\u043b\u0438",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0W_4zEeq_35Z1GKTxtw",
+            "name": "Object",
+            "type": "BusinessObject",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Xf4zEeq_35Z1GKTxtw",
+            "name": "Requirement\u041f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u044f \u043e \u043a\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0445\u0441\u0440\u043e\u043a\u0430\u0445",
+            "type": "Requirement",
+            "layer": "motivation"
+        },
+        {
+            "id": "_Ime0X_4zEeq_35Z1GKTxtw",
+            "name": "Function: \u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Yf4zEeq_35Z1GKTxtw",
+            "name": "Function \u041f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u0442\u0435\u043d\u0434\u0435\u0440",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Y_4zEeq_35Z1GKTxtw",
+            "name": "\u041f\u0440\u0438\u043a\u0440\u0435\u043f\u043b\u044f\u0435\u0442 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Zf4zEeq_35Z1GKTxtw",
+            "name": "Function \u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u0442 \u043d\u0430\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0Z_4zEeq_35Z1GKTxtw",
+            "name": "Function",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0af4zEeq_35Z1GKTxtw",
+            "name": "Function",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0a_4zEeq_35Z1GKTxtw",
+            "name": "Function",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0bf4zEeq_35Z1GKTxtw",
+            "name": "Function: \u0423\u0441\u0442\u0430\u043d\u0430\u0432\u043b\u0438\u0432\u0430\u0435\u0442 \u043e\u0442\u043c\u0435\u0442\u043a\u0443 \u043e \u0432\u044b\u0438\u0433\u0440\u044b\u0448\u0435",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0e_4zEeq_35Z1GKTxtw",
+            "name": "Function: \u0423\u043f\u0440\u0430\u0432\u043b\u044f\u044e\u0449\u0438\u0439",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_Ime0ff4zEeq_35Z1GKTxtw",
+            "name": "Function: \u041f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442 \u043d\u0430\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_prmtgOBiEDiONuhips_Dmg",
+            "name": "Participant",
+            "type": "BusinessActor",
+            "layer": "business"
+        },
+        {
+            "id": "_-oQtoOBiEDiONuhips_Dmg",
+            "name": "TSSI",
+            "type": "TechnologyService",
+            "layer": "technology"
+        },
+        {
+            "id": "_QH0UwOBjEDiONuhips_Dmg",
+            "name": "Summitapp",
+            "type": "TechnologyService",
+            "layer": "technology"
+        },
+        {
+            "id": "_QlFfkOBjEDiONuhips_Dmg",
+            "name": "Summit Registration",
+            "type": "TechnologyService",
+            "layer": "technology"
+        },
+        {
+            "id": "_bOyCIOBjEDiONuhips_Dmg",
+            "name": "Frontend - Browser",
+            "type": "TechnologyInterface",
+            "layer": "technology"
+        },
+        {
+            "id": "_gesckOBjEDiONuhips_Dmg",
+            "name": "PDF Generators",
+            "type": "TechnologyProcess",
+            "layer": "technology"
+        },
+        {
+            "id": "_lLb4gOBjEDiONuhips_Dmg",
+            "name": "Redaxo (Summitapp)",
+            "type": "SystemSoftware",
+            "layer": "technology"
+        },
+        {
+            "id": "_pwbGoOBjEDiONuhips_Dmg",
+            "name": "Database (Summitapp)",
+            "type": "Equipment",
+            "layer": "technology"
+        },
+        {
+            "id": "_zDOHsOBjEDiONuhips_Dmg",
+            "name": "WebApp",
+            "type": "Device",
+            "layer": "technology"
+        },
+        {
+            "id": "_-EbyYOBjEDiONuhips_Dmg",
+            "name": "Redaxo Core",
+            "type": "SystemSoftware",
+            "layer": "technology"
+        },
+        {
+            "id": "_C0BG8OBkEDiONuhips_Dmg",
+            "name": "Poll Module",
+            "type": "TechnologyFunction",
+            "layer": "technology"
+        },
+        {
+            "id": "_Ly8w0OBkEDiONuhips_Dmg",
+            "name": "Database (Redaxo + Paricipants)",
+            "type": "Equipment",
+            "layer": "technology"
+        },
+        {
+            "id": "_NUyXAOBkEDiONuhips_Dmg",
+            "name": "Participant Frontend",
+            "type": "TechnologyInterface",
+            "layer": "technology"
+        },
+        {
+            "id": "_NUyXAuBkEDiONuhips_Dmg",
+            "name": "Database (Summitapp)",
+            "type": "Equipment",
+            "layer": "technology"
+        },
+        {
+            "id": "_Ozz5wOBkEDiONuhips_Dmg",
+            "name": "Redaxo (Registraion)",
+            "type": "SystemSoftware",
+            "layer": "technology"
+        },
+        {
+            "id": "_Z1s54OBkEDiONuhips_Dmg",
+            "name": "Admin Backend",
+            "type": "TechnologyInterface",
+            "layer": "technology"
+        },
+        {
+            "id": "_Z1tg8eBkEDiONuhips_Dmg",
+            "name": "Database (Summitapp)",
+            "type": "Equipment",
+            "layer": "technology"
+        }
+    ],
+    "relationships": [
+        {
+            "id": "_Imez7f4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imez5_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imez4_4zEeq_35Z1GKTxtw",
+            "type": "Association"
+        },
+        {
+            "id": "_Imez7_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imez4_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imez5f4zEeq_35Z1GKTxtw",
+            "type": "Association"
+        },
+        {
+            "id": "_Imez8f4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imez4_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imez6f4zEeq_35Z1GKTxtw",
+            "type": "Association"
+        },
+        {
+            "id": "_Imez8_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imez5_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imez6_4zEeq_35Z1GKTxtw",
+            "type": "Association"
+        },
+        {
+            "id": "_Imez9f4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezv_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezu_4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_Imez9_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezv_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezvf4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_Imez-f4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezv_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezyf4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_Imez-_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezwf4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezyf4zEeq_35Z1GKTxtw",
+            "type": "Association"
+        },
+        {
+            "id": "_Imez_f4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezw_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezxf4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_Imez__4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezw_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezx_4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_Ime0Af4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezvf4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezzf4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_Ime0A_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezu_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezy_4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_Ime0b_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0Yf4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0Y_4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_Ime0cf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0Y_4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0Zf4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_Ime0c_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0Zf4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0ff4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_Ime0df4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0Z_4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0af4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_Ime0d_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0af4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0a_4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_Ime0ef4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0a_4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0bf4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_Ime0f_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0ff4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0Z_4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_Ime0pf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezm_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezl_4zEeq_35Z1GKTxtw",
+            "type": "Realization"
+        },
+        {
+            "id": "_Ime0p_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezmf4zEeq_35Z1GKTxtw",
+            "targetId": "_Imeznf4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_Ime0qf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezo_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezm_4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_Ime0rf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezn_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezpf4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_ImfaAf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezn_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezq_4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_ImfaA_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezn_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezrf4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_ImfaBf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezqf4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezr_4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_ImfaB_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezsf4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezs_4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_ImfaCf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezs_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezl_4zEeq_35Z1GKTxtw",
+            "type": "Realization"
+        },
+        {
+            "id": "_ImfaC_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezpf4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezq_4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_ImfaDf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezq_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezrf4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_ImfaD_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezrf4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezr_4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_ImfaEf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezr_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezs_4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_ImfaE_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imeztf4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezn_4zEeq_35Z1GKTxtw",
+            "type": "Association"
+        },
+        {
+            "id": "_ImfaFf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imeztf4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezqf4zEeq_35Z1GKTxtw",
+            "type": "Association"
+        },
+        {
+            "id": "_ImfaF_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imeztf4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezsf4zEeq_35Z1GKTxtw",
+            "type": "Association"
+        },
+        {
+            "id": "_ImfaGf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezm_4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezt_4zEeq_35Z1GKTxtw",
+            "type": "Association"
+        },
+        {
+            "id": "_ImfaG_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imezuf4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezl_4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_ImfaHf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Imeznf4zEeq_35Z1GKTxtw",
+            "targetId": "_Imezpf4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_ImfaH_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0B_4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0Cf4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_ImfaIf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0Cf4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0C_4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_ImfaI_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0C_4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0Df4zEeq_35Z1GKTxtw",
+            "type": "Flow"
+        },
+        {
+            "id": "_ImfaJf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0Bf4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0D_4zEeq_35Z1GKTxtw",
+            "type": "Association"
+        },
+        {
+            "id": "_ImfaJ_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0Ef4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0I_4zEeq_35Z1GKTxtw",
+            "type": "Association"
+        },
+        {
+            "id": "_ImfaKf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0O_4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0Of4zEeq_35Z1GKTxtw",
+            "type": "Association"
+        },
+        {
+            "id": "_ImfaK_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0Pf4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0Of4zEeq_35Z1GKTxtw",
+            "type": "Association"
+        },
+        {
+            "id": "_ImfaLf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0P_4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0T_4zEeq_35Z1GKTxtw",
+            "type": "Assignment"
+        },
+        {
+            "id": "_ImfaL_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0P_4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0Uf4zEeq_35Z1GKTxtw",
+            "type": "Assignment"
+        },
+        {
+            "id": "_ImfaMf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0Rf4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0U_4zEeq_35Z1GKTxtw",
+            "type": "Assignment"
+        },
+        {
+            "id": "_ImfaM_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0Rf4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0V_4zEeq_35Z1GKTxtw",
+            "type": "Assignment"
+        },
+        {
+            "id": "_ImfaNf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0Rf4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0Wf4zEeq_35Z1GKTxtw",
+            "type": "Assignment"
+        },
+        {
+            "id": "_ImfaN_4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0T_4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0Vf4zEeq_35Z1GKTxtw",
+            "type": "Composition"
+        },
+        {
+            "id": "_ImfaOf4zEeq_35Z1GKTxtw",
+            "sourceId": "_Ime0Uf4zEeq_35Z1GKTxtw",
+            "targetId": "_Ime0Vf4zEeq_35Z1GKTxtw",
+            "type": "Composition"
+        },
+        {
+            "id": "_EiWGcOBjEDiONuhips_Dmg",
+            "sourceId": "_-oQtoOBiEDiONuhips_Dmg",
+            "targetId": "_Imezmf4zEeq_35Z1GKTxtw",
+            "type": "Serving"
+        },
+        {
+            "id": "_H62TUOBjEDiONuhips_Dmg",
+            "sourceId": "_-oQtoOBiEDiONuhips_Dmg",
+            "targetId": "_prmtgOBiEDiONuhips_Dmg",
+            "type": "Serving"
+        },
+        {
+            "id": "_XudWAOBjEDiONuhips_Dmg",
+            "sourceId": "_-oQtoOBiEDiONuhips_Dmg",
+            "targetId": "_QlFfkOBjEDiONuhips_Dmg",
+            "type": "Serving"
+        },
+        {
+            "id": "_YL9KUOBjEDiONuhips_Dmg",
+            "sourceId": "_-oQtoOBiEDiONuhips_Dmg",
+            "targetId": "_QH0UwOBjEDiONuhips_Dmg",
+            "type": "Serving"
+        },
+        {
+            "id": "_fBRcUOBjEDiONuhips_Dmg",
+            "sourceId": "_QH0UwOBjEDiONuhips_Dmg",
+            "targetId": "_bOyCIOBjEDiONuhips_Dmg",
+            "type": "Triggering"
+        },
+        {
+            "id": "_i1PdMOBjEDiONuhips_Dmg",
+            "sourceId": "_QH0UwOBjEDiONuhips_Dmg",
+            "targetId": "_gesckOBjEDiONuhips_Dmg",
+            "type": "Triggering"
+        },
+        {
+            "id": "_nvz5wOBjEDiONuhips_Dmg",
+            "sourceId": "_QH0UwOBjEDiONuhips_Dmg",
+            "targetId": "_lLb4gOBjEDiONuhips_Dmg",
+            "type": "Triggering"
+        },
+        {
+            "id": "_uWvxgOBjEDiONuhips_Dmg",
+            "sourceId": "_QH0UwOBjEDiONuhips_Dmg",
+            "targetId": "_pwbGoOBjEDiONuhips_Dmg",
+            "type": "Serving"
+        },
+        {
+            "id": "_0vs3oOBjEDiONuhips_Dmg",
+            "sourceId": "_bOyCIOBjEDiONuhips_Dmg",
+            "targetId": "_zDOHsOBjEDiONuhips_Dmg",
+            "type": "Triggering"
+        },
+        {
+            "id": "_IFSzUOBkEDiONuhips_Dmg",
+            "sourceId": "_lLb4gOBjEDiONuhips_Dmg",
+            "targetId": "_-EbyYOBjEDiONuhips_Dmg",
+            "type": "Specialization"
+        },
+        {
+            "id": "_Jao1oOBkEDiONuhips_Dmg",
+            "sourceId": "_lLb4gOBjEDiONuhips_Dmg",
+            "targetId": "_C0BG8OBkEDiONuhips_Dmg",
+            "type": "Serving"
+        },
+        {
+            "id": "_sL08oOBkEDiONuhips_Dmg",
+            "sourceId": "_lLb4gOBjEDiONuhips_Dmg",
+            "targetId": "_-EbyYOBjEDiONuhips_Dmg",
+            "type": "Realization"
+        },
+        {
+            "id": "_AVcxwOBvEDiONuhips_Dmg",
+            "sourceId": "_QlFfkOBjEDiONuhips_Dmg",
+            "targetId": "_Z1s54OBkEDiONuhips_Dmg",
+            "type": "Triggering"
+        },
+        {
+            "id": "_BUvrkOBvEDiONuhips_Dmg",
+            "sourceId": "_QlFfkOBjEDiONuhips_Dmg",
+            "targetId": "_Ly8w0OBkEDiONuhips_Dmg",
+            "type": "Serving"
+        },
+        {
+            "id": "_Bv-2EOBvEDiONuhips_Dmg",
+            "sourceId": "_QlFfkOBjEDiONuhips_Dmg",
+            "targetId": "_NUyXAOBkEDiONuhips_Dmg",
+            "type": "Triggering"
+        },
+        {
+            "id": "_CuiJAOBvEDiONuhips_Dmg",
+            "sourceId": "_QlFfkOBjEDiONuhips_Dmg",
+            "targetId": "_Ozz5wOBkEDiONuhips_Dmg",
+            "type": "Triggering"
+        }
+    ],
+    "views": [
+        {
+            "id": "_ImeL4P4zEeq_35Z1GKTxtw",
+            "name": "archimate-diagram",
+            "viewpoint": ""
+        },
+        {
+            "id": "_ImeMO_4zEeq_35Z1GKTxtw",
+            "name": "archimate-diagram",
+            "viewpoint": ""
+        },
+        {
+            "id": "_ImeM6P4zEeq_35Z1GKTxtw",
+            "name": "archimate-diagram",
+            "viewpoint": ""
+        },
+        {
+            "id": "_ImezFf4zEeq_35Z1GKTxtw",
+            "name": "archimate-diagram",
+            "viewpoint": ""
+        },
+        {
+            "id": "_PUASYOCIEDiONuhips_Dmg",
+            "name": "archimate-diagram",
+            "viewpoint": ""
+        },
+        {
+            "id": "_QXJxcOCIEDiONuhips_Dmg",
+            "name": "archimate-diagram",
+            "viewpoint": ""
+        },
+        {
+            "id": "_bIQjkOCIEDiONuhips_Dmg",
+            "name": "archimate-diagram",
+            "viewpoint": ""
+        },
+        {
+            "id": "_eN4QsOCIEDiONuhips_Dmg",
+            "name": "archimate-diagram",
+            "viewpoint": ""
+        }
+    ]
+}

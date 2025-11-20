@@ -1,0 +1,276 @@
+{
+    "identifier": "https://me.big.tuwien.ac.at/EAModelSet/_QnfQsKNJEeqEM7mFKilpXw",
+    "archimateId": "_QnfQsKNJEeqEM7mFKilpXw",
+    "name": "Software configuration lifecycle",
+    "description": "",
+    "formats": [
+        "XML",
+        "CSV",
+        "JSON",
+        "ARCHIMATE"
+    ],
+    "source": "GenMyModel",
+    "repository": "",
+    "license": "",
+    "sourceFile": "raw-data/genmymodel/_qnfqsknjeeqem7mfkilpxw.xml",
+    "sourceFormat": "XML",
+    "timestamp": "2023-07-06T10:01:17",
+    "tags": [],
+    "duplicates": [],
+    "language": "ru",
+    "elements": [
+        {
+            "id": "_QnhF-KNJEeqEM7mFKilpXw",
+            "name": "\u041d\u0430\u0447\u0430\u043b\u043e \u041f\u0440\u043e\u0435\u043a\u0442\u0430",
+            "type": "BusinessEvent",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhF-qNJEeqEM7mFKilpXw",
+            "name": "\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043d\u043e\u0433\u043e \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0435\u043d\u0438\u044f",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhF_KNJEeqEM7mFKilpXw",
+            "name": "\u0420\u0435\u043b\u0438\u0437-\u0442\u0435\u0441\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhF_qNJEeqEM7mFKilpXw",
+            "name": "\u0412\u044b\u043f\u0443\u0441\u043a \u0431\u0430\u0437\u043e\u0432\u043e\u0439 \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u0438",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhGAKNJEeqEM7mFKilpXw",
+            "name": "\u0418\u043d\u0441\u0442\u0430\u043b\u043b\u044f\u0446\u0438\u044f, \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435, \u0437\u0430\u0432\u043e\u0434\u0441\u043a\u0438\u0435 \u0438\u0441\u043f\u044b\u0442\u0430\u043d\u0438\u044f \u0441 \u043f\u0440\u0438\u043c\u0435\u043d\u0435\u043d\u0438\u0435\u043c \u043f\u043e\u0441\u0442\u0430\u0432\u043e\u0447\u043d\u043e\u0433\u043e \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f \u0438 \u044d\u043c\u0443\u043b\u044f\u0442\u043e\u0440\u043e\u0432 (FAT)",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhGAqNJEeqEM7mFKilpXw",
+            "name": "\u041a\u0432\u0430\u043b\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044f, \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044f, \u043c\u0435\u0442\u0440\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u0430\u0442\u0442\u0435\u0441\u0442\u0430\u0446\u0438\u044f",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhGBKNJEeqEM7mFKilpXw",
+            "name": "\u041f\u043e\u0441\u0442\u0430\u0432\u043a\u0430 \u0421\u0443\u0431\u043f\u043e\u0441\u0442\u0430\u0432\u0449\u0438\u043a\u0443",
+            "type": "BusinessEvent",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhGBqNJEeqEM7mFKilpXw",
+            "name": "\u041f\u0440\u0438\u043c\u0435\u043d\u0435\u043d\u0438\u0435 \u043d\u0430 \u043f\u043b\u043e\u0449\u0430\u0434\u043a\u0435 \u0421\u0443\u0431\u043f\u043e\u0441\u0442\u0430\u0432\u0449\u0438\u043a\u0430 \u0432 \u0441\u043e\u0441\u0442\u0430\u0432\u0435 \u0421\u0438\u0441\u0442\u0435\u043c\u044b",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhGCKNJEeqEM7mFKilpXw",
+            "name": "\u0412\u0432\u043e\u0434 \u0432 \u044d\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0438\u044e \u0438 \u044d\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0438\u044f \u043d\u0430 \u043f\u043b\u043e\u0449\u0430\u0434\u043a\u0435 \u0410\u042d\u0421 \u041f\u0410\u041a\u0428-II",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhGCqNJEeqEM7mFKilpXw",
+            "name": "\u041f\u043e\u0441\u0442\u0430\u0432\u043a\u0430 \u043d\u0430 \u0410\u042d\u0421 \u041f\u0410\u041a\u0428-II",
+            "type": "BusinessEvent",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhGDKNJEeqEM7mFKilpXw",
+            "name": "\u041e\u043a\u043e\u043d\u0447\u0430\u043d\u0438\u0435 \u041f\u0440\u043e\u0435\u043a\u0442\u0430",
+            "type": "BusinessEvent",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhGDqNJEeqEM7mFKilpXw",
+            "name": "\u0411\u0430\u0437\u043e\u0432\u0430\u044f \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u044f 1",
+            "type": "Artifact",
+            "layer": "technology"
+        },
+        {
+            "id": "_QnhGEKNJEeqEM7mFKilpXw",
+            "name": "\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f\u043c\u0438 \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u0438",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhGEqNJEeqEM7mFKilpXw",
+            "name": "\u0422\u0435\u043a\u0443\u0449\u0430\u044f \u043e\u0434\u043e\u0431\u0440\u0435\u043d\u043d\u0430\u044f \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u044f 2",
+            "type": "Artifact",
+            "layer": "technology"
+        },
+        {
+            "id": "_QnhGFKNJEeqEM7mFKilpXw",
+            "name": "\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f\u043c\u0438 \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u0438",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhGFqNJEeqEM7mFKilpXw",
+            "name": "\u0422\u0435\u043a\u0443\u0449\u0430\u044f \u043e\u0434\u043e\u0431\u0440\u0435\u043d\u043d\u0430\u044f \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u044f 1",
+            "type": "Artifact",
+            "layer": "technology"
+        },
+        {
+            "id": "_QnhGGKNJEeqEM7mFKilpXw",
+            "name": "\u0412\u044b\u043f\u0443\u0441\u043a \u0431\u0430\u0437\u043e\u0432\u043e\u0439 \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u0438",
+            "type": "BusinessProcess",
+            "layer": "business"
+        },
+        {
+            "id": "_QnhGGqNJEeqEM7mFKilpXw",
+            "name": "\u0411\u0430\u0437\u043e\u0432\u0430\u044f \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u044f 2",
+            "type": "Artifact",
+            "layer": "technology"
+        },
+        {
+            "id": "_QnhGHKNJEeqEM7mFKilpXw",
+            "name": "\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430 \u0442\u0440\u0435\u0431\u043e\u0432\u0430\u043d\u0438\u0439",
+            "type": "BusinessFunction",
+            "layer": "business"
+        },
+        {
+            "id": "_quf_EIV3EDiCEvqznVu-GQ",
+            "name": "Deliverable",
+            "type": "Deliverable",
+            "layer": "implementation_migration"
+        }
+    ],
+    "relationships": [
+        {
+            "id": "_QnhGHqNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhF-qNJEeqEM7mFKilpXw",
+            "targetId": "_QnhF_KNJEeqEM7mFKilpXw",
+            "type": "Triggering"
+        },
+        {
+            "id": "_QnhGIKNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhF_KNJEeqEM7mFKilpXw",
+            "targetId": "_QnhF_qNJEeqEM7mFKilpXw",
+            "type": "Triggering"
+        },
+        {
+            "id": "_QnhGIqNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhF_qNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGDqNJEeqEM7mFKilpXw",
+            "type": "Association"
+        },
+        {
+            "id": "_QnhGJKNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhF_qNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGAqNJEeqEM7mFKilpXw",
+            "type": "Triggering"
+        },
+        {
+            "id": "_QnhGJqNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGAqNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGAKNJEeqEM7mFKilpXw",
+            "type": "Triggering"
+        },
+        {
+            "id": "_QnhGKKNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGAKNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGGKNJEeqEM7mFKilpXw",
+            "type": "Triggering"
+        },
+        {
+            "id": "_QnhGKqNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGGKNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGBKNJEeqEM7mFKilpXw",
+            "type": "Triggering"
+        },
+        {
+            "id": "_QnhGLKNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGGKNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGGqNJEeqEM7mFKilpXw",
+            "type": "Association"
+        },
+        {
+            "id": "_QnhGLqNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGAqNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGFKNJEeqEM7mFKilpXw",
+            "type": "Association"
+        },
+        {
+            "id": "_QnhGMKNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGBKNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGBqNJEeqEM7mFKilpXw",
+            "type": "Triggering"
+        },
+        {
+            "id": "_QnhGMqNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGBqNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGEKNJEeqEM7mFKilpXw",
+            "type": "Association"
+        },
+        {
+            "id": "_QnhGNKNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGBqNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGCqNJEeqEM7mFKilpXw",
+            "type": "Triggering"
+        },
+        {
+            "id": "_QnhGNqNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGCqNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGCKNJEeqEM7mFKilpXw",
+            "type": "Triggering"
+        },
+        {
+            "id": "_QnhGOKNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGCKNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGEKNJEeqEM7mFKilpXw",
+            "type": "Association"
+        },
+        {
+            "id": "_QnhGOqNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGCKNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGDKNJEeqEM7mFKilpXw",
+            "type": "Triggering"
+        },
+        {
+            "id": "_QnhGPKNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGEKNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGEqNJEeqEM7mFKilpXw",
+            "type": "Association"
+        },
+        {
+            "id": "_QnhGPqNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGFKNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGFqNJEeqEM7mFKilpXw",
+            "type": "Association"
+        },
+        {
+            "id": "_QnhGQKNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhF-KNJEeqEM7mFKilpXw",
+            "targetId": "_QnhGHKNJEeqEM7mFKilpXw",
+            "type": "Triggering"
+        },
+        {
+            "id": "_QnhGQqNJEeqEM7mFKilpXw",
+            "sourceId": "_QnhGHKNJEeqEM7mFKilpXw",
+            "targetId": "_QnhF-qNJEeqEM7mFKilpXw",
+            "type": "Triggering"
+        }
+    ],
+    "views": [
+        {
+            "id": "_Qnge0KNJEeqEM7mFKilpXw",
+            "name": "archimate-diagram",
+            "viewpoint": ""
+        },
+        {
+            "id": "_0OHUIIV3EDiCEvqznVu-GQ",
+            "name": "archimate-diagram2",
+            "viewpoint": ""
+        },
+        {
+            "id": "_4ajfYYV3EDiCEvqznVu-GQ",
+            "name": "archimate-diagram3",
+            "viewpoint": ""
+        }
+    ]
+}
