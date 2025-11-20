@@ -203,13 +203,19 @@ class BertTextClassifier(TextClassificationModel):
         tokenized_train = _tokenize_dataset(
             dataset["train"], self.tokenizer, self.label2id
         )
+        eval_split = evaluation_dataset.get(
+            "validation", evaluation_dataset.get("test", dataset["train"])
+        )
         tokenized_eval = _tokenize_dataset(
-            evaluation_dataset.get(
-                "validation", evaluation_dataset.get("test", dataset["train"])
-            ),
+            eval_split,
             self.tokenizer,
             self.label2id,
         )
+
+        # Ensure eval dataset is not empty
+        if len(tokenized_eval) == 0:
+            raise ValueError(
+                "Evaluation dataset is empty. Cannot train with empty eval set.")
 
         num_labels = len(self.label2id)
         self.model = AutoModelForSequenceClassification.from_pretrained(
@@ -222,11 +228,6 @@ class BertTextClassifier(TextClassificationModel):
         data_collator = DataCollatorWithPadding(
             tokenizer=self.tokenizer, pad_to_multiple_of=8
         )
-
-        # Determine metric for best model selection
-        # When early stopping is enabled, use eval_loss (monitored by EarlyStoppingCallback)
-        # Otherwise, use macro_f1 for best model selection
-        metric_for_best = "eval_loss" if config.early_stopping_patience is not None else "macro_f1"
 
         # Determine evaluation strategy
         # If eval_steps is set, use "steps" strategy; otherwise use the configured strategy
@@ -252,10 +253,12 @@ class BertTextClassifier(TextClassificationModel):
             seed=self.seed,
             load_best_model_at_end=True,
             save_total_limit=1,
-            metric_for_best_model=metric_for_best,
-            greater_is_better=(metric_for_best == "macro_f1"),
+            metric_for_best_model="eval_loss",
+            greater_is_better=False,  # Lower loss is better
+            report_to=["tensorboard"],
             logging_dir=str(self.output_dir / "logs"),
-            remove_unused_columns=True,
+            remove_unused_columns=False,
+            prediction_loss_only=False,  # Ensure metrics are computed
         )
 
         callbacks = []
