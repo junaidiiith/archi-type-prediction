@@ -1,117 +1,57 @@
 """
-GLAM4CM Configuration Settings
+Cases - 
+x%Structure + y%Semantics
 
-This module contains all configuration constants and settings used throughout
-the GLAM4CM framework, including model configurations, file paths, task types,
-and training parameters.
+x = % of edges removed
+y = % of type semantics removed
 
-The settings are organized into logical groups:
-- Model configurations (BERT, Word2Vec, FastText)
-- File paths and directories
-- Task type constants
-- Training and evaluation constants
-- Graph-specific constants
-
-Author: Syed Juned Ali
-Email: syed.juned.ali@tuwien.ac.at
+semantics = (cleansed, ordered)
 """
 
-import os
-import torch
-import logging
+from pydantic import BaseModel, Field
 
-# Configure logging for the framework
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
+class CleansingConfig(BaseModel):
+    min_edges: int = Field(default=5)
+    min_enr: float = Field(default=-1)
+    duplicate_overlap_threshold: float = Field(default=0.9)
+    dummy_ratio_threshold: float = Field(default=0.5)
+    llm_filter_threshold: float = Field(default=-1)
 
-# =============================================================================
-# MODEL CONFIGURATIONS
-# =============================================================================
 
-# BERT model variants supported by the framework
-BERT_MODEL = "bert-base-uncased"  # Standard BERT base model
-MODERN_BERT = "answerdotai/ModernBERT-base"  # Modern BERT variant
+class ExtractionConfig(BaseModel):
+    use_node_attributes: bool = Field(default=True)
+    use_node_types: bool = Field(default=True)
+    use_edge_types: bool = Field(default=True)
+    use_edge_label: bool = Field(default=True)
+    use_node_label: bool = Field(default=True)
+    use_special_tokens: bool = Field(default=False)
 
-# Traditional embedding models
-WORD2VEC_MODEL = "word2vec"  # Word2Vec model identifier
-TFIDF_MODEL = "tfidf"  # TF-IDF model identifier
-FAST_TEXT_MODEL = "uml-fasttext.bin"  # FastText model for UML domain
 
-# Word2Vec training configuration
-W2V_CONFIG = dict(
-    epoch=100,  # Number of training epochs
-    dim=128,  # Embedding dimension
-    ws=5,  # Window size for context
-    minCount=1,  # Minimum word frequency
-    thread=4,  # Number of training threads
-    model="skipgram",  # Training model type (skipgram or CBOW)
-)
-
-# =============================================================================
-# HARDWARE AND COMPUTATION SETTINGS
-# =============================================================================
-
-# Device configuration for PyTorch
-device = torch.device(
-    "cuda") if torch.cuda.is_available() else torch.device("cpu")
-# Optimize matrix multiplication precision using new TF32 API
-if torch.cuda.is_available():
-    torch.set_float32_matmul_precision('high')
-
-# Random seed for reproducibility
-seed = 42
-
-# =============================================================================
-# FILE PATHS AND DIRECTORIES
-# =============================================================================
-
-# Base directories
-datasets_dir = "datasets"
-results_dir = "results"
-
-# Specific dataset file paths
-ecore_json_path = os.path.join(datasets_dir, "ecore_555/ecore_555.jsonl")
-mar_json_path = os.path.join(
-    datasets_dir, "mar-ecore-github/ecore-github.jsonl")
-modelsets_uml_json_path = os.path.join(datasets_dir, "modelset/uml.jsonl")
-modelsets_ecore_json_path = os.path.join(datasets_dir, "modelset/ecore.jsonl")
-
-# Graph data directory for processed graph representations
-graph_data_dir = "datasets/graph_data"
-
-# =============================================================================
-# TASK TYPE CONSTANTS
-# =============================================================================
-
-# Downstream task identifiers
-EDGE_CLS_TASK = "edge_cls"  # Edge classification task
-LINK_PRED_TASK = "lp"  # Link prediction task
-NODE_CLS_TASK = "node_cls"  # Node classification task
-GRAPH_CLS_TASK = "graph_cls"  # Graph classification task
-DUMMY_GRAPH_CLS_TASK = "dummy_graph_cls"  # Dummy task for testing
-
-# =============================================================================
-# GRAPH REPRESENTATION CONSTANTS
-# =============================================================================
-
-# Edge type constants for conceptual models
-SEP = " "  # Separator for text representations
-REFERENCE = "reference"  # Reference relationship type
-SUPERTYPE = "supertype"  # Inheritance relationship type
-CONTAINMENT = "containment"  # Composition relationship type
-
-# =============================================================================
-# TRAINING AND EVALUATION CONSTANTS
-# =============================================================================
-
-# Training phase identifiers
-TRAINING_PHASE = "train"  # Training phase
-VALIDATION_PHASE = "val"  # Validation phase
-TESTING_PHASE = "test"  # Testing phase
-
-# Metric names for logging and evaluation
-EPOCH = "epoch"  # Epoch number
-LOSS = "loss"  # Loss value
-TRAIN_LOSS = "train_loss"  # Training loss
-TEST_LOSS = "test_loss"  # Test loss
-TEST_ACC = "test_acc"  # Test accuracy
+class RunConfig(BaseModel):
+    task_type: str = Field(default="node_cls")
+    
+    node_cls_label: str = Field(default="type")
+    edge_cls_label: str = Field(default="type")
+    
+    edge_removal: float = Field(default=0.5, ge=0.0, le=1.0)
+    type_semantic_removal: float = Field(default=0.5, ge=0.0, le=1.0)
+    distance: int = Field(default=1, ge=0, le=3)
+    cleanse: bool = Field(default=False)
+    ordered: bool = Field(default=False)
+    language: str = Field(default="en")
+    cleansing_config: CleansingConfig = Field(default=CleansingConfig())
+    extraction_config: ExtractionConfig = Field(default=ExtractionConfig())
+    llm_cleansing: bool = Field(default=False)
+    
+    model: str = Field(default="bert-base-uncased")
+    max_seq_length: int = Field(default=4096)
+    
+    learning_rate: float = Field(default=2e-4)
+    weight_decay: float = Field(default=0.001)
+    lr_scheduler_type: str = Field(default="linear")
+    warmup_steps: int = Field(default=5)
+    max_steps: int = Field(default=60)
+    gradient_accumulation_steps: int = Field(default=4)
+    
+    seed: int = Field(default=3407)
+    save_dir: str = Field(default="results")

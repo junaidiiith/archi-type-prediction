@@ -56,8 +56,7 @@ device = torch.device(
     "cuda") if torch.cuda.is_available() else torch.device("cpu")
 # Optimize matrix multiplication precision using new TF32 API
 if torch.cuda.is_available():
-    torch.backends.cuda.matmul.fp32_precision = "tf32"
-    torch.backends.cudnn.conv.fp32_precision = "tf32"
+    torch.set_float32_matmul_precision('high')
 
 # Random seed for reproducibility
 seed = 42
