@@ -43,6 +43,8 @@ class RunConfig(BaseModel):
     extraction_config: ExtractionConfig = Field(default=ExtractionConfig())
     llm_cleansing: bool = Field(default=False)
     
+    topk: int = Field(default=-1)
+    
     model: str = Field(default="bert-base-uncased")
     max_seq_length: int = Field(default=4096)
     

@@ -10,6 +10,7 @@ import os
 import pickle
 from random import shuffle
 from typing import Any, Dict, Callable, List, Optional, Tuple
+from collections import Counter
 
 from datasets import Dataset, DatasetDict
 from sklearn.model_selection import StratifiedKFold
@@ -188,6 +189,7 @@ class ModelDataset:
         edge_cls_label: str = None,
         test_size: float = None,
         distance: int = None,
+        topk: int = None,
         use_node_attributes: bool = False,
         use_node_types: bool = False,
         use_edge_types: bool = False,
@@ -269,6 +271,14 @@ class ModelDataset:
                     test_samples.append(sample)
                 else:
                     train_samples.append(sample)
+        
+        topk = topk if topk else (self.config.topk if self.config else -1)
+        
+        if topk and topk > 0:
+            label_counts = Counter(sample["label"] for sample in train_samples + test_samples)
+            topk_labels = [label for label, count in label_counts.most_common(topk)]
+            train_samples = [sample for sample in train_samples if sample["label"] in topk_labels]
+            test_samples = [sample for sample in test_samples if sample["label"] in topk_labels]
 
         return DatasetDict(
             {
