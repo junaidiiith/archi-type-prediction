@@ -94,25 +94,25 @@ class ModelDataset:
     def get_node_texts(
         self,
         *,
-        node_cls_label: str = "type",
-        test_size: float = 0.2,
-        distance: int = 0,
+        node_cls_label: str = None,
+        test_size: float = None,
+        distance: int = None,
         use_node_attributes: bool = True,
         use_node_types: bool = True,
         use_edge_types: bool = True,
         use_edge_label: bool = True,
         use_node_label: bool = True,
         use_special_tokens: bool = False,
-        random_state: Optional[int] = 42,
+        random_state: Optional[int] = None,
         preprocessor: Optional[Callable[[str], str]] = None,
     ) -> DatasetDict:
         """
         Build a masked node classification dataset as Hugging Face DatasetDict.
         """
 
-        node_cls_label = self.config.node_cls_label if self.config else node_cls_label
-        test_size = self.config.type_semantic_removal if self.config else test_size
-        rng = np.random.default_rng(random_state)
+        node_cls_label = node_cls_label if node_cls_label else (self.config.node_cls_label if self.config else "type")
+        test_size = test_size if test_size else (self.config.type_semantic_removal if self.config else 0.2)
+        rng = np.random.default_rng(random_state if random_state else (self.config.seed if self.config else 42))
         train_samples: List[Dict[str, Any]] = []
         test_samples: List[Dict[str, Any]] = []
 
@@ -153,7 +153,7 @@ class ModelDataset:
 
             node_texts = get_node_texts(
                 nx_graph,
-                d=self.config.distance if self.config else distance,
+                d=distance if distance else (self.config.distance if self.config else 1),
                 metadata=self.metadata,
                 **node_text_kwargs,
             )
@@ -185,9 +185,9 @@ class ModelDataset:
     def get_edge_texts(
         self,
         *,
-        edge_cls_label: str = "type",
-        test_size: float = 0.2,
-        distance: int = 0,
+        edge_cls_label: str = None,
+        test_size: float = None,
+        distance: int = None,
         use_node_attributes: bool = False,
         use_node_types: bool = False,
         use_edge_types: bool = False,
@@ -202,8 +202,8 @@ class ModelDataset:
         Build a masked edge classification dataset as Hugging Face DatasetDict.
         """
 
-        edge_cls_label = self.config.edge_cls_label if self.config else edge_cls_label
-        test_size = self.config.type_semantic_removal if self.config else test_size
+        edge_cls_label = edge_cls_label if edge_cls_label else (self.config.edge_cls_label if self.config else "type")
+        test_size = test_size if test_size else (self.config.type_semantic_removal if self.config else 0.2)
         rng = np.random.default_rng(
             self.config.seed if self.config else random_state)
         train_samples: List[Dict[str, Any]] = []
@@ -251,7 +251,7 @@ class ModelDataset:
                 text = get_edge_texts(
                     nx_graph,
                     edge,
-                    d=self.config.distance if self.config else distance,
+                    d=distance if distance else (self.config.distance if self.config else 1),
                     task_type=self.config.task_type if self.config else task_type,
                     metadata=self.metadata,
                     **edge_text_kwargs,

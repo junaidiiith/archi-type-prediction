@@ -71,7 +71,7 @@ for distance, edge_removal, type_semantic_removal, cleansing, ordered in tqdm(
         dataset.randomize_edge_labels()
 
     if config.task_type == "node_cls":
-        dataset = dataset.get_node_texts()
+        dataset = dataset.get_node_texts(node_cls_label='stereotype')
     elif config.task_type == "edge_cls":
         dataset = dataset.get_edge_texts()
         
