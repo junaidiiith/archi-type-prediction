@@ -30,7 +30,7 @@ from ..base import TextClassificationModel
 
 @dataclass
 class BertTrainingConfig:
-    num_train_epochs: float = 3
+    num_train_epochs: float = 10
     per_device_train_batch_size: int = 32
     per_device_eval_batch_size: int = 128
     learning_rate: float = 2e-5
@@ -168,13 +168,15 @@ class BertTextClassifier(TextClassificationModel):
         *,
         output_dir: str = "runs/artifacts/bert",
         seed: Optional[int] = 3407,
+        config: Optional[BertTrainingConfig] = None,
     ) -> None:
         super().__init__(model_name, output_dir=output_dir, seed=seed)
         self.tokenizer: Optional[AutoTokenizer] = None
         self.model: Optional[AutoModelForSequenceClassification] = None
         self.label2id: Dict[Any, int] = {}
         self.id2label: Dict[int, Any] = {}
-
+        self.config = config
+        
     def _build_tokenizer(self, max_length: Optional[int]) -> AutoTokenizer:
         tokenizer = AutoTokenizer.from_pretrained(self.model_name)
         if tokenizer.pad_token is None:
@@ -192,7 +194,7 @@ class BertTextClassifier(TextClassificationModel):
         **kwargs: Any,
     ) -> Dict[str, Any]:
         if config is None:
-            config = BertTrainingConfig()
+            config = BertTrainingConfig() if self.config is None else self.config
 
         if evaluation_dataset is None:
             evaluation_dataset = dataset

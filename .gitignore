@@ -214,3 +214,9 @@ archi_*_texts
 results/*
 
 unsloth*
+
+all-results/*
+archi-ordered-effect/*
+results-minimal/*
+all-results.zip
+*.json
