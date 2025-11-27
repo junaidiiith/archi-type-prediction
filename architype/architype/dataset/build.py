@@ -9,6 +9,7 @@ import json
 import os
 import pickle
 from random import shuffle
+from uuid import uuid4
 from typing import Any, Dict, Callable, List, Optional, Tuple
 from collections import Counter
 
@@ -16,7 +17,7 @@ from datasets import Dataset, DatasetDict
 from sklearn.model_selection import StratifiedKFold
 from tqdm.auto import tqdm
 import numpy as np
-import pandas as pd
+import random
 
 from architype.configs.config import RunConfig
 
@@ -34,6 +35,8 @@ from ..utils.config import EDGE_CLS_TASK
 from .metadata import GraphMetadata, ArchimateMetaData, OntoUMLMetaData
 
 
+BUCKETS = [(0, 30, 30), (30, 100, 15), (100, 100000000, 5)]
+
 def _to_dataset(samples: List[Dict[str, Any]]) -> Dataset:
     if not samples:
         return Dataset.from_dict({"text": [], "label": []})
@@ -42,6 +45,12 @@ def _to_dataset(samples: List[Dict[str, Any]]) -> Dataset:
     for key in keys:
         columns[key] = [sample.get(key) for sample in samples]
     return Dataset.from_dict(columns)
+
+
+def _filter_topk(samples: List[Dict[str, Any]], topk: int) -> List[Dict[str, Any]]:
+    label_counts = Counter(sample["label"] for sample in samples)
+    topk_labels = [label for label, count in label_counts.most_common(topk)]
+    return [sample for sample in samples if sample["label"] in topk_labels]
 
 
 class ModelDataset:
@@ -98,6 +107,7 @@ class ModelDataset:
         node_cls_label: str = None,
         test_size: float = None,
         distance: int = None,
+        topk: int = None,
         use_node_attributes: bool = True,
         use_node_types: bool = True,
         use_edge_types: bool = True,
@@ -111,9 +121,12 @@ class ModelDataset:
         Build a masked node classification dataset as Hugging Face DatasetDict.
         """
 
-        node_cls_label = node_cls_label if node_cls_label else (self.config.node_cls_label if self.config else "type")
-        test_size = test_size if test_size else (self.config.type_semantic_removal if self.config else 0.2)
-        rng = np.random.default_rng(random_state if random_state else (self.config.seed if self.config else 42))
+        node_cls_label = node_cls_label if node_cls_label else (
+            self.config.node_cls_label if self.config else "type")
+        test_size = test_size if test_size else (
+            self.config.type_semantic_removal if self.config else 0.2)
+        rng = np.random.default_rng(random_state if random_state else (
+            self.config.seed if self.config else 42))
         train_samples: List[Dict[str, Any]] = []
         test_samples: List[Dict[str, Any]] = []
 
@@ -154,7 +167,8 @@ class ModelDataset:
 
             node_texts = get_node_texts(
                 nx_graph,
-                d=distance if distance else (self.config.distance if self.config else 1),
+                d=distance if distance else (
+                    self.config.distance if self.config else 1),
                 metadata=self.metadata,
                 **node_text_kwargs,
             )
@@ -175,6 +189,11 @@ class ModelDataset:
                     test_samples.append(sample)
                 else:
                     train_samples.append(sample)
+
+        topk = topk if topk else (self.config.top_k if self.config else -1)
+        if topk and topk > 0:
+            train_samples = _filter_topk(train_samples, topk)
+            test_samples = _filter_topk(test_samples, topk)
 
         return DatasetDict(
             {
@@ -204,8 +223,10 @@ class ModelDataset:
         Build a masked edge classification dataset as Hugging Face DatasetDict.
         """
 
-        edge_cls_label = edge_cls_label if edge_cls_label else (self.config.edge_cls_label if self.config else "type")
-        test_size = test_size if test_size else (self.config.type_semantic_removal if self.config else 0.2)
+        edge_cls_label = edge_cls_label if edge_cls_label else (
+            self.config.edge_cls_label if self.config else "type")
+        test_size = test_size if test_size else (
+            self.config.type_semantic_removal if self.config else 0.2)
         rng = np.random.default_rng(
             self.config.seed if self.config else random_state)
         train_samples: List[Dict[str, Any]] = []
@@ -253,7 +274,8 @@ class ModelDataset:
                 text = get_edge_texts(
                     nx_graph,
                     edge,
-                    d=distance if distance else (self.config.distance if self.config else 1),
+                    d=distance if distance else (
+                        self.config.distance if self.config else 1),
                     task_type=self.config.task_type if self.config else task_type,
                     metadata=self.metadata,
                     **edge_text_kwargs,
@@ -271,14 +293,11 @@ class ModelDataset:
                     test_samples.append(sample)
                 else:
                     train_samples.append(sample)
-        
-        topk = topk if topk else (self.config.topk if self.config else -1)
-        
+
+        topk = topk if topk else (self.config.top_k if self.config else -1)
         if topk and topk > 0:
-            label_counts = Counter(sample["label"] for sample in train_samples + test_samples)
-            topk_labels = [label for label, count in label_counts.most_common(topk)]
-            train_samples = [sample for sample in train_samples if sample["label"] in topk_labels]
-            test_samples = [sample for sample in test_samples if sample["label"] in topk_labels]
+            train_samples = _filter_topk(train_samples, topk)
+            test_samples = _filter_topk(test_samples, topk)
 
         return DatasetDict(
             {
@@ -314,7 +333,8 @@ class ModelDataset:
                 randomized_graphs.append(cloned_graph)
                 continue
 
-            rng.shuffle(labels)
+            # rng.shuffle(labels)
+            labels = [str(uuid4().hex)[:5] for _ in range(len(labels))]
             for node, label in zip(labeled_nodes, labels):
                 cloned_graph.nodes[node][node_label_attr] = label
             randomized_graphs.append(cloned_graph)
@@ -348,7 +368,8 @@ class ModelDataset:
                 randomized_graphs.append(cloned_graph)
                 continue
 
-            rng.shuffle(labels)
+            # rng.shuffle(labels)
+            labels = [str(uuid4().hex)[:5] for _ in range(len(labels))]
             for edge, label in zip(labeled_edges, labels):
                 cloned_graph.edges[edge][edge_label_attr] = label
             randomized_graphs.append(cloned_graph)
@@ -360,7 +381,8 @@ class ModelDataset:
         Remove edges from the dataset graphs.
         """
         if edge_removal <= 0 or edge_removal >= 1:
-            raise ValueError(f"Edge removal must be between 0 and 1, got {edge_removal}")
+            raise ValueError(
+                f"Edge removal must be between 0 and 1, got {edge_removal}")
         for graph in self.graphs:
             graph.remove_edges(edge_removal=edge_removal)
 
@@ -397,10 +419,12 @@ class ModelDataset:
         duplicate_overlap_threshold: float = -1,
         dummy_ratio_threshold: float = -1,
         min_edges: int = -1,
+        max_edges: int = -1,
         min_enr: float = -1,
         llm_filter_threshold: float = -1,
     ) -> None:
         min_edges = self.config.cleansing_config.min_edges if self.config else min_edges
+        max_edges = self.config.cleansing_config.max_edges if self.config else max_edges
         min_enr = self.config.cleansing_config.min_enr if self.config else min_enr
         duplicate_overlap_threshold = self.config.cleansing_config.duplicate_overlap_threshold if self.config else duplicate_overlap_threshold
         dummy_ratio_threshold = self.config.cleansing_config.dummy_ratio_threshold if self.config else dummy_ratio_threshold
@@ -409,6 +433,7 @@ class ModelDataset:
         self.graphs = filter_by_edges(
             self.graphs,
             min_edges=min_edges,
+            max_edges=max_edges,
             min_enr=min_enr,
         )
         if duplicate_overlap_threshold > 0:
@@ -435,6 +460,32 @@ class ModelDataset:
             )
         print(f"Cleansed {self.name} with {len(self.graphs)} graphs")
         print(self.summary)
+    
+    
+    def filter_by_buckets(self, filter_by: str = "nodes", buckets: List[Tuple[int, int, int]] = BUCKETS):
+        if filter_by == "nodes":
+            counts = [(len(g.nodes()), g) for g in self.graphs]
+        elif filter_by == "edges":
+            counts = [(len(g.edges()), g) for g in self.graphs]
+        else:
+            raise ValueError(f"Invalid filter by: {filter_by}. Should be 'nodes' or 'edges'")
+        
+        bucket_counts = {b: 0 for b in buckets}
+        bucket_graphs = {b: list() for b in buckets}
+        for count, g in counts:
+            for bucket in buckets:
+                if count >= bucket[0] and count < bucket[1]:
+                    bucket_counts[bucket] += 1
+                    bucket_graphs[bucket].append(g)
+        
+        graphs = []
+        for bucket in buckets:
+            graphs += random.sample(bucket_graphs[bucket], min(bucket[2], len(bucket_graphs[bucket])))
+        
+        self.graphs = graphs
+        print(f"Filtered {self.name} by buckets with {len(self.graphs)} graphs")
+        print(self.summary)
+    
 
     def llm_filter_graphs(
         self, threshold: float = 0.5

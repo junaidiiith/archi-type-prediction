@@ -93,6 +93,7 @@ def _make_compute_metrics(id2label: Optional[Dict[int, Any]] = None):
         metrics: Dict[str, Any] = {
             "accuracy": accuracy_score(labels, preds),
             "macro_f1": f1_score(labels, preds, average="macro"),
+            "weighted_f1": f1_score(labels, preds, average="weighted"),
         }
 
         # ROC AUC requires probabilities and multi_class parameter for multi-class
@@ -121,6 +122,15 @@ def _make_compute_metrics(id2label: Optional[Dict[int, Any]] = None):
         )
         metrics["macro_precision"] = precision
         metrics["macro_recall"] = recall
+        
+        precision_weighted, recall_weighted, _, _ = precision_recall_fscore_support(
+            labels,
+            preds,
+            average="weighted",
+            zero_division=0,
+        )
+        metrics["precision_weighted"] = precision_weighted
+        metrics["recall_weighted"] = recall_weighted
 
         # Per-class metrics - flattened for TensorBoard compatibility
         if id2label is not None:
@@ -238,6 +248,8 @@ class BertTextClassifier(TextClassificationModel):
         if hasattr(config, "eval_steps") and config.eval_steps is not None:
             eval_strategy = "steps"
             eval_steps_value = config.eval_steps
+            
+        print("Config: ", config)
 
         training_args = TrainingArguments(
             output_dir=str(self.output_dir),

@@ -12,6 +12,7 @@ from pydantic import BaseModel, Field
 
 class CleansingConfig(BaseModel):
     min_edges: int = Field(default=5)
+    max_edges: int = Field(default=-1)
     min_enr: float = Field(default=-1)
     duplicate_overlap_threshold: float = Field(default=0.9)
     dummy_ratio_threshold: float = Field(default=0.5)

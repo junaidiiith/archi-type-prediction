@@ -64,6 +64,9 @@ def format_path(
         if preprocessor:
             node_label = preprocessor(node_label)
 
+        if node_label is None or node_label.lower() in ["null", "none"]:
+            node_label = ""
+            
         node_label = f"{node_label}({node_types})".strip() if node_label else node_types.strip()
         if use_special_tokens:
             node_label = f"{NODE_BEGIN}{node_label}{NODE_END}"

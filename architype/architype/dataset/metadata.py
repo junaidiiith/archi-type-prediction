@@ -5,6 +5,21 @@ will be expanded as the new pipeline solidifies.
 """
 
 from __future__ import annotations
+import json
+import os
+
+
+def get_descriptions(dataset: str = "eamodelset", label_type: str = "node") -> str:
+    dataset = "eamodelset" if dataset == "archi" else "ontouml"
+    dataset_dir = os.path.join("architype", "data", "raw", dataset)
+    if label_type == "node":
+        with open(os.path.join(dataset_dir, "node_descriptions.json"), "r") as f:
+            return "".join([f"{node['name']}: {node['description']}\n\n" for node in json.load(f).values()])
+    elif label_type == "edge":
+        with open(os.path.join(dataset_dir, "edge_descriptions.json"), "r") as f:
+            return "".join([f"{edge['name']}: {edge['description']}\n\n" for edge in json.load(f).values()])
+    else:
+        raise ValueError(f"Invalid label type: {label_type}")
 
 
 class GraphMetadata:

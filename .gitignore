@@ -220,3 +220,6 @@ archi-ordered-effect/*
 results-minimal/*
 all-results.zip
 *.json
+
+
+*results*

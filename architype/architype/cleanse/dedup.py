@@ -63,6 +63,7 @@ def filter_by_edges(
     graphs: Sequence[LangGraph],
     *,
     min_edges: int = -1,
+    max_edges: int = -1,
     min_enr: float = -1,
 ) -> List[LangGraph]:
     """
@@ -72,6 +73,8 @@ def filter_by_edges(
     for graph in graphs:
         addable = True
         if min_edges > 0 and graph.number_of_edges() < min_edges:
+            addable = False
+        if max_edges > 0 and graph.number_of_edges() > max_edges:
             addable = False
         if min_enr > 0 and graph.enr < min_enr:
             addable = False

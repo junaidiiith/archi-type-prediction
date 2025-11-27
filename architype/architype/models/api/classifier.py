@@ -4,131 +4,97 @@ Hosted LLM API classification wrapper.
 
 from __future__ import annotations
 
-import json
-from typing import Any, Dict, List, Optional, Tuple
+from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
+from sklearn.metrics import confusion_matrix
+import numpy as np
+from typing import List
+from datasets import Dataset
+from pydantic import BaseModel
 
-from datasets import DatasetDict
-from sklearn.metrics import accuracy_score, f1_score, precision_recall_fscore_support
+class ClassificationResponse(BaseModel):
+    id: int
+    label: str
 
-from architype.architype.llm.base import LLMService
-from architype.architype.llm.prompts.base import Prompt
-from architype.architype.llm.prompts.llm_text_classification import (
-    APIClassificationResponse,
-    ZeroShotTextClassificationPrompt,
-)
-from architype.architype.models.base import TextClassificationModel
-
-
-def _chunk_list(items: List[Tuple[str, str]], size: int) -> List[List[Dict[str, Any]]]:
-    size = max(size, 1)
-    return [
-        [{"id": k, "text": txt, "label": label} for k, (txt, label) in enumerate(items[i : i + size], start=1)]
-        for i in range(0, len(items), size)
-    ]
+class TextClassificationResponse(BaseModel):
+    predictions: List[ClassificationResponse]
 
 
-class APILLMTextClassifier(TextClassificationModel):
-    """
-    Evaluation helper that delegates classification to a hosted LLM via the `LLMService`.
-    """
-
-    def __init__(
-        self,
-        model_name: str,
-        *,
-        prompt: Prompt = ZeroShotTextClassificationPrompt(),
-        output_dir: str = "runs/artifacts/api",
-        seed: Optional[int] = 3407,
-    ) -> None:
-        super().__init__(model_name, output_dir=output_dir, seed=seed)
-        self.prompt = prompt
-
-    def train(
-        self,
-        dataset: DatasetDict,
-        *,
-        evaluation_dataset: Optional[DatasetDict] = None,
-        **kwargs: Any,
-    ) -> Dict[str, Any]:
-        raise NotImplementedError("API-based LLM models do not support fine-tuning.")
-
-    def _build_prompt(
-        self,
-        class_labels: List[str],
-        batched_inputs: List[Dict[str, Any]],
-    ) -> List[Dict[str, str]]:
-        class_lines = "\n".join(f"- {label}" for label in class_labels)
-        texts_str = json.dumps(batched_inputs, indent=2)
-        return self.prompt.build_messages(class_lines=class_lines, text=texts_str)
-
-    def evaluate(
-        self,
-        dataset: DatasetDict,
-        *,
-        split: str = "test",
-        class_labels: Optional[List[str]] = None,
-        batch_size: int = 50,
-        **kwargs: Any,
-    ) -> Dict[str, Any]:
-        if split not in dataset:
-            raise ValueError(
-                f"Split '{split}' not present in dataset. Available: {list(dataset.keys())}"
-            )
-
-        texts = dataset[split]["text"]
-        labels = dataset[split]["label"]
-        if class_labels is None:
-            class_labels = sorted(
-                set(dataset["train"]["label"] + dataset["test"]["label"])
-            )
-
-        predictions: List[str] = []
-        rationales: List[str] = []
-        batched_inputs = _chunk_list(list(zip(texts, labels)), batch_size)
-        batched_responses = []
-        message_batches = [
-            self._build_prompt(class_labels, [{"id": bi['id'], "text": bi['text']} for bi in batched_input])
-            for batched_input in batched_inputs
-        ]
-
-        responses = LLMService.get_llm_response_parallel(
-            message_batches,
-            response_format=self.prompt.response_model,
-        )
-        batched_responses: List[APIClassificationResponse] = sum(responses, [])
-        predictions, expected = [], []
-        for batch, response in zip(batched_inputs, batched_responses):
-            input_map = {bi['id']: bi for bi in batch}
-            prediction = response.prediction
-            pred_id = response.id
-            expected_label = input_map[pred_id]['label']
-            predictions.append(prediction)
-            expected.append(expected_label)
-            rationales.append(response.rationale)
-            
-        metrics: Dict[str, float] = {}
-        metrics["accuracy"] = accuracy_score(expected, predictions)
-        metrics["macro_f1"] = f1_score(expected, predictions, average="macro")
-        precision, recall, _, _ = precision_recall_fscore_support(
-            expected, predictions, average="macro", zero_division=0
-        )
-        metrics["macro_precision"] = precision
-        metrics["macro_recall"] = recall
-
-        prediction_records = []
-        for text, true_label, pred_label, rationale in zip(
-            texts, expected, predictions, rationales
-        ):
-            prediction_records.append(
-                {
-                    "text": text,
-                    "true_label": true_label,
-                    "predicted_label": pred_label,
-                    "rationale": rationale,
-                }
-            )
-
-        return {"metrics": metrics, "predictions": prediction_records}
+def to_python(obj):
+    if isinstance(obj, (np.integer,)):
+        return int(obj)
+    if isinstance(obj, (np.floating,)):
+        return float(obj)
+    if isinstance(obj, dict):
+        return {k: to_python(v) for k, v in obj.items()}
+    return obj
 
 
-__all__ = ["APILLMTextClassifier"]
+def clean_label(label):
+    return label.lower().replace(" ", "")
+
+def calculate_metrics(dataset: Dataset, response: List[TextClassificationResponse]):
+    y_act, y_p = list(), list()
+    for actual, result in zip(dataset['label'], response):
+        if not result:
+            continue
+        predictions = [p['label'] for p in result['predictions']]
+        for p, a in zip(predictions, actual):
+            if not "junction" in clean_label(a):
+                y_act.append(clean_label(a))
+                y_p.append(clean_label(p))
+    
+    def classification_metrics(y_true, y_pred):
+        """
+        y_true: list or array of true labels
+        y_pred: list or array of predicted labels
+        """
+        # Unique classes
+        print("Total classes: ", len(np.unique(np.concatenate([y_true, y_pred]))))
+        print("Length of y_true: ", len(y_true))
+        print("Length of y_pred: ", len(y_pred))
+        classes = np.unique(np.concatenate([y_true, y_pred]))
+        
+
+        # --- Overall metrics ---
+        overall = {
+            "accuracy": accuracy_score(y_true, y_pred),
+            "precision_micro": precision_score(y_true, y_pred, average="micro", zero_division=0),
+            "recall_micro": recall_score(y_true, y_pred, average="micro", zero_division=0),
+            "f1_micro": f1_score(y_true, y_pred, average="micro", zero_division=0),
+
+            "precision_macro": precision_score(y_true, y_pred, average="macro", zero_division=0),
+            "recall_macro": recall_score(y_true, y_pred, average="macro", zero_division=0),
+            "f1_macro": f1_score(y_true, y_pred, average="macro", zero_division=0),
+
+            "precision_weighted": precision_score(y_true, y_pred, average="weighted", zero_division=0),
+            "recall_weighted": recall_score(y_true, y_pred, average="weighted", zero_division=0),
+            "f1_weighted": f1_score(y_true, y_pred, average="weighted", zero_division=0),
+        }
+
+        # --- Per-class metrics ---
+        per_class = {}
+        cm = confusion_matrix(y_true, y_pred, labels=classes)
+
+        for i, cls in enumerate(classes):
+            tp = cm[i, i]
+            fp = cm[:, i].sum() - tp
+            fn = cm[i, :].sum() - tp
+            tn = cm.sum() - (tp + fp + fn)
+
+            precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+            recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+            f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0
+            acc = (tp + tn) / cm.sum() if cm.sum() > 0 else 0.0
+
+            per_class[cls] = {
+                "precision": precision,
+                "recall": recall,
+                "f1": f1,
+                "accuracy": acc,
+                "support": cm[i, :].sum()
+            }
+
+        return to_python(overall), to_python(per_class)
+    
+    
+    return classification_metrics(y_act, y_p)
