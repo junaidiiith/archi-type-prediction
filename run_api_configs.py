@@ -10,6 +10,7 @@ from tqdm.auto import tqdm
 from pydantic import BaseModel
 from architype.architype.llm.base import LLMService
 
+
 class ClassificationResponse(BaseModel):
     id: int
     label: str
@@ -108,9 +109,16 @@ for i, (edge_removal, type_semantic_removal, cleansing, ordered, distance) in tq
     
     
     if modeling_language == 'archi':
-        dataset = ArchiMateDataset(dataset_dir, language=config.language, config=config)
+        dataset = ArchiMateDataset(
+            dataset_dir, 
+            language=config.language, 
+            config=config,
+        )
     elif modeling_language == 'ontouml':
-        dataset = OntoUMLDataset(dataset_dir, config=config)
+        dataset = OntoUMLDataset(
+            dataset_dir, 
+            config=config
+        )
 
     if config.edge_removal > 0 and config.edge_removal < 1:
         dataset.remove_edges(edge_removal=config.edge_removal)
@@ -161,3 +169,4 @@ for i, (edge_removal, type_semantic_removal, cleansing, ordered, distance) in tq
         
         with open(os.path.join(config_save_dir, f"{response_str}_config.json"), "w") as f:
             json.dump(config.model_dump(), f)
+            

@@ -307,8 +307,9 @@ class ModelDataset:
         )
 
     def randomize_node_labels(
-        self, *, random_state: Optional[int] = None
-    ) -> List[LangGraph]:
+        self, *,
+        shuffle_labels: bool = True
+    ) -> None:
         """
         Create deep copies of the dataset graphs and shuffle the metadata-defined
         node label attribute across nodes within each graph.
@@ -318,7 +319,6 @@ class ModelDataset:
             raise ValueError(
                 "Metadata does not define a node label attribute.")
 
-        rng = np.random.default_rng(random_state)
         randomized_graphs: List[LangGraph] = []
 
         for graph in self.graphs:
@@ -332,18 +332,20 @@ class ModelDataset:
             if not labels:
                 randomized_graphs.append(cloned_graph)
                 continue
-
-            # rng.shuffle(labels)
-            labels = [str(uuid4().hex)[:5] for _ in range(len(labels))]
+                
+            labels = [str(uuid4().hex)[:5] for _ in range(len(labels))] if shuffle_labels else random.shuffle(labels)
             for node, label in zip(labeled_nodes, labels):
                 cloned_graph.nodes[node][node_label_attr] = label
             randomized_graphs.append(cloned_graph)
 
-        return randomized_graphs
+        self.graphs = randomized_graphs
+        print(f"Randomized node labels for {self.name} with {len(self.graphs)} graphs")
+        print(self.summary)
 
     def randomize_edge_labels(
-        self, *, random_state: Optional[int] = None
-    ) -> List[LangGraph]:
+        self, *,
+        shuffle_labels: bool = True
+    ) -> None:
         """
         Create deep copies of the dataset graphs and shuffle the metadata-defined
         edge label attribute across edges within each graph.
@@ -353,7 +355,6 @@ class ModelDataset:
             raise ValueError(
                 "Metadata does not define an edge label attribute.")
 
-        rng = np.random.default_rng(random_state)
         randomized_graphs: List[LangGraph] = []
 
         for graph in self.graphs:
@@ -368,13 +369,14 @@ class ModelDataset:
                 randomized_graphs.append(cloned_graph)
                 continue
 
-            # rng.shuffle(labels)
-            labels = [str(uuid4().hex)[:5] for _ in range(len(labels))]
+            labels = [str(uuid4().hex)[:5] for _ in range(len(labels))] if shuffle_labels else random.shuffle(labels)
             for edge, label in zip(labeled_edges, labels):
                 cloned_graph.edges[edge][edge_label_attr] = label
             randomized_graphs.append(cloned_graph)
 
-        return randomized_graphs
+        self.graphs = randomized_graphs
+        print(f"Randomized edge labels for {self.name} with {len(self.graphs)} graphs")
+        print(self.summary)
 
     def remove_edges(self, *, edge_removal: float = 0.5) -> List[LangGraph]:
         """

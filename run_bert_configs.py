@@ -21,7 +21,7 @@ def parse_args():
     parser.add_argument("--top_k", type=int, default=-1)
     parser.add_argument("-s", type=int, default=0)
     parser.add_argument("-e", type=int, default=-1)
-    parser.add_argument("--save_dir", type=str, default="results-bucketed")
+    parser.add_argument("--save_dir", type=str, default="results-ordered")
     
     parser.add_argument("--num_train_epochs", type=int, default=10)
     parser.add_argument("--train_batch_size", type=int, default=8)
@@ -48,11 +48,11 @@ d2b_map = {
     }
 }
 
-distance = [0, 1, 2]
-edge_removal = [0.0, 0.2, 0.6]
-type_semantic_removal = [0.2, 0.6]
-cleansed = [True, False]
-ordered = [True]
+distance = [1]
+edge_removal = [0.0, 0.2]
+type_semantic_removal = [0.2]
+cleansed = [False]
+ordered = [True, False]
 
 
 start = args.s

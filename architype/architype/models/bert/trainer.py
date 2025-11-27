@@ -39,8 +39,8 @@ class BertTrainingConfig:
     max_length: Optional[int] = None
     eval_strategy: str = "steps"
     save_strategy: str = "steps"
-    logging_steps: int = 100
-    eval_steps: int = 100
+    logging_steps: int = 500
+    eval_steps: int = 500
     gradient_accumulation_steps: int = 1
     early_stopping_patience: Optional[int] = 50
 
