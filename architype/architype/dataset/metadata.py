@@ -9,15 +9,26 @@ import json
 import os
 
 
-def get_descriptions(dataset: str = "eamodelset", label_type: str = "node") -> str:
+def get_descriptions(dataset: str = "eamodelset", cls_label: str = "type", label_type: str = "node") -> str:
     dataset = "eamodelset" if dataset == "archi" else "ontouml"
     dataset_dir = os.path.join("architype", "data", "raw", dataset)
     if label_type == "node":
         with open(os.path.join(dataset_dir, "node_descriptions.json"), "r") as f:
-            return "".join([f"{node['name']}: {node['description']}\n\n" for node in json.load(f).values()])
+            data = json.load(f)
+            if cls_label not in data:
+                raise ValueError(f"Invalid cls label: {cls_label}, Available labels: {data.keys()} @ {os.path.join(dataset_dir, 'node_descriptions.json')}")
+            descriptions = "".join([f"{node['name']}: {node['description']}\n\n" for node in data[cls_label].values()])
+            
+            # print("Descriptions:", descriptions)
+            return f"The Description of the Types are as follows:\n{descriptions}"
     elif label_type == "edge":
         with open(os.path.join(dataset_dir, "edge_descriptions.json"), "r") as f:
-            return "".join([f"{edge['name']}: {edge['description']}\n\n" for edge in json.load(f).values()])
+            data = json.load(f)
+            if cls_label not in data:
+                raise ValueError(f"Invalid cls label: {cls_label}, Available labels: {data.keys()} @ {os.path.join(dataset_dir, 'edge_descriptions.json')}")
+            descriptions = "".join([f"{edge['name']}: {edge['description']}\n\n" for edge in data[cls_label].values()])
+            # print("Descriptions:", descriptions)
+            return f"The Description of the Relationships are as follows:\n{descriptions}"
     else:
         raise ValueError(f"Invalid label type: {label_type}")
 

@@ -9,6 +9,10 @@ import json
 import itertools
 import hashlib
 import argparse
+import random
+import numpy as np
+import torch
+
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -23,10 +27,19 @@ def parse_args():
     parser.add_argument("-e", type=int, default=-1)
     parser.add_argument("--save_dir", type=str, default="results-ordered")
     
-    parser.add_argument("--num_train_epochs", type=int, default=10)
+    parser.add_argument("--num_train_epochs", type=int, default=4)
     parser.add_argument("--train_batch_size", type=int, default=8)
     parser.add_argument("--eval_batch_size", type=int, default=128)
     return parser.parse_args()
+
+
+def set_seed(seed: int):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+
+set_seed(42)
 
 
 args = parse_args()
@@ -40,7 +53,7 @@ save_dir = os.path.join(args.save_dir, modeling_language)
 
 d2b_map = {
     'archi': {
-        "node_cls": {0: 160, 1: 64, 2: 32},
+        "node_cls": {0: 160, 1: 32, 2: 32},
         "edge_cls": {0: 160, 1: 64, 2: 32}
     },
     "ontouml": {
@@ -48,16 +61,17 @@ d2b_map = {
     }
 }
 
-distance = [1]
+distance = [0, 1]
 edge_removal = [0.0, 0.2]
-type_semantic_removal = [0.2]
-cleansed = [False]
-ordered = [True, False]
+type_semantic_removal = [0.2, 0.6]
+cleansed = [False, True]
+ordered = [False, True]
 
 
 start = args.s
 end = args.e if args.e != -1 else len(cleansed)*len(ordered)*len(distance)*len(edge_removal)*len(type_semantic_removal)
-
+exists = 0
+not_exists = 0
 bert_config = BertTrainingConfig(
     num_train_epochs=args.num_train_epochs,
     per_device_eval_batch_size=args.eval_batch_size,
@@ -78,58 +92,62 @@ for i, (distance, edge_removal, type_semantic_removal, cleansing, ordered) in tq
     config_hash = hashlib.sha256(config_str.encode()).hexdigest()
     config_save_dir = os.path.join(save_dir, config_hash)
     if os.path.exists(os.path.join(config_save_dir, "trainer_state.json")):
+        print("Exists:", config_str)
+        exists += 1
         continue
     else:
         print("Not exists:", config_str)
+        not_exists += 1
     
-    os.makedirs(config_save_dir, exist_ok=True)
-    config = RunConfig(
-        task_type=args.task_type,
-        cleanse=cleansing,
-        ordered=ordered,
-        distance=distance,
-        edge_removal=edge_removal,
-        type_semantic_removal=type_semantic_removal,
-        node_cls_label=cls_label,
-        edge_cls_label=cls_label,
-        top_k=args.top_k,
-    )
-    config.save_dir = config_save_dir
-    config.extraction_config.use_node_types = args.use_node_types
-    config.extraction_config.use_edge_types = args.use_edge_types
+    # os.makedirs(config_save_dir, exist_ok=True)
+    # config = RunConfig(
+    #     task_type=args.task_type,
+    #     cleanse=cleansing,
+    #     ordered=ordered,
+    #     distance=distance,
+    #     edge_removal=edge_removal,
+    #     type_semantic_removal=type_semantic_removal,
+    #     node_cls_label=cls_label,
+    #     edge_cls_label=cls_label,
+    #     top_k=args.top_k,
+    # )
+    # config.save_dir = config_save_dir
+    # config.extraction_config.use_node_types = args.use_node_types
+    # config.extraction_config.use_edge_types = args.use_edge_types
     
-    with open(os.path.join(config.save_dir, "run_config.json"), "w") as f:
-        json.dump(config.model_dump(), f)
+    # with open(os.path.join(config.save_dir, "run_config.json"), "w") as f:
+    #     json.dump(config.model_dump(), f)
     
     
-    if modeling_language == 'archi':
-        dataset = ArchiMateDataset(dataset_dir, language=config.language, config=config)
-    elif modeling_language == 'ontouml':
-        dataset = OntoUMLDataset(dataset_dir, config=config)
+    # if modeling_language == 'archi':
+    #     dataset = ArchiMateDataset(dataset_dir, language=config.language, config=config)
+    # elif modeling_language == 'ontouml':
+    #     dataset = OntoUMLDataset(dataset_dir, config=config)
     
-    # dataset.filter_by_buckets(filter_by="nodes" if args.task_type == "node_cls" else "edges")
+    # # dataset.filter_by_buckets(filter_by="nodes" if args.task_type == "node_cls" else "edges")
 
-    if config.edge_removal > 0 and config.edge_removal < 1:
-        dataset.remove_edges(edge_removal=config.edge_removal)
+    # if config.edge_removal > 0 and config.edge_removal < 1:
+    #     dataset.remove_edges(edge_removal=config.edge_removal)
         
-    if config.cleanse:
-        dataset.cleanse()
+    # if config.cleanse:
+    #     dataset.cleanse()
 
-    if not config.ordered:
-        dataset.randomize_node_labels()
+    # if not config.ordered:
+    #     dataset.randomize_node_labels()
 
-    if config.task_type == "node_cls":
-        dataset = dataset.get_node_texts(node_cls_label=cls_label)
-    elif config.task_type == "edge_cls":
-        dataset = dataset.get_edge_texts(edge_cls_label=cls_label)
+    # if config.task_type == "node_cls":
+    #     dataset = dataset.get_node_texts(node_cls_label=cls_label)
+    # elif config.task_type == "edge_cls":
+    #     dataset = dataset.get_edge_texts(edge_cls_label=cls_label)
         
-    bert_config.per_device_train_batch_size = d2b_map[modeling_language][config.task_type][distance]
-    classifier = BertTextClassifier(
-        model_name=config.model,
-        output_dir=config.save_dir,
-        seed=config.seed,
-        config=bert_config,
-    )
+    # bert_config.per_device_train_batch_size = d2b_map[modeling_language][config.task_type][distance]
+    # classifier = BertTextClassifier(
+    #     model_name=config.model,
+    #     output_dir=config.save_dir,
+    #     seed=config.seed,
+    #     config=bert_config,
+    # )
 
-    classifier.train(dataset=dataset)
-    
+    # classifier.train(dataset=dataset)
+
+print(f"Exists: {exists}, Not exists: {not_exists}")

@@ -101,6 +101,18 @@ class ModelDataset:
 
         return Dataset.from_list(data)
 
+
+    def get_classes(self, node_cls_label: str = None) -> List[str]:
+        node_cls_label = node_cls_label if node_cls_label else (
+            self.config.node_cls_label if self.config else "type")
+        valid_classes = set()
+        for graph in self.graphs:
+            for node in graph.nodes:
+                if node_cls_label in graph.nodes[node]:
+                    valid_classes.add(graph.nodes[node][node_cls_label])
+        return list(valid_classes)
+
+
     def get_node_texts(
         self,
         *,

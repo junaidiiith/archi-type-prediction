@@ -3,8 +3,8 @@ import json
 import pandas as pd
 
 
-dataset_name = 'ontouml'
-dataset_dir = f"results-minimal/{dataset_name}"
+dataset_name = 'archi'
+dataset_dir = f"results-ordered/{dataset_name}"
 columns = ['task_type', 'node_cls_label', 'edge_removal', 'type_semantic_removal', 'distance', 'cleanse', 'ordered', 'use_node_types', 'use_edge_types']
 metrics = ['eval_accuracy', 'eval_macro_precision', 'eval_macro_recall', 'eval_macro_f1']
 header = ['Config', 'Task Type', 'Target', 'Edge Fraction', 'Percentage Masked', 'Hops', 'Cleansed', 'Ordered', 'Use Node Types', 'Use Edge Types'] + ["Accuracy", "Precision", "Recall", "F1"]
@@ -42,8 +42,8 @@ for config in os.listdir(dataset_dir):
         rows.append(row)
         
 df = pd.DataFrame(rows, columns=header)
-df.to_excel(f'comparison-results/{dataset_name}-comparative.xlsx', index=False)
-df.to_csv(f'comparison-results/{dataset_name}-comparative.csv', index=False)
+df.to_excel(f'comparison-results/{dataset_name}-comparative-ordered.xlsx', index=False)
+df.to_csv(f'comparison-results/{dataset_name}-comparative-ordered.csv', index=False)
 
 
 def get_sign(score, column):
@@ -99,5 +99,5 @@ for task_type in df['Task Type'].unique():
         target_comparisons[target_name] = column_results
         
             
-    with open(f'comparison-results/{dataset_name}-comparative-{task_type}.json', 'w') as f:
+    with open(f'comparison-results/{dataset_name}-comparative-{task_type}-ordered.json', 'w') as f:
         json.dump(target_comparisons, f, indent=4)

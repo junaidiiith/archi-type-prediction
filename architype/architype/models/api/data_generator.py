@@ -52,23 +52,31 @@ def create_prompt_dataset(
     
     def get_few_shot_examples(texts, labels, k):
         assert k > 0, f"k must be positive"
+        
+        # import hashlib
+        # texts_hash = hashlib.sha256("\n\n".join(texts).encode()).hexdigest()
+        # print("Few Shots Texts hash:", texts_hash)
+        
         label_to_examples = defaultdict(list)
         for text, label in zip(texts, labels):
             label_to_examples[label].append(text)
         
         few_shot_examples = dict()
-        for label in set(labels):
+        for label in sorted(few_shot_examples.keys()):
             random_examples = random.sample(label_to_examples[label], min(k, len(label_to_examples[label])))
             few_shot_examples[label] = random_examples
         
-        few_shot_str = "Below are some examples of how different types:\n"
+        few_shot_str = "Below are some examples of different type labels:\n"
         few_shot_str += "\n\n".join(
             [
                 f"\n{'-'*int(len(label)*1.37)}\n{i+1}. {label}\n{'-'*int(1.37*len(label))}\n{list_to_string(few_shot_examples[label])}" 
                 for i, label in enumerate(few_shot_examples)
             ]
         )
-                
+
+        # contents_hash = hashlib.sha256(few_shot_str.encode()).hexdigest()
+        # print("Few shots examples hash:", contents_hash)
+
         return few_shot_str
     
     
@@ -122,6 +130,7 @@ def create_prompt_dataset(
         """
         print("Getting global few shots dataset")
         few_shot_examples = get_few_shot_examples(dataset["train"]["text"], dataset["train"]["label"], k=k)
+        
         
         test_texts_by_graph_id = defaultdict(list)
         for entry in dataset["test"]:

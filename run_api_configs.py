@@ -1,3 +1,10 @@
+import torch
+import numpy as np
+import argparse
+import hashlib
+import itertools
+import json
+import os
 import random
 from typing import List
 from architype.architype.models.api.classifier import calculate_metrics
@@ -15,21 +22,27 @@ class ClassificationResponse(BaseModel):
     id: int
     label: str
 
+
 class TextClassificationResponse(BaseModel):
     predictions: List[ClassificationResponse]
 
 
-import os
-import json
-import itertools
-import hashlib
-import argparse
+def set_seed(seed: int):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+
+
+set_seed(42)
 
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--ml", type=str, default="archi", choices=["archi", "ontouml"])
-    parser.add_argument("--task_type", type=str, default="node_cls", choices=["node_cls", "edge_cls", "lp"])
+    parser.add_argument("--ml", type=str, default="archi",
+                        choices=["archi", "ontouml"])
+    parser.add_argument("--task_type", type=str, default="node_cls",
+                        choices=["node_cls", "edge_cls", "lp"])
     parser.add_argument("--node_cls_label", type=str, default="type")
     parser.add_argument("--edge_cls_label", type=str, default="type")
     parser.add_argument("--use_node_types", action="store_true")
@@ -43,8 +56,9 @@ def parse_args():
     parser.add_argument("-s", type=int, default=0)
     parser.add_argument("-e", type=int, default=-1)
     parser.add_argument("--save_dir", type=str, default="results-api")
-    
-    parser.add_argument("--llm_provider", type=str, default="openai", choices=["openai", "anthropic", "gemini", "togetherai", "deepseek"])
+
+    parser.add_argument("--llm_provider", type=str, default="openai",
+                        choices=["openai", "anthropic", "gemini", "togetherai", "deepseek"])
     parser.add_argument("--llm_model", type=str, default="gpt-4o")
     return parser.parse_args()
 
@@ -59,7 +73,6 @@ dataset_dir = os.path.join("architype", "data", "raw", dataset_name)
 save_dir = os.path.join(args.save_dir, modeling_language, args.llm_provider)
 
 
-
 edge_removals = [0.0, 0.2]
 type_semantic_removals = [0.2, 0.6]
 cleansed_states = [False, True]
@@ -67,14 +80,21 @@ ordered_states = [True]
 distances = [1, 0]
 
 
+exists, not_exists = 0, 0
 start = args.s
-end = args.e if args.e != -1 else len(edge_removals)*len(type_semantic_removals)*len(cleansed_states)*len(ordered_states)*len(distances)
+end = args.e if args.e != -1 else len(edge_removals)*len(
+    type_semantic_removals)*len(cleansed_states)*len(ordered_states)*len(distances)
+response_str = f"bs_{args.batch_size}_k_{args.shots}_local_{int(args.local)}_use_descriptions_1"
+
+print("Response string:", response_str)
 
 for i, (edge_removal, type_semantic_removal, cleansing, ordered, distance) in tqdm(
-    enumerate(itertools.product(edge_removals, type_semantic_removals, cleansed_states, ordered_states, distances)),
+    enumerate(itertools.product(edge_removals, type_semantic_removals,
+              cleansed_states, ordered_states, distances)),
     total=end - start,
     desc="Configs"
 ):
+
     if i < start:
         continue
     if i >= end:
@@ -83,11 +103,13 @@ for i, (edge_removal, type_semantic_removal, cleansing, ordered, distance) in tq
     config_str = f"task_type={args.task_type}, use_node_types={args.use_node_types}, use_edge_types={args.use_edge_types}, cls_label={cls_label}, distance={distance}, edge_removal={edge_removal}, type_semantic_removal={type_semantic_removal}, cleansing={cleansing}, ordered={ordered}"
     config_hash = hashlib.sha256(config_str.encode()).hexdigest()
     config_save_dir = os.path.join(save_dir, config_hash)
-    if os.path.exists(os.path.join(config_save_dir, "trainer_state.json")):
-        continue
+    if os.path.exists(os.path.join(config_save_dir, f"{response_str}_metrics.json")):
+        # print("Exists:", config_str)
+        exists += 1
     else:
-        print("Not exists:", config_str)
-    
+        # print("Not exists:", config_str)
+        not_exists += 1
+
     os.makedirs(config_save_dir, exist_ok=True)
     config = RunConfig(
         task_type=args.task_type,
@@ -103,26 +125,25 @@ for i, (edge_removal, type_semantic_removal, cleansing, ordered, distance) in tq
     config.save_dir = config_save_dir
     config.extraction_config.use_node_types = args.use_node_types
     config.extraction_config.use_edge_types = args.use_edge_types
-    
+
     with open(os.path.join(config.save_dir, "run_config.json"), "w") as f:
         json.dump(config.model_dump(), f)
-    
-    
+
     if modeling_language == 'archi':
         dataset = ArchiMateDataset(
-            dataset_dir, 
-            language=config.language, 
+            dataset_dir,
+            language=config.language,
             config=config,
         )
     elif modeling_language == 'ontouml':
         dataset = OntoUMLDataset(
-            dataset_dir, 
+            dataset_dir,
             config=config
         )
 
     if config.edge_removal > 0 and config.edge_removal < 1:
         dataset.remove_edges(edge_removal=config.edge_removal)
-        
+
     if config.cleanse:
         dataset.cleanse()
 
@@ -130,15 +151,27 @@ for i, (edge_removal, type_semantic_removal, cleansing, ordered, distance) in tq
         dataset.randomize_node_labels()
 
     if config.task_type == "node_cls":
-        dataset = dataset.get_node_texts(node_cls_label=cls_label)
+        texts_dataset = dataset.get_node_texts(node_cls_label=cls_label)
     elif config.task_type == "edge_cls":
-        dataset = dataset.get_edge_texts(edge_cls_label=cls_label)
-    
+        texts_dataset = dataset.get_edge_texts(edge_cls_label=cls_label)
+
+    print("Texts dataset:", texts_dataset['test'][:20]['label'])
+    valid_classes = list(set([i['label'] for i in texts_dataset['test']
+                              ] + [i['label'] for i in texts_dataset['train']]))
+    # print("Valid classes:", valid_classes)
+
     args.use_descriptions = True
-    descriptions = get_descriptions(dataset_name, "node" if config.task_type == "node_cls" else "edge") if args.use_descriptions else None
+    descriptions = get_descriptions(modeling_language, cls_label, "node" if config.task_type ==
+                                    "node_cls" else "edge") if args.use_descriptions else None
+
+    # print("Train size: ", texts_dataset["train"]['text'][:5])
+    # print("Test size: ", texts_dataset["test"]['text'][:5])
+    # contents = "\n\n".join([i['text'] for i in texts_dataset["train"]] + [i['text'] for i in texts_dataset["test"]])
+    # contents_hash = hashlib.sha256(contents.encode()).hexdigest()
+    # print("Contents hash:", contents_hash)
     
     prompt_dataset = create_prompt_dataset(
-        dataset,
+        texts_dataset,
         system_prompt=SYSTEM_PROMPT,
         user_prompt=USER_PROMPT,
         batch_size=args.batch_size,
@@ -147,14 +180,24 @@ for i, (edge_removal, type_semantic_removal, cleansing, ordered, distance) in tq
         use_descriptions=args.use_descriptions,
         descriptions=descriptions
     )
-    
+    print("Prompt dataset:", prompt_dataset[:5]["label"])
+
     if args.sample_size > 0:
-        prompt_dataset = prompt_dataset.select(random.sample(range(len(prompt_dataset)), args.sample_size))
+        # print("Size: ", len(prompt_dataset))
+        # contents = "\n\n".join([p[-1]['content'] for p in prompt_dataset[:10]['prompt']])
+        # contents_hash = hashlib.sha256(contents.encode()).hexdigest()
+        # print("Contents hash:", contents_hash)
+        
+        sample_idx = random.sample(
+            range(len(prompt_dataset)), args.sample_size)
+        # print("Sample indices:", sample_idx)
+        prompt_dataset = prompt_dataset.select(sample_idx)
+        # print("Sampled prompt dataset:", prompt_dataset[:5]["label"])
         response_str = f"bs_{args.batch_size}_k_{args.shots}_local_{int(args.local)}_use_descriptions_{int(args.use_descriptions)}"
         llm_client = LLMService(provider=args.llm_provider, model_name=args.llm_model)
-        
+
         response = llm_client.get_llm_response_parallel(
-            prompt_dataset["prompt"], 
+            prompt_dataset["prompt"],
             response_format=TextClassificationResponse,
             function_name=os.path.join(config_save_dir, response_str)
         )
@@ -162,11 +205,14 @@ for i, (edge_removal, type_semantic_removal, cleansing, ordered, distance) in tq
             if r:
                 with open(os.path.join(config_save_dir, f"{response_str}_{i}_actual.json"), "w") as f:
                     json.dump(prompt_dataset[i]["label"], f)
-                    
+
         metrics = calculate_metrics(prompt_dataset, response)
         with open(os.path.join(config_save_dir, f"{response_str}_metrics.json"), "w") as f:
             json.dump(metrics, f)
-        
+            print(json.dumps(metrics, indent=4))
+
         with open(os.path.join(config_save_dir, f"{response_str}_config.json"), "w") as f:
             json.dump(config.model_dump(), f)
-            
+
+
+print(f"Exists: {exists}, Not exists: {not_exists}")
